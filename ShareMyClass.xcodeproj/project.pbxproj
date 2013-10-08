@@ -18,6 +18,7 @@
 		FAD00F20180399B2007996DC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD00F1F180399B2007996DC /* Default-568h@2x.png */; };
 		FAD00F23180399B3007996DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD00F22180399B3007996DC /* ViewController.m */; };
 		FAD00F26180399B3007996DC /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD00F24180399B3007996DC /* ViewController.xib */; };
+		FAD00F2D1803A562007996DC /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD00F2C1803A562007996DC /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		FAD00F21180399B2007996DC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		FAD00F22180399B3007996DC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FAD00F25180399B3007996DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		FAD00F2C1803A562007996DC /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 				FAD00F0A180399B2007996DC /* UIKit.framework in Frameworks */,
 				FAD00F0C180399B2007996DC /* Foundation.framework in Frameworks */,
 				FAD00F0E180399B2007996DC /* CoreGraphics.framework in Frameworks */,
+				FAD00F2D1803A562007996DC /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +76,7 @@
 		FAD00F08180399B2007996DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAD00F2C1803A562007996DC /* FacebookSDK.framework */,
 				FAD00F09180399B2007996DC /* UIKit.framework */,
 				FAD00F0B180399B2007996DC /* Foundation.framework */,
 				FAD00F0D180399B2007996DC /* CoreGraphics.framework */,
@@ -260,6 +264,10 @@
 		FAD00F2A180399B3007996DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShareMyClass/ShareMyClass-Prefix.pch";
 				INFOPLIST_FILE = "ShareMyClass/ShareMyClass-Info.plist";
@@ -271,6 +279,10 @@
 		FAD00F2B180399B3007996DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShareMyClass/ShareMyClass-Prefix.pch";
 				INFOPLIST_FILE = "ShareMyClass/ShareMyClass-Info.plist";
