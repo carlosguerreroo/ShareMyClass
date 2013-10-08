@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 ITESM. All rights reserved.
 //
 
-#import "mainWindow.h"
+#import "loginViewController.h"
 
-@interface mainWindow ()
+@interface loginViewController ()
 
 @end
 
-@implementation mainWindow
+@implementation loginViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
