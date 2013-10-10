@@ -10,4 +10,6 @@
 
 @interface loginViewController : UIViewController
 
+- (void)loginFailed;
+
 @end
