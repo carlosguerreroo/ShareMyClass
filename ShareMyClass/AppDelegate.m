@@ -40,7 +40,7 @@
 - (void)showLoginView
 {
     UIViewController *topViewController = [self.navController topViewController];
-    UIViewController *modalViewController = [topViewController modalViewController];
+    UIViewController *modalViewController = [topViewController presentedViewController];
     
     // If the login screen is not already displayed, display it. If the login screen is
     // displayed, then getting back here means the login in progress did not successfully
@@ -51,8 +51,7 @@
                                                       bundle:nil];
         [topViewController presentViewController:loginViewControllerVar animated:NO completion:nil];
     } else {
-        loginViewController* loginViewControllerVar =
-        (loginViewController*)modalViewController;
+        loginViewController* loginViewControllerVar = (loginViewController*)modalViewController;
         [loginViewControllerVar loginFailed];
     }
     
@@ -92,11 +91,11 @@
 {
     switch (state) {
         case FBSessionStateOpen: {
-            UIViewController *topViewController =
-            [self.navController topViewController];
-            if ([[topViewController modalViewController]
-                 isKindOfClass:[loginViewController class]]) {
-                [topViewController dismissModalViewControllerAnimated:YES];
+            UIViewController *topViewController = [self.navController topViewController];
+            if ([[topViewController presentedViewController] isKindOfClass:[loginViewController class]]) {
+                //[topViewController dismissModalViewControllerAnimated:YES];
+                //[presentViewController:topViewController animated:NO completion:nil];
+                [topViewController dismissViewControllerAnimated:NO completion:Nil];
             }
         }
             break;
@@ -131,7 +130,6 @@
     NSArray *permission = [[NSArray alloc] initWithObjects:@"email", nil];
     FBSession *sessions = [[FBSession alloc] initWithPermissions:permission];
     [FBSession setActiveSession:sessions];
-    //[sessions accessTokenData];
     [sessions openWithBehavior:FBSessionLoginBehaviorForcingWebView
             completionHandler:^(FBSession *session,
                                 FBSessionState status,
