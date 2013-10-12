@@ -52,6 +52,7 @@
         [topViewController presentViewController:loginViewControllerVar animated:NO completion:nil];
     } else {
         loginViewController* loginViewControllerVar = (loginViewController*)modalViewController;
+        NSArray *fghj = [[NSArray alloc] initWithObjects:@"Jon", nil];
         [loginViewControllerVar loginFailed];
     }
     
