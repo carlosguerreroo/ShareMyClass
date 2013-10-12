@@ -52,7 +52,6 @@
         [topViewController presentViewController:loginViewControllerVar animated:NO completion:nil];
     } else {
         loginViewController* loginViewControllerVar = (loginViewController*)modalViewController;
-		NSArray *jonokon  =[NSArray alloc];
         [loginViewControllerVar loginFailed];
     }
     
