@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BA563771814965500A62FF8 /* pizarron.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1BA563761814965500A62FF8 /* pizarron.jpg */; };
+		1BA5637B18149A4B00A62FF8 /* NewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5637918149A4B00A62FF8 /* NewClassViewController.m */; };
+		1BA5637C18149A4B00A62FF8 /* NewClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5637A18149A4B00A62FF8 /* NewClassViewController.xib */; };
 		FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB364DF1804410300AF7FE7 /* loginViewController.m */; };
 		FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB364E01804410300AF7FE7 /* loginViewController.xib */; };
 		FAD00F0A180399B2007996DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD00F09180399B2007996DC /* UIKit.framework */; };
@@ -24,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BA563761814965500A62FF8 /* pizarron.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pizarron.jpg; sourceTree = "<group>"; };
+		1BA5637818149A4B00A62FF8 /* NewClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewClassViewController.h; path = ../NewClassViewController.h; sourceTree = "<group>"; };
+		1BA5637918149A4B00A62FF8 /* NewClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewClassViewController.m; path = ../NewClassViewController.m; sourceTree = "<group>"; };
+		1BA5637A18149A4B00A62FF8 /* NewClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewClassViewController.xib; path = ../NewClassViewController.xib; sourceTree = "<group>"; };
 		FAB364DE1804410300AF7FE7 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		FAB364DF1804410300AF7FE7 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		FAB364E01804410300AF7FE7 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
@@ -61,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BA563751814963F00A62FF8 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				1BA563761814965500A62FF8 /* pizarron.jpg */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
 		FAD00EFD180399B2007996DC = {
 			isa = PBXGroup;
 			children = (
@@ -92,7 +107,11 @@
 		FAD00F0F180399B2007996DC /* ShareMyClass */ = {
 			isa = PBXGroup;
 			children = (
+				1BA5637818149A4B00A62FF8 /* NewClassViewController.h */,
+				1BA5637918149A4B00A62FF8 /* NewClassViewController.m */,
+				1BA5637A18149A4B00A62FF8 /* NewClassViewController.xib */,
 				FAD00F18180399B2007996DC /* AppDelegate.h */,
+				1BA563751814963F00A62FF8 /* img */,
 				FAD00F19180399B2007996DC /* AppDelegate.m */,
 				FAD00F21180399B2007996DC /* ViewController.h */,
 				FAD00F22180399B3007996DC /* ViewController.m */,
@@ -176,6 +195,8 @@
 				FAD00F20180399B2007996DC /* Default-568h@2x.png in Resources */,
 				FAD00F26180399B3007996DC /* ViewController.xib in Resources */,
 				FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */,
+				1BA563771814965500A62FF8 /* pizarron.jpg in Resources */,
+				1BA5637C18149A4B00A62FF8 /* NewClassViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +211,7 @@
 				FAD00F1A180399B2007996DC /* AppDelegate.m in Sources */,
 				FAD00F23180399B3007996DC /* ViewController.m in Sources */,
 				FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */,
+				1BA5637B18149A4B00A62FF8 /* NewClassViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
