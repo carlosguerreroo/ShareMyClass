@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NewClassViewController.h"
 @interface ViewController : UIViewController
+
+//Views
+@property (strong, nonatomic) NewClassViewController *NewClassViewController;
 
 @end
