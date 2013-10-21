@@ -14,6 +14,8 @@
 		1BA5639318149C5800A62FF8 /* RemindersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5639118149C5800A62FF8 /* RemindersViewController.xib */; };
 		1BA5639718149C7600A62FF8 /* MyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5639518149C7500A62FF8 /* MyAccountViewController.m */; };
 		1BA5639818149C7600A62FF8 /* MyAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5639618149C7600A62FF8 /* MyAccountViewController.xib */; };
+		1BA563A11814A8ED00A62FF8 /* NewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5639F1814A8ED00A62FF8 /* NewClassViewController.m */; };
+		1BA563A21814A8ED00A62FF8 /* NewClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA563A01814A8ED00A62FF8 /* NewClassViewController.xib */; };
 		FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB364DF1804410300AF7FE7 /* loginViewController.m */; };
 		FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB364E01804410300AF7FE7 /* loginViewController.xib */; };
 		FAD00F0A180399B2007996DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD00F09180399B2007996DC /* UIKit.framework */; };
@@ -41,6 +43,9 @@
 		1BA5639418149C7500A62FF8 /* MyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountViewController.h; sourceTree = "<group>"; };
 		1BA5639518149C7500A62FF8 /* MyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAccountViewController.m; sourceTree = "<group>"; };
 		1BA5639618149C7600A62FF8 /* MyAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAccountViewController.xib; sourceTree = "<group>"; };
+		1BA5639E1814A8ED00A62FF8 /* NewClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewClassViewController.h; sourceTree = "<group>"; };
+		1BA5639F1814A8ED00A62FF8 /* NewClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewClassViewController.m; sourceTree = "<group>"; };
+		1BA563A01814A8ED00A62FF8 /* NewClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewClassViewController.xib; sourceTree = "<group>"; };
 		FAB364DE1804410300AF7FE7 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		FAB364DF1804410300AF7FE7 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		FAB364E01804410300AF7FE7 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
@@ -136,6 +141,9 @@
 				1BA5639418149C7500A62FF8 /* MyAccountViewController.h */,
 				1BA5639518149C7500A62FF8 /* MyAccountViewController.m */,
 				1BA5639618149C7600A62FF8 /* MyAccountViewController.xib */,
+				1BA5639E1814A8ED00A62FF8 /* NewClassViewController.h */,
+				1BA5639F1814A8ED00A62FF8 /* NewClassViewController.m */,
+				1BA563A01814A8ED00A62FF8 /* NewClassViewController.xib */,
 			);
 			path = ShareMyClass;
 			sourceTree = "<group>";
@@ -215,6 +223,7 @@
 				1BA5638E18149C3300A62FF8 /* MessagesViewController.xib in Resources */,
 				1BA5639318149C5800A62FF8 /* RemindersViewController.xib in Resources */,
 				1BA5639818149C7600A62FF8 /* MyAccountViewController.xib in Resources */,
+				1BA563A21814A8ED00A62FF8 /* NewClassViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +241,7 @@
 				1BA5638D18149C3300A62FF8 /* MessagesViewController.m in Sources */,
 				1BA5639218149C5800A62FF8 /* RemindersViewController.m in Sources */,
 				1BA5639718149C7600A62FF8 /* MyAccountViewController.m in Sources */,
+				1BA563A11814A8ED00A62FF8 /* NewClassViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
