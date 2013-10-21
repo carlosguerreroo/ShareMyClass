@@ -20,13 +20,47 @@
 	
 	
 	// Do any additional setup after loading the view, typically from a nib.
-    //NSLog(@"%@",);
 }
 
+
+
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
+    {
+        
+        //Set Title
+        self.title = @"Mis clases";
+    }
+    
+    return self;
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    switch (item.tag) {
+        case 0:
+            if(!self.NewClassViewController){
+                self.NewClassViewController = [[NewClassViewController alloc] initWithNibName:@"NewClassViewController" bundle:nil];
+            }
+            
+           // self.detailViewController.detailItem = nil;
+           // self.detailViewController.delegateMaster = self;
+        
+            [self.navigationController pushViewController:self.NewClassViewController animated:YES];
+            break;
+            
+        default:
+            break;
+    }
+
 }
 
 @end
