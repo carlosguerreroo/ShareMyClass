@@ -57,7 +57,34 @@
         
             [self.navigationController pushViewController:self.NewClassViewController animated:YES];
             break;
+			
+		case 1:
+			if(!self.MessagesViewController)
+			{
+				self.MessagesViewController = [[MessagesViewController alloc] initWithNibName:@"MessagesViewController" bundle:nil];
+			}
             
+            [self.navigationController pushViewController:self.MessagesViewController animated:YES];
+            break;
+			
+		case 2:
+			if(!self.RemindersViewController)
+			{
+				self.RemindersViewController = [[RemindersViewController alloc] initWithNibName:@"RemindersViewController" bundle:nil];
+			}
+            
+            [self.navigationController pushViewController:self.RemindersViewController animated:YES];
+            break;
+			
+		case 3:
+			if(!self.MyAccountViewController)
+			{
+				self.MyAccountViewController = [[MyAccountViewController alloc] initWithNibName:@"MyAccountViewController" bundle:nil];
+			}
+            
+            [self.navigationController pushViewController:self.MyAccountViewController animated:YES];
+            break;
+			
         default:
             break;
     }

@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "NewClassViewController.h"
+#import "MessagesViewController.h"
+#import "RemindersViewController.h"
+#import "MyAccountViewController.h"
+
 
 @interface ViewController : UIViewController
 
 //Views
 @property (strong, nonatomic) NewClassViewController *NewClassViewController;
+@property (strong, nonatomic) MessagesViewController *MessagesViewController;
+@property (strong, nonatomic) RemindersViewController *RemindersViewController;
+@property (strong, nonatomic) MyAccountViewController *MyAccountViewController;
+
 
 @end
