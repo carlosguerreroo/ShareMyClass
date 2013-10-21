@@ -10,6 +10,7 @@
 #import "ViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "loginViewController.h"
+#import "MessagesViewController.h"
 @interface AppDelegate ()
 
 @property (strong, nonatomic) UINavigationController* navController;
@@ -92,7 +93,8 @@
     switch (state) {
         case FBSessionStateOpen: {
             UIViewController *topViewController = [self.navController topViewController];
-            if ([[topViewController presentedViewController] isKindOfClass:[loginViewController class]]) {
+
+			if ([[topViewController presentedViewController] isKindOfClass:[loginViewController class]]) {
                 //[topViewController dismissModalViewControllerAnimated:YES];
                 //[presentViewController:topViewController animated:NO completion:nil];
                 [topViewController dismissViewControllerAnimated:NO completion:Nil];
