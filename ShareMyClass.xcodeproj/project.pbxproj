@@ -32,9 +32,6 @@
 
 /* Begin PBXFileReference section */
 		1BA563761814965500A62FF8 /* pizarron.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pizarron.jpg; sourceTree = "<group>"; };
-		1BA5638718149BFD00A62FF8 /* NewClassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewClassViewController.h; sourceTree = "<group>"; };
-		1BA5638818149BFD00A62FF8 /* NewClassViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewClassViewController.m; sourceTree = "<group>"; };
-		1BA5638918149BFD00A62FF8 /* NewClassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewClassViewController.xib; sourceTree = "<group>"; };
 		1BA5638A18149C3300A62FF8 /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
 		1BA5638B18149C3300A62FF8 /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
 		1BA5638C18149C3300A62FF8 /* MessagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesViewController.xib; sourceTree = "<group>"; };
@@ -120,9 +117,6 @@
 		FAD00F0F180399B2007996DC /* ShareMyClass */ = {
 			isa = PBXGroup;
 			children = (
-				1BA5638718149BFD00A62FF8 /* NewClassViewController.h */,
-				1BA5638818149BFD00A62FF8 /* NewClassViewController.m */,
-				1BA5638918149BFD00A62FF8 /* NewClassViewController.xib */,
 				FAD00F18180399B2007996DC /* AppDelegate.h */,
 				1BA563751814963F00A62FF8 /* img */,
 				FAD00F19180399B2007996DC /* AppDelegate.m */,

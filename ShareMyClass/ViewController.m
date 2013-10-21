@@ -47,9 +47,10 @@
 {
     switch (item.tag) {
         case 0:
-            if(!self.NewClassViewController){
-                self.NewClassViewController = [[NewClassViewController alloc] initWithNibName:@"NewClassViewController" bundle:nil];
-            }
+			if(!self.NewClassViewController)
+			{
+				self.NewClassViewController = [[NewClassViewController alloc] initWithNibName:@"NewClassViewController" bundle:nil];
+			}
             
            // self.detailViewController.detailItem = nil;
            // self.detailViewController.delegateMaster = self;
