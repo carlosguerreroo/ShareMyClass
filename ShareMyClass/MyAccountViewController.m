@@ -10,6 +10,7 @@
 
 @interface MyAccountViewController ()
 
+
 @end
 
 @implementation MyAccountViewController
@@ -30,6 +31,9 @@
 	self.title = @"Mi cuenta";
     //Creates close session button
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Cerrar sesión" style:UIBarButtonItemStyleBordered target:self action:@selector(closeSession)]];
+    // Initialize the profile picture
+    
+    [self manageProfilePicture];
     
     
 }
@@ -56,4 +60,37 @@
     }
 }
 
+-(void)manageProfilePicture{
+    
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *profilePictureFilePath = [NSString stringWithFormat:@"%@/profilePicture.png",docDir];
+    UIImage *profilePicture = [UIImage imageWithData: [[NSData alloc] initWithContentsOfFile:profilePictureFilePath]];
+    
+    if(!profilePicture)
+    {
+        [FBRequestConnection
+         startWithGraphPath:@"me?fields=picture.height(250)"
+         completionHandler:^(FBRequestConnection *connection,
+                             id result,
+                             NSError *error) {
+             if (!error)
+             {
+                 UIImage *profilePicture  = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:result[@"picture"][@"data"][@"url"]]]];
+                 NSData *dataPicture = [NSData dataWithData:UIImagePNGRepresentation(profilePicture)];
+                 [dataPicture writeToFile:profilePictureFilePath atomically:YES];
+                 self.profilePicture.image = profilePicture;
+                 
+                 
+             }
+         }];
+    }else{
+    
+        self.profilePicture.image = profilePicture;
+    
+    }
+    
+    [self.profilePicture.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [self.profilePicture.layer setBorderWidth: self.view.frame.size.width * .01];
+    
+}
 @end
