@@ -30,6 +30,8 @@
 		FAD00F23180399B3007996DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD00F22180399B3007996DC /* ViewController.m */; };
 		FAD00F26180399B3007996DC /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD00F24180399B3007996DC /* ViewController.xib */; };
 		FAD00F2D1803A562007996DC /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD00F2C1803A562007996DC /* FacebookSDK.framework */; };
+		FAFF75261819F5190045B3FE /* chalkboard.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFF75251819F5190045B3FE /* chalkboard.png */; };
+		FAFF75291819F7BA0045B3FE /* NavBar-Wood.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFF75281819F7BA0045B3FE /* NavBar-Wood.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		FAD00F22180399B3007996DC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FAD00F25180399B3007996DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		FAD00F2C1803A562007996DC /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		FAFF75251819F5190045B3FE /* chalkboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chalkboard.png; sourceTree = "<group>"; };
+		FAFF75281819F7BA0045B3FE /* NavBar-Wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar-Wood.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 		1BA563751814963F00A62FF8 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				FAFF75251819F5190045B3FE /* chalkboard.png */,
+				FAFF75281819F7BA0045B3FE /* NavBar-Wood.png */,
 				1BA563761814965500A62FF8 /* pizarron.jpg */,
 			);
 			name = img;
@@ -216,6 +222,7 @@
 				FAD00F14180399B2007996DC /* InfoPlist.strings in Resources */,
 				FAD00F1C180399B2007996DC /* Default.png in Resources */,
 				FAD00F1E180399B2007996DC /* Default@2x.png in Resources */,
+				FAFF75261819F5190045B3FE /* chalkboard.png in Resources */,
 				FAD00F20180399B2007996DC /* Default-568h@2x.png in Resources */,
 				FAD00F26180399B3007996DC /* ViewController.xib in Resources */,
 				FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */,
@@ -223,6 +230,7 @@
 				1BA5638E18149C3300A62FF8 /* MessagesViewController.xib in Resources */,
 				1BA5639318149C5800A62FF8 /* RemindersViewController.xib in Resources */,
 				1BA5639818149C7600A62FF8 /* MyAccountViewController.xib in Resources */,
+				FAFF75291819F7BA0045B3FE /* NavBar-Wood.png in Resources */,
 				1BA563A21814A8ED00A62FF8 /* NewClassViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

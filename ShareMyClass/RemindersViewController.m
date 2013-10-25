@@ -28,6 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	self.title = @"Recordatorios";
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action: @selector(addReminder)]];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,4 +38,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)addReminder
+{
+    NSLog(@"Add Reminder");
+    
+}
 @end

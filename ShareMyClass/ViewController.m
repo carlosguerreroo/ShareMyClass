@@ -19,10 +19,9 @@
     [super viewDidLoad];
 	
 	
-	// Do any additional setup after loading the view, typically from a nib.
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar-Wood"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.tintColor = [UIColor brownColor];
 }
-
-
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
