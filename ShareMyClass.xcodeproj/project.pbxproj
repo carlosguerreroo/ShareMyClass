@@ -25,6 +25,8 @@
 		FA14086A181B55DD00EFE6B9 /* course.png in Resources */ = {isa = PBXBuildFile; fileRef = FA140869181B55DD00EFE6B9 /* course.png */; };
 		FA41B836181C61F700D01E04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA41B835181C61F700D01E04 /* CoreData.framework */; };
 		FA41B839181C64E300D01E04 /* ShareMyClassData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA41B837181C64E300D01E04 /* ShareMyClassData.xcdatamodeld */; };
+		FA41B842181C735A00D01E04 /* fb_button.png in Resources */ = {isa = PBXBuildFile; fileRef = FA41B840181C735900D01E04 /* fb_button.png */; };
+		FA41B843181C735A00D01E04 /* loginBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = FA41B841181C735A00D01E04 /* loginBackground.png */; };
 		FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB364DF1804410300AF7FE7 /* loginViewController.m */; };
 		FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB364E01804410300AF7FE7 /* loginViewController.xib */; };
 		FAD00F0A180399B2007996DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD00F09180399B2007996DC /* UIKit.framework */; };
@@ -67,6 +69,8 @@
 		FA140869181B55DD00EFE6B9 /* course.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = course.png; sourceTree = "<group>"; };
 		FA41B835181C61F700D01E04 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FA41B838181C64E300D01E04 /* ShareMyClassData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShareMyClassData.xcdatamodel; sourceTree = "<group>"; };
+		FA41B840181C735900D01E04 /* fb_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_button.png; sourceTree = "<group>"; };
+		FA41B841181C735A00D01E04 /* loginBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBackground.png; sourceTree = "<group>"; };
 		FAB364DE1804410300AF7FE7 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		FAB364DF1804410300AF7FE7 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		FAB364E01804410300AF7FE7 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 				FAFF75251819F5190045B3FE /* chalkboard.png */,
 				FA140862181B54BF00EFE6B9 /* course@2x.png */,
 				FAFF75281819F7BA0045B3FE /* NavBar-Wood.png */,
+				FA41B840181C735900D01E04 /* fb_button.png */,
+				FA41B841181C735A00D01E04 /* loginBackground.png */,
 				FA140865181B54E900EFE6B9 /* reminder.png */,
 				FA140866181B54E900EFE6B9 /* reminder@2x.png */,
 				FA140869181B55DD00EFE6B9 /* course.png */,
@@ -256,11 +262,13 @@
 				FAD00F1E180399B2007996DC /* Default@2x.png in Resources */,
 				FAFF75261819F5190045B3FE /* chalkboard.png in Resources */,
 				FAD00F20180399B2007996DC /* Default-568h@2x.png in Resources */,
+				FA41B843181C735A00D01E04 /* loginBackground.png in Resources */,
 				FAD00F26180399B3007996DC /* ViewController.xib in Resources */,
 				FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */,
 				FA140868181B54E900EFE6B9 /* reminder@2x.png in Resources */,
 				1BA563771814965500A62FF8 /* pizarron.jpg in Resources */,
 				FAD898FF181B0C500058FEBB /* account.png in Resources */,
+				FA41B842181C735A00D01E04 /* fb_button.png in Resources */,
 				1BA5638E18149C3300A62FF8 /* MessagesViewController.xib in Resources */,
 				1BA5639318149C5800A62FF8 /* RemindersViewController.xib in Resources */,
 				FA140860181B541A00EFE6B9 /* account@2x.png in Resources */,
