@@ -16,6 +16,13 @@
 		1BA5639818149C7600A62FF8 /* MyAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5639618149C7600A62FF8 /* MyAccountViewController.xib */; };
 		1BA563A11814A8ED00A62FF8 /* NewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5639F1814A8ED00A62FF8 /* NewClassViewController.m */; };
 		1BA563A21814A8ED00A62FF8 /* NewClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA563A01814A8ED00A62FF8 /* NewClassViewController.xib */; };
+		FA14085D181B517D00EFE6B9 /* message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA14085B181B517D00EFE6B9 /* message@2x.png */; };
+		FA14085E181B517D00EFE6B9 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = FA14085C181B517D00EFE6B9 /* message.png */; };
+		FA140860181B541A00EFE6B9 /* account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA14085F181B541A00EFE6B9 /* account@2x.png */; };
+		FA140864181B54BF00EFE6B9 /* course@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA140862181B54BF00EFE6B9 /* course@2x.png */; };
+		FA140867181B54E900EFE6B9 /* reminder.png in Resources */ = {isa = PBXBuildFile; fileRef = FA140865181B54E900EFE6B9 /* reminder.png */; };
+		FA140868181B54E900EFE6B9 /* reminder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA140866181B54E900EFE6B9 /* reminder@2x.png */; };
+		FA14086A181B55DD00EFE6B9 /* course.png in Resources */ = {isa = PBXBuildFile; fileRef = FA140869181B55DD00EFE6B9 /* course.png */; };
 		FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB364DF1804410300AF7FE7 /* loginViewController.m */; };
 		FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB364E01804410300AF7FE7 /* loginViewController.xib */; };
 		FAD00F0A180399B2007996DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD00F09180399B2007996DC /* UIKit.framework */; };
@@ -30,6 +37,7 @@
 		FAD00F23180399B3007996DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD00F22180399B3007996DC /* ViewController.m */; };
 		FAD00F26180399B3007996DC /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD00F24180399B3007996DC /* ViewController.xib */; };
 		FAD00F2D1803A562007996DC /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD00F2C1803A562007996DC /* FacebookSDK.framework */; };
+		FAD898FF181B0C500058FEBB /* account.png in Resources */ = {isa = PBXBuildFile; fileRef = FAD898FE181B0C500058FEBB /* account.png */; };
 		FAFF75261819F5190045B3FE /* chalkboard.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFF75251819F5190045B3FE /* chalkboard.png */; };
 		FAFF75291819F7BA0045B3FE /* NavBar-Wood.png in Resources */ = {isa = PBXBuildFile; fileRef = FAFF75281819F7BA0045B3FE /* NavBar-Wood.png */; };
 /* End PBXBuildFile section */
@@ -48,6 +56,13 @@
 		1BA5639E1814A8ED00A62FF8 /* NewClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewClassViewController.h; sourceTree = "<group>"; };
 		1BA5639F1814A8ED00A62FF8 /* NewClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewClassViewController.m; sourceTree = "<group>"; };
 		1BA563A01814A8ED00A62FF8 /* NewClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewClassViewController.xib; sourceTree = "<group>"; };
+		FA14085B181B517D00EFE6B9 /* message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message@2x.png"; sourceTree = "<group>"; };
+		FA14085C181B517D00EFE6B9 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
+		FA14085F181B541A00EFE6B9 /* account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account@2x.png"; sourceTree = "<group>"; };
+		FA140862181B54BF00EFE6B9 /* course@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "course@2x.png"; sourceTree = "<group>"; };
+		FA140865181B54E900EFE6B9 /* reminder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reminder.png; sourceTree = "<group>"; };
+		FA140866181B54E900EFE6B9 /* reminder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reminder@2x.png"; sourceTree = "<group>"; };
+		FA140869181B55DD00EFE6B9 /* course.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = course.png; sourceTree = "<group>"; };
 		FAB364DE1804410300AF7FE7 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		FAB364DF1804410300AF7FE7 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		FAB364E01804410300AF7FE7 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
@@ -68,6 +83,7 @@
 		FAD00F22180399B3007996DC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FAD00F25180399B3007996DC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		FAD00F2C1803A562007996DC /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		FAD898FE181B0C500058FEBB /* account.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = account.png; sourceTree = "<group>"; };
 		FAFF75251819F5190045B3FE /* chalkboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chalkboard.png; sourceTree = "<group>"; };
 		FAFF75281819F7BA0045B3FE /* NavBar-Wood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NavBar-Wood.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,9 +106,17 @@
 		1BA563751814963F00A62FF8 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				FA14085B181B517D00EFE6B9 /* message@2x.png */,
+				FA14085C181B517D00EFE6B9 /* message.png */,
 				FAFF75251819F5190045B3FE /* chalkboard.png */,
+				FA140862181B54BF00EFE6B9 /* course@2x.png */,
 				FAFF75281819F7BA0045B3FE /* NavBar-Wood.png */,
+				FA140865181B54E900EFE6B9 /* reminder.png */,
+				FA140866181B54E900EFE6B9 /* reminder@2x.png */,
+				FA140869181B55DD00EFE6B9 /* course.png */,
 				1BA563761814965500A62FF8 /* pizarron.jpg */,
+				FA14085F181B541A00EFE6B9 /* account@2x.png */,
+				FAD898FE181B0C500058FEBB /* account.png */,
 			);
 			name = img;
 			sourceTree = "<group>";
@@ -219,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA14085E181B517D00EFE6B9 /* message.png in Resources */,
 				FAD00F14180399B2007996DC /* InfoPlist.strings in Resources */,
 				FAD00F1C180399B2007996DC /* Default.png in Resources */,
 				FAD00F1E180399B2007996DC /* Default@2x.png in Resources */,
@@ -226,12 +251,19 @@
 				FAD00F20180399B2007996DC /* Default-568h@2x.png in Resources */,
 				FAD00F26180399B3007996DC /* ViewController.xib in Resources */,
 				FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */,
+				FA140868181B54E900EFE6B9 /* reminder@2x.png in Resources */,
 				1BA563771814965500A62FF8 /* pizarron.jpg in Resources */,
+				FAD898FF181B0C500058FEBB /* account.png in Resources */,
 				1BA5638E18149C3300A62FF8 /* MessagesViewController.xib in Resources */,
 				1BA5639318149C5800A62FF8 /* RemindersViewController.xib in Resources */,
+				FA140860181B541A00EFE6B9 /* account@2x.png in Resources */,
+				FA140867181B54E900EFE6B9 /* reminder.png in Resources */,
 				1BA5639818149C7600A62FF8 /* MyAccountViewController.xib in Resources */,
+				FA140864181B54BF00EFE6B9 /* course@2x.png in Resources */,
+				FA14086A181B55DD00EFE6B9 /* course.png in Resources */,
 				FAFF75291819F7BA0045B3FE /* NavBar-Wood.png in Resources */,
 				1BA563A21814A8ED00A62FF8 /* NewClassViewController.xib in Resources */,
+				FA14085D181B517D00EFE6B9 /* message@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
