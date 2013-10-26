@@ -23,6 +23,8 @@
 		FA140867181B54E900EFE6B9 /* reminder.png in Resources */ = {isa = PBXBuildFile; fileRef = FA140865181B54E900EFE6B9 /* reminder.png */; };
 		FA140868181B54E900EFE6B9 /* reminder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA140866181B54E900EFE6B9 /* reminder@2x.png */; };
 		FA14086A181B55DD00EFE6B9 /* course.png in Resources */ = {isa = PBXBuildFile; fileRef = FA140869181B55DD00EFE6B9 /* course.png */; };
+		FA41B836181C61F700D01E04 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA41B835181C61F700D01E04 /* CoreData.framework */; };
+		FA41B839181C64E300D01E04 /* ShareMyClassData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA41B837181C64E300D01E04 /* ShareMyClassData.xcdatamodeld */; };
 		FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB364DF1804410300AF7FE7 /* loginViewController.m */; };
 		FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB364E01804410300AF7FE7 /* loginViewController.xib */; };
 		FAD00F0A180399B2007996DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD00F09180399B2007996DC /* UIKit.framework */; };
@@ -63,6 +65,8 @@
 		FA140865181B54E900EFE6B9 /* reminder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reminder.png; sourceTree = "<group>"; };
 		FA140866181B54E900EFE6B9 /* reminder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reminder@2x.png"; sourceTree = "<group>"; };
 		FA140869181B55DD00EFE6B9 /* course.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = course.png; sourceTree = "<group>"; };
+		FA41B835181C61F700D01E04 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FA41B838181C64E300D01E04 /* ShareMyClassData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShareMyClassData.xcdatamodel; sourceTree = "<group>"; };
 		FAB364DE1804410300AF7FE7 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		FAB364DF1804410300AF7FE7 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		FAB364E01804410300AF7FE7 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA41B836181C61F700D01E04 /* CoreData.framework in Frameworks */,
 				FAD00F0A180399B2007996DC /* UIKit.framework in Frameworks */,
 				FAD00F0C180399B2007996DC /* Foundation.framework in Frameworks */,
 				FAD00F0E180399B2007996DC /* CoreGraphics.framework in Frameworks */,
@@ -141,6 +146,7 @@
 		FAD00F08180399B2007996DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA41B835181C61F700D01E04 /* CoreData.framework */,
 				FAD00F2C1803A562007996DC /* FacebookSDK.framework */,
 				FAD00F09180399B2007996DC /* UIKit.framework */,
 				FAD00F0B180399B2007996DC /* Foundation.framework */,
@@ -174,6 +180,7 @@
 				1BA5639E1814A8ED00A62FF8 /* NewClassViewController.h */,
 				1BA5639F1814A8ED00A62FF8 /* NewClassViewController.m */,
 				1BA563A01814A8ED00A62FF8 /* NewClassViewController.xib */,
+				FA41B837181C64E300D01E04 /* ShareMyClassData.xcdatamodeld */,
 			);
 			path = ShareMyClass;
 			sourceTree = "<group>";
@@ -279,6 +286,7 @@
 				FAD00F23180399B3007996DC /* ViewController.m in Sources */,
 				FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */,
 				1BA5638D18149C3300A62FF8 /* MessagesViewController.m in Sources */,
+				FA41B839181C64E300D01E04 /* ShareMyClassData.xcdatamodeld in Sources */,
 				1BA5639218149C5800A62FF8 /* RemindersViewController.m in Sources */,
 				1BA5639718149C7600A62FF8 /* MyAccountViewController.m in Sources */,
 				1BA563A11814A8ED00A62FF8 /* NewClassViewController.m in Sources */,
@@ -415,6 +423,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FA41B837181C64E300D01E04 /* ShareMyClassData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FA41B838181C64E300D01E04 /* ShareMyClassData.xcdatamodel */,
+			);
+			currentVersion = FA41B838181C64E300D01E04 /* ShareMyClassData.xcdatamodel */;
+			path = ShareMyClassData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FAD00EFE180399B2007996DC /* Project object */;
 }
