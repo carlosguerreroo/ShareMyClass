@@ -11,7 +11,7 @@
 #import "MessagesViewController.h"
 #import "RemindersViewController.h"
 #import "MyAccountViewController.h"
-
+#import "AppDelegate.h"
 
 @interface ViewController : UIViewController
 

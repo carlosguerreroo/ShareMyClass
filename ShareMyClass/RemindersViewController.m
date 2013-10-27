@@ -7,6 +7,7 @@
 //
 
 #import "RemindersViewController.h"
+#import "AddReminderViewController.h"
 
 @interface RemindersViewController ()
 
@@ -41,6 +42,15 @@
 -(void)addReminder
 {
     NSLog(@"Add Reminder");
+    
+    if(!self.addReminderViewController){
+        self.addReminderViewController = [[AddReminderViewController alloc] initWithNibName:@"AddReminderViewController" bundle:nil];
+    }
+    
+    self.addReminderViewController.detailItem = nil;
+    self.addReminderViewController.delegateReminder = self;
+    
+    [self.navigationController pushViewController:self.addReminderViewController animated:YES];
     
 }
 @end

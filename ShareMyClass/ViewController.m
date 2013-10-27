@@ -70,6 +70,10 @@
 			if(!self.RemindersViewController)
 			{
 				self.RemindersViewController = [[RemindersViewController alloc] initWithNibName:@"RemindersViewController" bundle:nil];
+                
+                AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                self.RemindersViewController.managedObjectContext = appDelegate.managedObjectContext;
+                
 			}
             
             [self.navigationController pushViewController:self.RemindersViewController animated:YES];
