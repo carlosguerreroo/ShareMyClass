@@ -29,6 +29,8 @@
 		FA41B839181C64E300D01E04 /* ShareMyClassData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA41B837181C64E300D01E04 /* ShareMyClassData.xcdatamodeld */; };
 		FA41B842181C735A00D01E04 /* fb_button.png in Resources */ = {isa = PBXBuildFile; fileRef = FA41B840181C735900D01E04 /* fb_button.png */; };
 		FA41B843181C735A00D01E04 /* loginBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = FA41B841181C735A00D01E04 /* loginBackground.png */; };
+		FA74F755181CA4D500DFC126 /* saveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74F754181CA4D500DFC126 /* saveButton.png */; };
+		FA74F759181CAA2000DFC126 /* textField.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74F758181CAA2000DFC126 /* textField.png */; };
 		FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB364DF1804410300AF7FE7 /* loginViewController.m */; };
 		FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB364E01804410300AF7FE7 /* loginViewController.xib */; };
 		FAD00F0A180399B2007996DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD00F09180399B2007996DC /* UIKit.framework */; };
@@ -76,6 +78,8 @@
 		FA41B838181C64E300D01E04 /* ShareMyClassData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShareMyClassData.xcdatamodel; sourceTree = "<group>"; };
 		FA41B840181C735900D01E04 /* fb_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_button.png; sourceTree = "<group>"; };
 		FA41B841181C735A00D01E04 /* loginBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBackground.png; sourceTree = "<group>"; };
+		FA74F754181CA4D500DFC126 /* saveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saveButton.png; sourceTree = "<group>"; };
+		FA74F758181CAA2000DFC126 /* textField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textField.png; sourceTree = "<group>"; };
 		FAB364DE1804410300AF7FE7 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		FAB364DF1804410300AF7FE7 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		FAB364E01804410300AF7FE7 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
@@ -124,8 +128,10 @@
 				FA14085C181B517D00EFE6B9 /* message.png */,
 				FAFF75251819F5190045B3FE /* chalkboard.png */,
 				FA140862181B54BF00EFE6B9 /* course@2x.png */,
+				FA74F758181CAA2000DFC126 /* textField.png */,
 				FAFF75281819F7BA0045B3FE /* NavBar-Wood.png */,
 				FA41B840181C735900D01E04 /* fb_button.png */,
+				FA74F754181CA4D500DFC126 /* saveButton.png */,
 				FA41B841181C735A00D01E04 /* loginBackground.png */,
 				FA140865181B54E900EFE6B9 /* reminder.png */,
 				FA140866181B54E900EFE6B9 /* reminder@2x.png */,
@@ -271,6 +277,7 @@
 				FAFF75261819F5190045B3FE /* chalkboard.png in Resources */,
 				FAD00F20180399B2007996DC /* Default-568h@2x.png in Resources */,
 				FA41B843181C735A00D01E04 /* loginBackground.png in Resources */,
+				FA74F759181CAA2000DFC126 /* textField.png in Resources */,
 				FAD00F26180399B3007996DC /* ViewController.xib in Resources */,
 				FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */,
 				FA140868181B54E900EFE6B9 /* reminder@2x.png in Resources */,
@@ -285,6 +292,7 @@
 				FA140864181B54BF00EFE6B9 /* course@2x.png in Resources */,
 				FA14086A181B55DD00EFE6B9 /* course.png in Resources */,
 				FA380129181C7F6800EBC2A6 /* AddReminderViewController.xib in Resources */,
+				FA74F755181CA4D500DFC126 /* saveButton.png in Resources */,
 				FAFF75291819F7BA0045B3FE /* NavBar-Wood.png in Resources */,
 				1BA563A21814A8ED00A62FF8 /* NewClassViewController.xib in Resources */,
 				FA14085D181B517D00EFE6B9 /* message@2x.png in Resources */,
