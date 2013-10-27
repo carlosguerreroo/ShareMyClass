@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -26,7 +26,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +40,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dismissKeyboard {
+    [self.titleTextField resignFirstResponder];
+    [self.messageTextField resignFirstResponder];
+}
 @end

@@ -51,9 +51,6 @@
 				self.NewClassViewController = [[NewClassViewController alloc] initWithNibName:@"NewClassViewController" bundle:nil];
 			}
             
-           // self.detailViewController.detailItem = nil;
-           // self.detailViewController.delegateMaster = self;
-        
             [self.navigationController pushViewController:self.NewClassViewController animated:YES];
             break;
 			

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+
 @class AddReminderViewController;
 
-@interface RemindersViewController : UIViewController
+@interface RemindersViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) AddReminderViewController *addReminderViewController;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
