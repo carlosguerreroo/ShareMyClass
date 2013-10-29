@@ -82,14 +82,31 @@
 
     if	(self.editing)
     {
-        //[self.delegateMaster modifyObject: self.name.text  withDate: self.datePicker.date];
-        //modifyObject: self.name.text withDate: self.dateSaved];
+        //To-Do //Create editNotification
+        [self.delegateReminder editObjectWithTitle:self.titleTextField.text withMessage:self.messageTextField.text withDate:self.datePicker.date andCheck:NO];
     }
     else
     {
+        [self scheduleNotificationWithTitle:self.titleTextField.text withMessage:self.messageTextField.text andDate:self.datePicker.date];
         [self.delegateReminder insertNewObjectWithTitle:self.titleTextField.text withMessage:self.messageTextField.text withDate:self.datePicker.date andCheck:NO];
-        
     }
 
 }
+
+
+-(void)scheduleNotificationWithTitle:(NSString*)title withMessage:(NSString*)message andDate:(NSDate*)date{
+
+    //NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    //[dateFormat setDateFormat:@"HH:mm:ss zzz"];
+    //NSString *dateString = [dateFormat stringFromDate:localNotif.fireDate];
+    //NSLog(@"%@",dateString);
+    //NSDictionary *infoDict = [NSDictionary dictionaryWithObject:item.eventName forKey:ToDoItemKey];
+    //localNotif.userInfo = infoDict;
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate dateWithTimeInterval:10 sinceDate:date];
+    localNotification.alertBody = message;
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
+
 @end
