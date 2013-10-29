@@ -78,6 +78,26 @@
     }
 }
 
+- (void)editObjectWithTitle:(NSString *)title withMessage:(NSString *)message withDate:(NSDate*)date andCheck:(BOOL)check
+{
+
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    
+    [self.selectedObject setValue: title	forKey: @"title"];
+    [self.selectedObject setValue: message	forKey: @"message"];
+    [self.selectedObject setValue: date forKey: @"date"];
+    
+    NSError	*error	=	nil;
+    if	(![context	save:&error])	{
+        
+        NSLog(@"Unresolved	error	%@,	%@",	error,	[error	userInfo]);
+        abort();
+    }
+    self.selectedObject	=	nil;
+
+}
+
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
