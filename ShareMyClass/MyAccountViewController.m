@@ -89,8 +89,8 @@
     
     }
     
-    [self.profilePicture.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-    [self.profilePicture.layer setBorderWidth: self.view.frame.size.width * .01];
+    //[self.profilePicture.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+   // [self.profilePicture.layer setBorderWidth: self.view.frame.size.width * .01];
     
 }
 @end
