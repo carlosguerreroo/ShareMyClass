@@ -18,4 +18,5 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSManagedObject *selectedObject;
 
+- (void)insertNewObjectWithTitle:(NSString *)title withMessage:(NSString *)message withDate:(NSDate*)date andCheck:(BOOL)check;
 @end

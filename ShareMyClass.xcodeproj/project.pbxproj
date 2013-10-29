@@ -29,6 +29,7 @@
 		FA41B839181C64E300D01E04 /* ShareMyClassData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA41B837181C64E300D01E04 /* ShareMyClassData.xcdatamodeld */; };
 		FA41B842181C735A00D01E04 /* fb_button.png in Resources */ = {isa = PBXBuildFile; fileRef = FA41B840181C735900D01E04 /* fb_button.png */; };
 		FA41B843181C735A00D01E04 /* loginBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = FA41B841181C735A00D01E04 /* loginBackground.png */; };
+		FA4AE01A181F2D1E002F9D2A /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4AE019181F2D1E002F9D2A /* Reminder.m */; };
 		FA74F755181CA4D500DFC126 /* saveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74F754181CA4D500DFC126 /* saveButton.png */; };
 		FA74F759181CAA2000DFC126 /* textField.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74F758181CAA2000DFC126 /* textField.png */; };
 		FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB364DF1804410300AF7FE7 /* loginViewController.m */; };
@@ -78,6 +79,8 @@
 		FA41B838181C64E300D01E04 /* ShareMyClassData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShareMyClassData.xcdatamodel; sourceTree = "<group>"; };
 		FA41B840181C735900D01E04 /* fb_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb_button.png; sourceTree = "<group>"; };
 		FA41B841181C735A00D01E04 /* loginBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBackground.png; sourceTree = "<group>"; };
+		FA4AE018181F2D1E002F9D2A /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
+		FA4AE019181F2D1E002F9D2A /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
 		FA74F754181CA4D500DFC126 /* saveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saveButton.png; sourceTree = "<group>"; };
 		FA74F758181CAA2000DFC126 /* textField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textField.png; sourceTree = "<group>"; };
 		FAB364DE1804410300AF7FE7 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				FA380125181C7F6800EBC2A6 /* AddReminderViewController.h */,
 				FA380126181C7F6800EBC2A6 /* AddReminderViewController.m */,
 				FA380127181C7F6800EBC2A6 /* AddReminderViewController.xib */,
+				FA4AE018181F2D1E002F9D2A /* Reminder.h */,
+				FA4AE019181F2D1E002F9D2A /* Reminder.m */,
 			);
 			path = ShareMyClass;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4AE01A181F2D1E002F9D2A /* Reminder.m in Sources */,
 				FA380128181C7F6800EBC2A6 /* AddReminderViewController.m in Sources */,
 				FAD00F16180399B2007996DC /* main.m in Sources */,
 				FAD00F1A180399B2007996DC /* AppDelegate.m in Sources */,

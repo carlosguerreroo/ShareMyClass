@@ -54,7 +54,7 @@
     
 }
 
-- (void)insertNewObject:(NSString *)title withMessage:(NSString *)message withDate:(NSDate*)date andCheck:(BOOL)check
+- (void)insertNewObjectWithTitle:(NSString *)title withMessage:(NSString *)message withDate:(NSDate*)date andCheck:(BOOL)check
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
@@ -136,13 +136,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  /*  if (!self.detailViewController) {
-        self.detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    if (!self.addReminderViewController) {
+        self.addReminderViewController = [[AddReminderViewController alloc] initWithNibName:@"AddReminderViewController" bundle:nil];
     }
     self.selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    self.detailViewController.detailItem = self.selectedObject;
-    self.detailViewController.delegateMaster = self;
-    [self.navigationController pushViewController:self.detailViewController animated:YES];*/
+    self.addReminderViewController.detailItem = self.selectedObject;
+    self.addReminderViewController.delegateReminder = self;
+    [self.navigationController pushViewController:self.addReminderViewController animated:YES];
 }
 
 #pragma mark - Fetched results controller
@@ -239,7 +239,7 @@
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[object valueForKey:@"title"] description];
-    cell.detailTextLabel.text = [[object valueForKey:@"message"] description];;
+    cell.detailTextLabel.text = [[object valueForKey:@"message"] description];
 }
 
 
