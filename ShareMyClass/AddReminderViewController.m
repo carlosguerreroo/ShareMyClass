@@ -16,18 +16,20 @@
 
 - (void)setDetailItem:(id)newDetailItem
 {
-    if (_detailItem != newDetailItem) {
+    if (_detailItem != newDetailItem)
+    {
         _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
     }
+    
+   [self configureView];
+
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+    {
         
     }
     return self;
@@ -59,7 +61,6 @@
 
 -(void)configureView
 {
-
     if (self.detailItem)
     {
         Reminder *object = (Reminder*) self.detailItem;
@@ -79,7 +80,6 @@
 
 - (IBAction)saveReminder:(id)sender
 {
-
     if	(self.editing)
     {
         //To-Do //Create editNotification
@@ -90,7 +90,6 @@
         [self scheduleNotificationWithTitle:self.titleTextField.text withMessage:self.messageTextField.text andDate:self.datePicker.date];
         [self.delegateReminder insertNewObjectWithTitle:self.titleTextField.text withMessage:self.messageTextField.text withDate:self.datePicker.date andCheck:NO];
     }
-
 }
 
 
@@ -98,14 +97,14 @@
 
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"HH:mm:ss zzz"];
-    NSString *dateString = [dateFormat stringFromDate:[NSDate dateWithTimeInterval:10 sinceDate:date]];
-    NSLog(@"%@",dateString);
+    //NSString *dateString = [dateFormat stringFromDate:[NSDate dateWithTimeInterval:10 sinceDate:date]];
+    //NSLog(@"%@",dateString);
     //NSDictionary *infoDict = [NSDictionary dictionaryWithObject:item.eventName forKey:ToDoItemKey];
     //localNotif.userInfo = infoDict;
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate dateWithTimeInterval:10 sinceDate:date];
     localNotification.alertBody = message;
-    NSLog(@"%@",message);
+    //NSLog(@"%@",message);
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
