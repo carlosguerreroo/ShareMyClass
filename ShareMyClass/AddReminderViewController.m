@@ -96,15 +96,16 @@
 
 -(void)scheduleNotificationWithTitle:(NSString*)title withMessage:(NSString*)message andDate:(NSDate*)date{
 
-    //NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-    //[dateFormat setDateFormat:@"HH:mm:ss zzz"];
-    //NSString *dateString = [dateFormat stringFromDate:localNotif.fireDate];
-    //NSLog(@"%@",dateString);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"HH:mm:ss zzz"];
+    NSString *dateString = [dateFormat stringFromDate:[NSDate dateWithTimeInterval:10 sinceDate:date]];
+    NSLog(@"%@",dateString);
     //NSDictionary *infoDict = [NSDictionary dictionaryWithObject:item.eventName forKey:ToDoItemKey];
     //localNotif.userInfo = infoDict;
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [NSDate dateWithTimeInterval:10 sinceDate:date];
     localNotification.alertBody = message;
+    NSLog(@"%@",message);
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
