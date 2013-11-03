@@ -16,6 +16,8 @@
 		1BA5639818149C7600A62FF8 /* MyAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA5639618149C7600A62FF8 /* MyAccountViewController.xib */; };
 		1BA563A11814A8ED00A62FF8 /* NewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5639F1814A8ED00A62FF8 /* NewClassViewController.m */; };
 		1BA563A21814A8ED00A62FF8 /* NewClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA563A01814A8ED00A62FF8 /* NewClassViewController.xib */; };
+		8F55A26A1826FE9D0062871F /* AddNewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F55A2681826FE9D0062871F /* AddNewClassViewController.m */; };
+		8F55A26B1826FE9D0062871F /* AddNewClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F55A2691826FE9D0062871F /* AddNewClassViewController.xib */; };
 		FA14085D181B517D00EFE6B9 /* message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA14085B181B517D00EFE6B9 /* message@2x.png */; };
 		FA14085E181B517D00EFE6B9 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = FA14085C181B517D00EFE6B9 /* message.png */; };
 		FA140860181B541A00EFE6B9 /* account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA14085F181B541A00EFE6B9 /* account@2x.png */; };
@@ -65,6 +67,9 @@
 		1BA5639E1814A8ED00A62FF8 /* NewClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewClassViewController.h; sourceTree = "<group>"; };
 		1BA5639F1814A8ED00A62FF8 /* NewClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewClassViewController.m; sourceTree = "<group>"; };
 		1BA563A01814A8ED00A62FF8 /* NewClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewClassViewController.xib; sourceTree = "<group>"; };
+		8F55A2671826FE9D0062871F /* AddNewClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewClassViewController.h; sourceTree = "<group>"; };
+		8F55A2681826FE9D0062871F /* AddNewClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewClassViewController.m; sourceTree = "<group>"; };
+		8F55A2691826FE9D0062871F /* AddNewClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNewClassViewController.xib; sourceTree = "<group>"; };
 		FA14085B181B517D00EFE6B9 /* message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message@2x.png"; sourceTree = "<group>"; };
 		FA14085C181B517D00EFE6B9 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
 		FA14085F181B541A00EFE6B9 /* account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account@2x.png"; sourceTree = "<group>"; };
@@ -206,6 +211,9 @@
 				FA380127181C7F6800EBC2A6 /* AddReminderViewController.xib */,
 				FA4AE018181F2D1E002F9D2A /* Reminder.h */,
 				FA4AE019181F2D1E002F9D2A /* Reminder.m */,
+				8F55A2671826FE9D0062871F /* AddNewClassViewController.h */,
+				8F55A2681826FE9D0062871F /* AddNewClassViewController.m */,
+				8F55A2691826FE9D0062871F /* AddNewClassViewController.xib */,
 			);
 			path = ShareMyClass;
 			sourceTree = "<group>";
@@ -300,6 +308,7 @@
 				FA74F755181CA4D500DFC126 /* saveButton.png in Resources */,
 				FAFF75291819F7BA0045B3FE /* NavBar-Wood.png in Resources */,
 				1BA563A21814A8ED00A62FF8 /* NewClassViewController.xib in Resources */,
+				8F55A26B1826FE9D0062871F /* AddNewClassViewController.xib in Resources */,
 				FA14085D181B517D00EFE6B9 /* message@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,6 +330,7 @@
 				FA41B839181C64E300D01E04 /* ShareMyClassData.xcdatamodeld in Sources */,
 				1BA5639218149C5800A62FF8 /* RemindersViewController.m in Sources */,
 				1BA5639718149C7600A62FF8 /* MyAccountViewController.m in Sources */,
+				8F55A26A1826FE9D0062871F /* AddNewClassViewController.m in Sources */,
 				1BA563A11814A8ED00A62FF8 /* NewClassViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

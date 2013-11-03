@@ -7,6 +7,8 @@
 //
 
 #import "NewClassViewController.h"
+#import "AddNewClassViewController.h"
+
 
 @interface NewClassViewController ()
 
@@ -28,8 +30,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	self.title = @"Nueva clase";
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action: @selector(newClass)]];
 }
-
+-(void)newClass
+{
+    if(!self.addNewClassViewController){
+        self.addNewClassViewController = [[AddNewClassViewController alloc] initWithNibName:@"AddNewClassViewController" bundle:nil];
+    }
+    
+    [self.navigationController pushViewController:self.addNewClassViewController animated:YES];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
