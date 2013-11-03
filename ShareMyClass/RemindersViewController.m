@@ -40,9 +40,7 @@
 }
 
 -(void)addReminder
-{
-    NSLog(@"Add Reminder");
-    
+{    
     if(!self.addReminderViewController){
         self.addReminderViewController = [[AddReminderViewController alloc] initWithNibName:@"AddReminderViewController" bundle:nil];
     }
@@ -88,7 +86,7 @@
     [self.selectedObject setValue: date forKey: @"date"];
     
     NSError	*error	=	nil;
-    if	(![context	save:&error])	{
+    if	(![context	save:&error]){
         
         NSLog(@"Unresolved	error	%@,	%@",	error,	[error	userInfo]);
         abort();

@@ -63,7 +63,6 @@
     }
     
     
-    
 }
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -104,6 +103,18 @@
                 //[topViewController dismissModalViewControllerAnimated:YES];
                 //[presentViewController:topViewController animated:NO completion:nil];
                 [topViewController dismissViewControllerAnimated:NO completion:Nil];
+                
+                [FBRequestConnection
+                 startWithGraphPath:@"me?fields=id,first_name,last_name"
+                 completionHandler:^(FBRequestConnection *connection,
+                                     id result,
+                                     NSError *error) {
+                     if (!error)
+                     {
+                         [self registerUser:result];
+                     }
+                 }];
+            
             }
         }
             break;
@@ -215,5 +226,51 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+
+-(void)registerUser:(id)userData
+{
+    NSURL *url = [NSURL URLWithString:@"http://192.241.224.160/ShareMyClass/ShareMyClassApi/api.php?"];
+    //URL a usar para mandar los parametros en este caso utilizo mi pagina ejemplo
+    
+	NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url
+                                                       cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                                   timeoutInterval:60];
+	
+	[req setHTTPMethod:@"POST"];	//indicamos que es un metodo POST
+	[req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+	//Indicamos en que formato esta lo que mandamos
+    
+    //Valor del post
+    NSString *postData = [NSString stringWithFormat:@"cmd=join&idAlumno=%@&nombre=%@&apellidos=Omaña",[userData objectForKey:@"id"], [userData objectForKey:@"first_name"]]; //Mandamos el valor
+	
+    NSString *correctString = [NSString stringWithCString:[postData cStringUsingEncoding:NSISOLatin1StringEncoding] encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@",correctString);
+
+//    NSLog(@"%@",postData);
+	NSString *length = [NSString stringWithFormat:@"%d", [postData length]];
+	[req setValue:length forHTTPHeaderField:@"Content-Length"];   //indicamos en nuestro paquete el tamaño de
+    //nuestros datos
+	
+    NSLog(@" tamano: %d", postData.length); //Podemos imprimir nuestro datos para saber cuales son
+    
+	[req setHTTPBody:[postData dataUsingEncoding:NSASCIIStringEncoding]]; //Mandamos el contenido de este
+    
+	NSHTTPURLResponse* urlResponse = nil; //Vemos nuestra respuesta
+	NSError *error = [[NSError alloc] init];  //creamos un parametro valor, donde nos servira mucho para
+    //debugiar algunos errores generados
+	
+	NSData *responseData = [NSURLConnection sendSynchronousRequest:req
+                                                 returningResponse:&urlResponse
+                                                             error:&error];
+    //Guardamos los parametros que obtuvimos en la respuesta
+    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding]; //Guardamos en estring
+     NSLog(@"Respueta: %@", responseString); //imprimimos lo obtenido
+
+}
+
+
+
 
 @end
