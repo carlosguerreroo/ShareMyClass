@@ -7,6 +7,7 @@
 //
 
 #import "MyAccountViewController.h"
+#define userDataPlist @"user.plist"
 
 @interface MyAccountViewController ()
 
@@ -31,9 +32,12 @@
 	self.title = @"Mi cuenta";
     //Creates close session button
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Cerrar sesión" style:UIBarButtonItemStyleBordered target:self action:@selector(closeSession)]];
+
     // Initialize the profile picture
-    
     [self manageProfilePicture];
+    [self managePersonalData];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"chalkboard"]];
+
     
     
 }
@@ -93,4 +97,31 @@
     [self.profilePicture.layer setBorderWidth: self.view.frame.size.width * .01];
     
 }
+
+-(void)managePersonalData
+{
+    NSString *filePath = [self dataFilePath];
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+    {
+        NSDictionary *dataDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+        
+        //NSLog(@"%@",dataDictionary);
+        
+        self.firstName.text = [dataDictionary objectForKey:@"first_name"];
+        self.lastName.text = [dataDictionary objectForKey:@"last_name"];
+
+    }
+
+}
+-(NSString *)dataFilePath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    return [documentsDirectory stringByAppendingPathComponent:userDataPlist];
+    
+}
+
 @end

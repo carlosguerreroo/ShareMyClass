@@ -12,5 +12,7 @@
 @interface MyAccountViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (weak, nonatomic) IBOutlet UILabel *firstName;
+@property (weak, nonatomic) IBOutlet UILabel *lastName;
 
 @end

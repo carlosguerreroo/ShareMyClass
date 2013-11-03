@@ -11,6 +11,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "loginViewController.h"
 #import "MessagesViewController.h"
+#define userDataPlist @"user.plist"
 
 @interface AppDelegate ()
 
@@ -112,6 +113,7 @@
                      if (!error)
                      {
                          [self registerUser:result];
+                         [self writeUserData:result];
                      }
                  }];
             
@@ -243,22 +245,14 @@
     
     //Valor del post
     NSString *postData = [NSString stringWithFormat:@"cmd=join&idAlumno=%@&nombre=%@&apellidos=%@",[userData objectForKey:@"id"], [userData objectForKey:@"first_name"],[userData objectForKey:@"last_name"]]; //Mandamos el valor
-	
-    //NSString *correctString = [NSString stringWithCString:[postData cStringUsingEncoding:NSISOLatin1StringEncoding] encoding:NSUTF8StringEncoding];
-    
-    //NSLog(@"%@",correctString);
 
 	NSString *length = [NSString stringWithFormat:@"%d", [postData length]];
 	[req setValue:length forHTTPHeaderField:@"Content-Length"];   //indicamos en nuestro paquete el tamaño de
-    //nuestros datos
-	
-   // NSLog(@" tamano: %d", postData.length); //Podemos imprimir nuestro datos para saber cuales son
     
 	[req setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]]; //Mandamos el contenido de este
     
 	NSHTTPURLResponse* urlResponse = nil; //Vemos nuestra respuesta
 	NSError *error = [[NSError alloc] init];  //creamos un parametro valor, donde nos servira mucho para
-    //debugiar algunos errores generados
 	
 	NSData *responseData = [NSURLConnection sendSynchronousRequest:req
                                                  returningResponse:&urlResponse
@@ -269,7 +263,24 @@
 
 }
 
+-(void)writeUserData:(id)userData
+{
+    NSDictionary *userDataDictionary = [[NSDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects: [userData objectForKey:@"id"],[userData objectForKey:@"first_name"],[userData objectForKey:@"last_name"], nil] forKeys:[[NSArray alloc] initWithObjects: @"id", @"first_name", @"last_name", nil]];
+    
+    NSLog(@"%@",userDataDictionary);
+    
+    [userData writeToFile:[self dataFilePath] atomically:YES];
+    
+}
 
-
+-(NSString *)dataFilePath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    return [documentsDirectory stringByAppendingPathComponent:userDataPlist];
+    
+}
 
 @end
