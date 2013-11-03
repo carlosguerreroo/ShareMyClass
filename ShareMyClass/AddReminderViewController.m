@@ -44,6 +44,8 @@
     
     [self.view addGestureRecognizer:tap];
     [self configureView];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"chalkboard"]];
+
     
 }
 

@@ -18,10 +18,6 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chalkboard.png" id="DrE-1y-3sA">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="cj8-4V-DbG">
                     <rect key="frame" x="167" y="393" width="107" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -98,7 +94,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         </view>
     </objects>
     <resources>
-        <image name="chalkboard.png" width="400" height="400"/>
         <image name="saveButton.png" width="177" height="50"/>
         <image name="textField.png" width="384" height="137"/>
     </resources>
