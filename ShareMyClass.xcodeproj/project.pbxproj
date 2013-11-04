@@ -32,6 +32,8 @@
 		FA4AE01A181F2D1E002F9D2A /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4AE019181F2D1E002F9D2A /* Reminder.m */; };
 		FA74F755181CA4D500DFC126 /* saveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74F754181CA4D500DFC126 /* saveButton.png */; };
 		FA74F759181CAA2000DFC126 /* textField.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74F758181CAA2000DFC126 /* textField.png */; };
+		FA8399381827162500DDF1EE /* MessagesGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8399361827162500DDF1EE /* MessagesGroupsViewController.m */; };
+		FA8399391827162500DDF1EE /* MessagesGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA8399371827162500DDF1EE /* MessagesGroupsViewController.xib */; };
 		FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB364DF1804410300AF7FE7 /* loginViewController.m */; };
 		FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB364E01804410300AF7FE7 /* loginViewController.xib */; };
 		FAD00F0A180399B2007996DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD00F09180399B2007996DC /* UIKit.framework */; };
@@ -83,6 +85,9 @@
 		FA4AE019181F2D1E002F9D2A /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
 		FA74F754181CA4D500DFC126 /* saveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saveButton.png; sourceTree = "<group>"; };
 		FA74F758181CAA2000DFC126 /* textField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textField.png; sourceTree = "<group>"; };
+		FA8399351827162500DDF1EE /* MessagesGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesGroupsViewController.h; sourceTree = "<group>"; };
+		FA8399361827162500DDF1EE /* MessagesGroupsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesGroupsViewController.m; sourceTree = "<group>"; };
+		FA8399371827162500DDF1EE /* MessagesGroupsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesGroupsViewController.xib; sourceTree = "<group>"; };
 		FAB364DE1804410300AF7FE7 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		FAB364DF1804410300AF7FE7 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		FAB364E01804410300AF7FE7 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
@@ -206,6 +211,9 @@
 				FA380127181C7F6800EBC2A6 /* AddReminderViewController.xib */,
 				FA4AE018181F2D1E002F9D2A /* Reminder.h */,
 				FA4AE019181F2D1E002F9D2A /* Reminder.m */,
+				FA8399351827162500DDF1EE /* MessagesGroupsViewController.h */,
+				FA8399361827162500DDF1EE /* MessagesGroupsViewController.m */,
+				FA8399371827162500DDF1EE /* MessagesGroupsViewController.xib */,
 			);
 			path = ShareMyClass;
 			sourceTree = "<group>";
@@ -279,6 +287,7 @@
 				FAD00F14180399B2007996DC /* InfoPlist.strings in Resources */,
 				FAD00F1C180399B2007996DC /* Default.png in Resources */,
 				FAD00F1E180399B2007996DC /* Default@2x.png in Resources */,
+				FA8399391827162500DDF1EE /* MessagesGroupsViewController.xib in Resources */,
 				FAFF75261819F5190045B3FE /* chalkboard.png in Resources */,
 				FAD00F20180399B2007996DC /* Default-568h@2x.png in Resources */,
 				FA41B843181C735A00D01E04 /* loginBackground.png in Resources */,
@@ -311,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA8399381827162500DDF1EE /* MessagesGroupsViewController.m in Sources */,
 				FA4AE01A181F2D1E002F9D2A /* Reminder.m in Sources */,
 				FA380128181C7F6800EBC2A6 /* AddReminderViewController.m in Sources */,
 				FAD00F16180399B2007996DC /* main.m in Sources */,

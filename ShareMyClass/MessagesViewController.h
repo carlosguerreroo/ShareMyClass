@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+@class MessagesGroupsViewController;
 
-@interface MessagesViewController : UIViewController
+@interface MessagesViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+
+@property (strong, nonatomic) MessagesGroupsViewController *messagesGroupsViewController;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObject *selectedObject;
 
 @end
