@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3400" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Courses" syncable="YES">
+        <attribute name="courseId" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="realCourseId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Reminder" syncable="YES">
         <attribute name="check" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
@@ -8,5 +13,6 @@
     </entity>
     <elements>
         <element name="Reminder" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Courses" positionX="-99" positionY="263" width="128" height="88"/>
     </elements>
 </model>
