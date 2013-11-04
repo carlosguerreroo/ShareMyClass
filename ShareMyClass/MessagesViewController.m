@@ -8,7 +8,7 @@
 
 #import "MessagesViewController.h"
 #import "MessagesGroupsViewController.h"
-
+#import "AppDelegate.h"
 @interface MessagesViewController ()
 
 @end
@@ -42,10 +42,12 @@
 -(void)viewGroups
 {
 
-    NSLog(@"View Groups");
+    //NSLog(@"View Groups");
     if(!self.messagesGroupsViewController){
         self.messagesGroupsViewController = [[MessagesGroupsViewController alloc] initWithNibName:@"MessagesGroupsViewController" bundle:nil];
     }
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.messagesGroupsViewController.managedObjectContext = appDelegate.managedObjectContext;
     
     //self.addReminderViewController.detailItem = nil;
     //self.addReminderViewController.delegateReminder = self;
