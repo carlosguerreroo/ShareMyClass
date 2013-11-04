@@ -18,6 +18,7 @@
 		1BA563A21814A8ED00A62FF8 /* NewClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA563A01814A8ED00A62FF8 /* NewClassViewController.xib */; };
 		8F55A26A1826FE9D0062871F /* AddNewClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F55A2681826FE9D0062871F /* AddNewClassViewController.m */; };
 		8F55A26B1826FE9D0062871F /* AddNewClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F55A2691826FE9D0062871F /* AddNewClassViewController.xib */; };
+		8F55A26E182712B70062871F /* HelperMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F55A26D182712B70062871F /* HelperMethods.m */; };
 		FA14085D181B517D00EFE6B9 /* message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA14085B181B517D00EFE6B9 /* message@2x.png */; };
 		FA14085E181B517D00EFE6B9 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = FA14085C181B517D00EFE6B9 /* message.png */; };
 		FA140860181B541A00EFE6B9 /* account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA14085F181B541A00EFE6B9 /* account@2x.png */; };
@@ -70,6 +71,8 @@
 		8F55A2671826FE9D0062871F /* AddNewClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewClassViewController.h; sourceTree = "<group>"; };
 		8F55A2681826FE9D0062871F /* AddNewClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewClassViewController.m; sourceTree = "<group>"; };
 		8F55A2691826FE9D0062871F /* AddNewClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNewClassViewController.xib; sourceTree = "<group>"; };
+		8F55A26C182712B70062871F /* HelperMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperMethods.h; sourceTree = "<group>"; };
+		8F55A26D182712B70062871F /* HelperMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperMethods.m; sourceTree = "<group>"; };
 		FA14085B181B517D00EFE6B9 /* message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message@2x.png"; sourceTree = "<group>"; };
 		FA14085C181B517D00EFE6B9 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
 		FA14085F181B541A00EFE6B9 /* account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account@2x.png"; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				8F55A2671826FE9D0062871F /* AddNewClassViewController.h */,
 				8F55A2681826FE9D0062871F /* AddNewClassViewController.m */,
 				8F55A2691826FE9D0062871F /* AddNewClassViewController.xib */,
+				8F55A26C182712B70062871F /* HelperMethods.h */,
+				8F55A26D182712B70062871F /* HelperMethods.m */,
 			);
 			path = ShareMyClass;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 				FA4AE01A181F2D1E002F9D2A /* Reminder.m in Sources */,
 				FA380128181C7F6800EBC2A6 /* AddReminderViewController.m in Sources */,
 				FAD00F16180399B2007996DC /* main.m in Sources */,
+				8F55A26E182712B70062871F /* HelperMethods.m in Sources */,
 				FAD00F1A180399B2007996DC /* AppDelegate.m in Sources */,
 				FAD00F23180399B3007996DC /* ViewController.m in Sources */,
 				FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */,

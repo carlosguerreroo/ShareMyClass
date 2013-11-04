@@ -7,6 +7,7 @@
 //
 
 #import "AddNewClassViewController.h"
+#import "HelperMethods.h"
 
 @interface AddNewClassViewController ()
 
@@ -46,11 +47,23 @@
 	[req setHTTPMethod:@"POST"];
 	[req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     
+    NSString *filePath = [[HelperMethods alloc] FilePath];
+    NSString *studentId;
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+    {
+        NSDictionary *dataDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+        studentId = [[NSString alloc]initWithString:[dataDictionary objectForKey:@"id"]];
+        
+    }
+
+    
+    
     NSString *className = [[NSString alloc]initWithString:self.className.text];
     NSString *classId = [[NSString alloc]initWithString:self.classId.text];
+    
     //Valor del post
-    NSString *postData = [NSString stringWithFormat:@"cmd=newcourse&nombreCurso=%@&idCursoReal=%@",className
-                          ,classId]; //Mandamos el valor
+    NSString *postData = [NSString stringWithFormat:@"cmd=newcourse&nombreCurso=%@&idCursoReal=%@&idAlumno=%@",className,classId,@"771276037"]; //Mandamos el valor
 	
 	NSString *length = [NSString stringWithFormat:@"%d", [postData length]];
 	[req setValue:length forHTTPHeaderField:@"Content-Length"];   //indicamos en nuestro paquete el tamaño de
@@ -66,10 +79,12 @@
                                                              error:&error];
     //Guardamos los parametros que obtuvimos en la respuesta
     NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding]; //Guardamos en estring
-    NSLog(@"Respueta: %@", responseString); //imprimimos lo obtenido
+    NSLog(@"Respuesta: %@", responseString);
     
-    
+    if([responseString isEqualToString:@"YES"])
+        [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
 
 - (IBAction)hideKeyboard:(id)sender {
     [self.className resignFirstResponder];
