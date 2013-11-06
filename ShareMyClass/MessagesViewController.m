@@ -30,6 +30,7 @@
     [super viewDidLoad];
 	self.title = @"Mensajes";
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action: @selector(viewGroups)]];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,15 +43,13 @@
 -(void)viewGroups
 {
 
-    //NSLog(@"View Groups");
     if(!self.messagesGroupsViewController){
         self.messagesGroupsViewController = [[MessagesGroupsViewController alloc] initWithNibName:@"MessagesGroupsViewController" bundle:nil];
     }
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    self.messagesGroupsViewController.managedObjectContext = appDelegate.managedObjectContext;
-    
     //self.addReminderViewController.detailItem = nil;
     //self.addReminderViewController.delegateReminder = self;
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.messagesGroupsViewController.managedObjectContext = appDelegate.managedObjectContext;
     
     [self.navigationController pushViewController:self.messagesGroupsViewController animated:YES];
 }

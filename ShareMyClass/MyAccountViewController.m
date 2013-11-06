@@ -93,8 +93,8 @@
     
     }
     
-    //[self.profilePicture.layer setBorderColor: [[UIColor whiteColor] CGColor]];
-   // [self.profilePicture.layer setBorderWidth: self.view.frame.size.width * .01];
+    [self.profilePicture.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [self.profilePicture.layer setBorderWidth: self.view.frame.size.width * .01];
     
 }
 
@@ -105,9 +105,6 @@
     if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
     {
         NSDictionary *dataDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
-        
-        //NSLog(@"%@",dataDictionary);
-        
         self.firstName.text = [dataDictionary objectForKey:@"first_name"];
         self.lastName.text = [dataDictionary objectForKey:@"last_name"];
 
@@ -117,9 +114,7 @@
 -(NSString *)dataFilePath
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    
     return [documentsDirectory stringByAppendingPathComponent:userDataPlist];
     
 }

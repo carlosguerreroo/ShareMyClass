@@ -11,5 +11,6 @@
 
 @interface NewClassViewController : UIViewController
 @property (strong, nonatomic) AddNewClassViewController *addNewClassViewController;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

@@ -10,13 +10,13 @@
 #import "ViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "loginViewController.h"
-#import "MessagesViewController.h"
 #define userDataPlist @"user.plist"
 
 @interface AppDelegate ()
 
 @property (strong, nonatomic) UINavigationController* navController;
 @property (strong, nonatomic) ViewController *mainViewController;
+@property (strong, nonatomic) NSMutableData *receivedData;
 
 @end
 
@@ -232,34 +232,39 @@
 
 -(void)registerUser:(id)userData
 {
-    NSURL *url = [NSURL URLWithString:@"http://192.241.224.160/ShareMyClass/ShareMyClassApi/api.php?"];
-    //URL a usar para mandar los parametros en este caso utilizo mi pagina ejemplo
     
-	NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url
-                                                       cachePolicy:NSURLRequestReloadIgnoringCacheData
-                                                   timeoutInterval:60];
-	
-	[req setHTTPMethod:@"POST"];	//indicamos que es un metodo POST
-	[req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-	//Indicamos en que formato esta lo que mandamos
+    // Do any additional setup after loading the view, typically from a nib.
+    NSURL *url = [[NSURL alloc] initWithString: @"http://192.241.224.160/ShareMyClass/ShareMyClassApi/api.php?"];
+    NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    //Valor del post
-    NSString *postData = [NSString stringWithFormat:@"cmd=join&idAlumno=%@&nombre=%@&apellidos=%@",[userData objectForKey:@"id"], [userData objectForKey:@"first_name"],[userData objectForKey:@"last_name"]]; //Mandamos el valor
+    
+    [request setHTTPMethod:@"POST"];
+    
+    // TODO: aqui debo obtener la matricula de la persona que quiero consultar
+    NSString * paramDataString = [NSString stringWithFormat:@"cmd=join&idAlumno=%@&nombre=%@&apellidos=%@",[userData objectForKey:@"id"], [userData objectForKey:@"first_name"],[userData objectForKey:@"last_name"]]; //Mandamos el valor
 
-	NSString *length = [NSString stringWithFormat:@"%d", [postData length]];
-	[req setValue:length forHTTPHeaderField:@"Content-Length"];   //indicamos en nuestro paquete el tamaño de
     
-	[req setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]]; //Mandamos el contenido de este
+    //NSLog(@" la llamada al web service %@ ", paramDataString);
     
-	NSHTTPURLResponse* urlResponse = nil; //Vemos nuestra respuesta
-	NSError *error = [[NSError alloc] init];  //creamos un parametro valor, donde nos servira mucho para
-	
-	NSData *responseData = [NSURLConnection sendSynchronousRequest:req
-                                                 returningResponse:&urlResponse
-                                                             error:&error];
-    //Guardamos los parametros que obtuvimos en la respuesta
-    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding]; //Guardamos en estring
-    NSLog(@"Respueta: %@", responseString); //imprimimos lo obtenido
+    NSData * paramData = [paramDataString dataUsingEncoding:NSUTF8StringEncoding];
+    [request setHTTPBody:paramData];
+    
+    NSURLConnection *registerConnection = [NSURLConnection connectionWithRequest:request delegate:self];
+    
+    if (registerConnection)
+    {
+        self.receivedData = [[NSMutableData alloc] init];
+    }
+    else
+    {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                         message:@"No se pudo enlazar con el servicio web!"
+                                                        delegate:nil
+                                               cancelButtonTitle:@"Ok"
+                                               otherButtonTitles:nil];
+        [alert show];
+    }
+
 
 }
 
@@ -269,7 +274,7 @@
     
     NSLog(@"%@",userDataDictionary);
     
-    [userData writeToFile:[self dataFilePath] atomically:YES];
+    [userDataDictionary writeToFile:[self dataFilePath] atomically:YES];
     
 }
 
@@ -281,6 +286,41 @@
     
     return [documentsDirectory stringByAppendingPathComponent:userDataPlist];
     
+}
+
+#pragma mark NSURLConnection
+- (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse * )response
+{
+	[self.receivedData setLength:0];
+}
+
+- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+	[self.receivedData appendData:data];
+}
+
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    self.receivedData = nil;
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                     message:[NSString stringWithFormat:
+                                                              @"No se pudo crear la conexión - %@",
+                                                              [error localizedDescription]]
+                                                    delegate:self
+                                           cancelButtonTitle:@"Ok"
+                                           otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection
+{
+	NSString *infoRecibidaString = [[NSString alloc] initWithData: self.receivedData
+                                                         encoding:NSUTF8StringEncoding];
+    
+    NSLog(@" recibo %@", infoRecibidaString);
+    
+    infoRecibidaString = nil;
+    self.receivedData = nil;
 }
 
 @end

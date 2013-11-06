@@ -11,6 +11,8 @@
 
 @interface MessagesGroupsViewController ()
 
+//@property (strong, nonatomic)
+
 @end
 
 @implementation MessagesGroupsViewController
@@ -22,15 +24,6 @@
     if (self)
     {
         
-        NSString *filePath = [self dataFilePath];
-        
-        if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
-        {
-            NSDictionary *dataDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
-            
-            [self getCourses:[dataDictionary objectForKey:@"id"]];
-            
-        }
         
     }
     return self;
@@ -54,6 +47,30 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    NSString *filePath = [self dataFilePath];
+    
+    if(self.managedObjectContext == nil)
+    {
+        NSLog(@"Es null");
+    }
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+    {
+        NSDictionary *dataDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+        
+        [self getCourses:[dataDictionary objectForKey:@"id"]];
+        
+    }
+    
+    for(NSManagedObject *object in  [self.fetchedResultsController fetchedObjects])
+    {
+        
+        NSLog(@"%@",[[object valueForKey:@"courseId"] description]);
+        
+        
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,15 +117,15 @@
     for (NSDictionary *course in jsonCourses)
     {
     
-        NSLog(@"%@",[course objectForKey:@"idCursoReal"]);
+        //NSLog(@"%@",[course objectForKey:@"idCursoReal"]);
+        [self inserNewCourseWithCourseId: [NSNumber numberWithInteger: [[course objectForKey:@"idCurso"] intValue]] realCourseid:[course objectForKey:@"idCursoReal"] andName:[course objectForKey:@"nombreCurso"]];
     }
+    // ;
+//[[object valueForKey:@"courseName"] description]
     
+   
 
 }
-
-
-
-
 
 #pragma mark - Table view data source
 
@@ -191,9 +208,11 @@
 }
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    //NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    //cell.textLabel.text = [[object valueForKey:@"courseName"] description];
-    //cell.detailTextLabel.text = [[object valueForKey:@"realCourseId"] description];
+    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [[object valueForKey:@"courseName"] description];
+    cell.detailTextLabel.text = [[object valueForKey:@"realCourseId"] description];
+    
+
 }
 
 
@@ -286,7 +305,7 @@
     [self.tableView endUpdates];
 }
 
--(void)inserNewCourseWithCourseId:(NSString*)courseId realCourseid:(NSString*) realCourseId andName:(NSString*)name{
+-(void)inserNewCourseWithCourseId:(NSNumber*)courseId realCourseid:(NSString*) realCourseId andName:(NSString*)name{
 
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
@@ -294,7 +313,7 @@
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue: courseId forKey:@"courseId"];
+    [newManagedObject setValue: courseId  forKey:@"courseId"];
     [newManagedObject setValue: realCourseId forKey:@"realCourseId"];
     [newManagedObject setValue: name forKey:@"courseName"];
     
@@ -307,9 +326,6 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-
-
-
 }
 
 

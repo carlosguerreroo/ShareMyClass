@@ -11,6 +11,8 @@
 
 @interface AddNewClassViewController ()
 
+@property(strong, nonatomic)NSMutableData *receivedData;
+
 @end
 
 @implementation AddNewClassViewController
@@ -28,7 +30,8 @@
 {
     [super viewDidLoad];
     self.title=@"Agregar clase";
-    // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"chalkboard"]];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,58 +40,99 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)addNewClass:(id)sender {
+- (IBAction)addNewClass:(id)sender
+{
+    [self registerClass];
+}
+
+
+- (IBAction)hideKeyboard:(id)sender
+{
+    [self.className resignFirstResponder];
+    [self.classId resignFirstResponder];
+
+}
+
+#pragma mark NSURLConnection
+- (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse * )response
+{
+	[self.receivedData setLength:0];
+}
+
+- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+	[self.receivedData appendData:data];
+}
+
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    self.receivedData = nil;
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                     message:[NSString stringWithFormat:
+                                                              @"No se pudo crear la conexión - %@",
+                                                              [error localizedDescription]]
+                                                    delegate:self
+                                           cancelButtonTitle:@"Ok"
+                                           otherButtonTitles:nil];
+    [alert show];
+}
+
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection
+{
+	NSString *infoRecibidaString = [[NSString alloc] initWithData: self.receivedData
+                                                         encoding:NSUTF8StringEncoding];
     
-    NSURL *url = [NSURL URLWithString:@"http://192.241.224.160/ShareMyClass/ShareMyClassApi/api.php?"];
-	NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url
-                                                       cachePolicy:NSURLRequestReloadIgnoringCacheData
-                                                   timeoutInterval:60];
-	
-	[req setHTTPMethod:@"POST"];
-	[req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    if([infoRecibidaString isEqualToString:@"YES"]){
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    infoRecibidaString = nil;
+    self.receivedData = nil;
+}
+
+
+-(void)registerClass{
+   
+    NSURL *url = [[NSURL alloc] initWithString: @"http://192.241.224.160/ShareMyClass/ShareMyClassApi/api.php?"];
+    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
     
-    NSString *filePath = [[HelperMethods alloc] FilePath];
+    
+    [req setHTTPMethod:@"POST"];
+    
+    NSString *filePath = [[HelperMethods alloc] dataFilePath];
     NSString *studentId;
     
     if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
     {
         NSDictionary *dataDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
         studentId = [[NSString alloc]initWithString:[dataDictionary objectForKey:@"id"]];
-        
     }
-
-    
     
     NSString *className = [[NSString alloc]initWithString:self.className.text];
     NSString *classId = [[NSString alloc]initWithString:self.classId.text];
+
+    // TODO: aqui debo obtener la matricula de la persona que quiero consultar
+    NSString * paramDataString = [NSString stringWithFormat:@"cmd=newcourse&nombreCurso=%@&idCursoReal=%@&idAlumno=%@",className,classId,studentId];
+    //NSLog(@" la llamada al web service %@ ", paramDataString);
     
-    //Valor del post
-    NSString *postData = [NSString stringWithFormat:@"cmd=newcourse&nombreCurso=%@&idCursoReal=%@&idAlumno=%@",className,classId,@"771276037"]; //Mandamos el valor
-	
-	NSString *length = [NSString stringWithFormat:@"%d", [postData length]];
-	[req setValue:length forHTTPHeaderField:@"Content-Length"];   //indicamos en nuestro paquete el tamaño de
-    //nuestros datos
-	[req setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]]; //Mandamos el contenido de este
+    NSData * paramData = [paramDataString dataUsingEncoding:NSUTF8StringEncoding];
+    [req setHTTPBody:paramData];
     
-	NSHTTPURLResponse* urlResponse = nil; //Vemos nuestra respuesta
-	NSError *error = [[NSError alloc] init];  //creamos un parametro valor, donde nos servira mucho para
-    //debugiar algunos errores generados
-	
-	NSData *responseData = [NSURLConnection sendSynchronousRequest:req
-                                                 returningResponse:&urlResponse
-                                                             error:&error];
-    //Guardamos los parametros que obtuvimos en la respuesta
-    NSString *responseString = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding]; //Guardamos en estring
-    NSLog(@"Respuesta: %@", responseString);
+    NSURLConnection *theConnection = [NSURLConnection connectionWithRequest:req delegate:self];
     
-    if([responseString isEqualToString:@"YES"])
-        [self.navigationController popToRootViewControllerAnimated:YES];
+    if (theConnection)
+    {
+        self.receivedData = [[NSMutableData alloc] init];
+    }
+    else
+    {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                         message:@"No se pudo enlazar con el servicio web!"
+                                                        delegate:nil
+                                               cancelButtonTitle:@"Ok"
+                                            otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
-
-- (IBAction)hideKeyboard:(id)sender {
-    [self.className resignFirstResponder];
-    [self.classId resignFirstResponder];
-
-}
 @end
