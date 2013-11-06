@@ -15,9 +15,10 @@
 @property (nonatomic, strong) NSMutableData* receivedData;
 @property (nonatomic, strong) NSArray* courses;
 @property (nonatomic, strong) NSArray* searchResults;
+@property (nonatomic) NSInteger selectedCourse;
 
 -(void)remainingCourses;
-
+-(void)joinToCourse;
 
 @end
 
@@ -85,24 +86,35 @@
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
     //NSLog(@"%@",connection.originalRequest.URL);
-    
-    if([[connection.originalRequest.URL absoluteString ] isEqualToString:@"http://192.241.224.160/ShareMyClass/ShareMyClassApi/api.php?"]){
-    
+    NSString *body = [[[NSString alloc] initWithData: connection.originalRequest.HTTPBody
+                                                         encoding:NSUTF8StringEncoding] substringToIndex:23];
+   
+    if([body isEqualToString:@"cmd=getremainingcourses"])
+    {
         NSError *error = [[NSError alloc] init];  //creamos un parametro valor, donde nos servira mucho para
         NSArray *jsonCourses = [NSJSONSerialization JSONObjectWithData:self.receivedData options:kNilOptions error:&error];
         self.courses = jsonCourses;
         [self.tableView reloadData];
         //NSLog(@"%@",jsonCourses);
+        self.receivedData = nil;
+        
     }else{
-    
-    
-    
+        
+        if([[[NSString alloc ]initWithData: self.receivedData encoding:NSUTF8StringEncoding] isEqualToString:@"YES"])
+        {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+
+        }
+        
+        self.receivedData = nil;
+        [self remainingCourses];
     }
-    self.receivedData = nil;
+    
 }
 
 
--(void)remainingCourses{
+-(void)remainingCourses
+{
     
     NSLog(@"remainingCourses");
     NSURL *url = [[NSURL alloc] initWithString: @"http://192.241.224.160/ShareMyClass/ShareMyClassApi/api.php?"];
@@ -123,6 +135,48 @@
     
     // TODO: aqui debo obtener la matricula de la persona que quiero consultar
     NSString * paramDataString = [NSString stringWithFormat:@"cmd=getremainingcourses&idAlumno=%@", studentId];
+    //NSLog(@" la llamada al web service %@ ", paramDataString);
+    
+    NSData * paramData = [paramDataString dataUsingEncoding:NSUTF8StringEncoding];
+    [req setHTTPBody:paramData];
+    
+    NSURLConnection *theConnection = [NSURLConnection connectionWithRequest:req delegate:self];
+    
+    if (theConnection)
+    {
+        self.receivedData = [[NSMutableData alloc] init];
+    }else {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                         message:@"No se pudo enlazar con el servicio web!"
+                                                        delegate:nil
+                                               cancelButtonTitle:@"Ok"
+                                               otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+-(void)joinToCourse
+{
+    
+    NSLog(@"joinToCourse");
+    NSURL *url = [[NSURL alloc] initWithString: @"http://192.241.224.160/ShareMyClass/ShareMyClassApi/api.php?"];
+    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    
+    [req setHTTPMethod:@"POST"];
+    
+    NSString *filePath = [[HelperMethods alloc] dataFilePath];
+    NSString *studentId;
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+    {
+        NSDictionary *dataDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+        studentId = [[NSString alloc]initWithString:[dataDictionary objectForKey:@"id"]];
+    }
+    
+    
+    // TODO: aqui debo obtener la matricula de la persona que quiero consultar
+    NSString * paramDataString = [NSString stringWithFormat:@"cmd=joincourse&idAlumno=%@&idCurso=%d", studentId,self.selectedCourse];
     //NSLog(@" la llamada al web service %@ ", paramDataString);
     
     NSData * paramData = [paramDataString dataUsingEncoding:NSUTF8StringEncoding];
@@ -194,6 +248,8 @@
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Estas a punto de suscribirte al curso de:" message:[NSString stringWithFormat:@"%@",[[[tableView cellForRowAtIndexPath:indexPath] textLabel] text]] delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles: @"Aceptar",nil];
     
+    self.selectedCourse = [[[self.courses objectAtIndex:[indexPath row]] objectForKey:@"idCurso"] integerValue];
+    
     [alert show];
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -225,7 +281,8 @@
 {
     if(buttonIndex == 1)
     {
-        NSLog(@"Register User");
+        //NSLog(@"Register User");
+        [self joinToCourse];
     }
 }
 @end
