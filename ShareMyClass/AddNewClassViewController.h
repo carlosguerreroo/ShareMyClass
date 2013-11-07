@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "NewClassViewController.h"
 
-@interface AddNewClassViewController : UIViewController
+@interface AddNewClassViewController : UIViewController <NSFetchedResultsControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *className;
 @property (weak, nonatomic) IBOutlet UITextField *classId;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObject *selectedObject;
+
 - (IBAction)addNewClass:(id)sender;
 - (IBAction)hideKeyboard:(id)sender;
 

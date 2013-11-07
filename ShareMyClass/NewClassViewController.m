@@ -9,13 +9,14 @@
 #import "NewClassViewController.h"
 #import "AddNewClassViewController.h"
 #import "HelperMethods.h"
+#import "AppDelegate.h"
 
 @interface NewClassViewController ()
 
 @property (nonatomic, strong) NSMutableData* receivedData;
 @property (nonatomic, strong) NSArray* courses;
 @property (nonatomic, strong) NSArray* searchResults;
-@property (nonatomic) NSInteger selectedCourse;
+@property (nonatomic) NSDictionary *selectedCourse;
 
 -(void)remainingCourses;
 -(void)joinToCourse;
@@ -50,6 +51,8 @@
     
     self.addNewClassViewController.className.text = @"";
     self.addNewClassViewController.classId.text = @"";
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.addNewClassViewController.managedObjectContext = appDelegate.managedObjectContext;
     [self.navigationController pushViewController:self.addNewClassViewController animated:YES];
     
 }
@@ -103,7 +106,10 @@
         if([[[NSString alloc ]initWithData: self.receivedData encoding:NSUTF8StringEncoding] isEqualToString:@"YES"])
         {
             [self.navigationController popToRootViewControllerAnimated:YES];
-
+            [self inserNewCourseWithCourseId:[NSNumber numberWithInteger:[[self.selectedCourse objectForKey:@"idCurso"] integerValue]]
+                                realCourseid:[self.selectedCourse objectForKey:@"idCursoReal"]
+                                     andName:[self.selectedCourse objectForKey:@"nombreCurso"]];
+            NSLog(@"SEND");
         }
         
         self.receivedData = nil;
@@ -176,7 +182,7 @@
     
     
     // TODO: aqui debo obtener la matricula de la persona que quiero consultar
-    NSString * paramDataString = [NSString stringWithFormat:@"cmd=joincourse&idAlumno=%@&idCurso=%d", studentId,self.selectedCourse];
+    NSString * paramDataString = [NSString stringWithFormat:@"cmd=joincourse&idAlumno=%@&idCurso=%@", studentId,[self.selectedCourse objectForKey:@"idCurso"]];
     //NSLog(@" la llamada al web service %@ ", paramDataString);
     
     NSData * paramData = [paramDataString dataUsingEncoding:NSUTF8StringEncoding];
@@ -248,8 +254,9 @@
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Estas a punto de suscribirte al curso de:" message:[NSString stringWithFormat:@"%@",[[[tableView cellForRowAtIndexPath:indexPath] textLabel] text]] delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles: @"Aceptar",nil];
     
-    self.selectedCourse = [[[self.courses objectAtIndex:[indexPath row]] objectForKey:@"idCurso"] integerValue];
-    
+    //self.selectedCourse = [[[self.courses objectAtIndex:[indexPath row]] objectForKey:@"idCurso"] integerValue];
+    self.selectedCourse =  [self.courses objectAtIndex:[indexPath row]];
+
     [alert show];
 }
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -285,4 +292,65 @@
         [self joinToCourse];
     }
 }
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    // Edit the entity name as appropriate.
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Courses" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Set the batch size to a suitable number.
+    [fetchRequest setFetchBatchSize:20];
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"courseId" ascending:NO];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    aFetchedResultsController.delegate = self;
+    self.fetchedResultsController = aFetchedResultsController;
+    
+	NSError *error = nil;
+	if (![self.fetchedResultsController performFetch:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	    abort();
+	}
+    
+    return _fetchedResultsController;
+}
+
+-(void)inserNewCourseWithCourseId:(NSNumber*)courseId realCourseid:(NSString*) realCourseId andName:(NSString*)name{
+    
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    
+    // If appropriate, configure the new managed object.
+    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
+    [newManagedObject setValue: courseId  forKey:@"courseId"];
+    [newManagedObject setValue: realCourseId forKey:@"realCourseId"];
+    [newManagedObject setValue: name forKey:@"courseName"];
+    NSLog(@"%@%@%@",courseId, realCourseId,name);
+    
+    // Save the context.
+    NSError *error = nil;
+    if (![context save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+}
+
+
 @end

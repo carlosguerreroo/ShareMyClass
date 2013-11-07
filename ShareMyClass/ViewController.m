@@ -51,6 +51,8 @@
 			if(!self.NewClassViewController)
 			{
 				self.NewClassViewController = [[NewClassViewController alloc] initWithNibName:@"NewClassViewController" bundle:nil];
+                AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                self.NewClassViewController.managedObjectContext = appDelegate.managedObjectContext;
 			}
             
             [self.navigationController pushViewController:self.NewClassViewController animated:YES];
@@ -72,7 +74,6 @@
                 
                 AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
                 self.RemindersViewController.managedObjectContext = appDelegate.managedObjectContext;
-                
 			}
             
             [self.navigationController pushViewController:self.RemindersViewController animated:YES];

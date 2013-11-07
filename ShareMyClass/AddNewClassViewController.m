@@ -42,7 +42,10 @@
 
 - (IBAction)addNewClass:(id)sender
 {
-    [self registerClass];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Estas a punto de crear y suscribirte al curso de:" message:[NSString stringWithFormat:@"%@",self.className.text] delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles: @"Aceptar",nil];
+    
+    [alert show];
+    
 }
 
 
@@ -82,9 +85,11 @@
 	NSString *infoRecibidaString = [[NSString alloc] initWithData: self.receivedData
                                                          encoding:NSUTF8StringEncoding];
     
-    if([infoRecibidaString isEqualToString:@"YES"]){
+    if([infoRecibidaString  integerValue])
+    {
         
         [self.navigationController popToRootViewControllerAnimated:YES];
+        [self inserNewCourseWithCourseId:[NSNumber numberWithInteger:[infoRecibidaString  integerValue]] realCourseid:self.classId.text andName:self.className.text];
     }
     infoRecibidaString = nil;
     self.receivedData = nil;
@@ -132,6 +137,76 @@
                                                cancelButtonTitle:@"Ok"
                                             otherButtonTitles:nil];
         [alert show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {
+        [self registerClass];
+
+    }
+}
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    // Edit the entity name as appropriate.
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Courses" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Set the batch size to a suitable number.
+    [fetchRequest setFetchBatchSize:20];
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"courseId" ascending:NO];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    aFetchedResultsController.delegate = self;
+    self.fetchedResultsController = aFetchedResultsController;
+    
+	NSError *error = nil;
+	if (![self.fetchedResultsController performFetch:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	    abort();
+	}
+    
+    return _fetchedResultsController;
+}
+
+-(void)inserNewCourseWithCourseId:(NSNumber*)courseId realCourseid:(NSString*) realCourseId andName:(NSString*)name{
+    
+    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
+    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    
+    // If appropriate, configure the new managed object.
+    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
+    [newManagedObject setValue: courseId  forKey:@"courseId"];
+    [newManagedObject setValue: realCourseId forKey:@"realCourseId"];
+    [newManagedObject setValue: name forKey:@"courseName"];
+    
+    NSLog(@"%@%@%@",courseId, realCourseId,name);
+
+    // Save the context.
+    NSError *error = nil;
+    if (![context save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
     }
 }
 
