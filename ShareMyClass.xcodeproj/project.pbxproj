@@ -33,6 +33,8 @@
 		FA41B842181C735A00D01E04 /* fb_button.png in Resources */ = {isa = PBXBuildFile; fileRef = FA41B840181C735900D01E04 /* fb_button.png */; };
 		FA41B843181C735A00D01E04 /* loginBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = FA41B841181C735A00D01E04 /* loginBackground.png */; };
 		FA4AE01A181F2D1E002F9D2A /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4AE019181F2D1E002F9D2A /* Reminder.m */; };
+		FA4F3D54182C56F400513843 /* MessagesStudentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4F3D52182C56F400513843 /* MessagesStudentsViewController.m */; };
+		FA4F3D55182C56F400513843 /* MessagesStudentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4F3D53182C56F400513843 /* MessagesStudentsViewController.xib */; };
 		FA74F755181CA4D500DFC126 /* saveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74F754181CA4D500DFC126 /* saveButton.png */; };
 		FA74F759181CAA2000DFC126 /* textField.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74F758181CAA2000DFC126 /* textField.png */; };
 		FA8399381827162500DDF1EE /* MessagesGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8399361827162500DDF1EE /* MessagesGroupsViewController.m */; };
@@ -91,6 +93,9 @@
 		FA41B841181C735A00D01E04 /* loginBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginBackground.png; sourceTree = "<group>"; };
 		FA4AE018181F2D1E002F9D2A /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
 		FA4AE019181F2D1E002F9D2A /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
+		FA4F3D51182C56F400513843 /* MessagesStudentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesStudentsViewController.h; sourceTree = "<group>"; };
+		FA4F3D52182C56F400513843 /* MessagesStudentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesStudentsViewController.m; sourceTree = "<group>"; };
+		FA4F3D53182C56F400513843 /* MessagesStudentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesStudentsViewController.xib; sourceTree = "<group>"; };
 		FA74F754181CA4D500DFC126 /* saveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saveButton.png; sourceTree = "<group>"; };
 		FA74F758181CAA2000DFC126 /* textField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textField.png; sourceTree = "<group>"; };
 		FA8399351827162500DDF1EE /* MessagesGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesGroupsViewController.h; sourceTree = "<group>"; };
@@ -227,6 +232,9 @@
 				FA8399351827162500DDF1EE /* MessagesGroupsViewController.h */,
 				FA8399361827162500DDF1EE /* MessagesGroupsViewController.m */,
 				FA8399371827162500DDF1EE /* MessagesGroupsViewController.xib */,
+				FA4F3D51182C56F400513843 /* MessagesStudentsViewController.h */,
+				FA4F3D52182C56F400513843 /* MessagesStudentsViewController.m */,
+				FA4F3D53182C56F400513843 /* MessagesStudentsViewController.xib */,
 			);
 			path = ShareMyClass;
 			sourceTree = "<group>";
@@ -322,6 +330,7 @@
 				FA74F755181CA4D500DFC126 /* saveButton.png in Resources */,
 				FAFF75291819F7BA0045B3FE /* NavBar-Wood.png in Resources */,
 				1BA563A21814A8ED00A62FF8 /* NewClassViewController.xib in Resources */,
+				FA4F3D55182C56F400513843 /* MessagesStudentsViewController.xib in Resources */,
 				8F55A26B1826FE9D0062871F /* AddNewClassViewController.xib in Resources */,
 				FA14085D181B517D00EFE6B9 /* message@2x.png in Resources */,
 			);
@@ -341,6 +350,7 @@
 				8F55A26E182712B70062871F /* HelperMethods.m in Sources */,
 				FAD00F1A180399B2007996DC /* AppDelegate.m in Sources */,
 				FAD00F23180399B3007996DC /* ViewController.m in Sources */,
+				FA4F3D54182C56F400513843 /* MessagesStudentsViewController.m in Sources */,
 				FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */,
 				1BA5638D18149C3300A62FF8 /* MessagesViewController.m in Sources */,
 				FA41B839181C64E300D01E04 /* ShareMyClassData.xcdatamodeld in Sources */,

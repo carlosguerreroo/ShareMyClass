@@ -186,13 +186,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   // if (!self.addReminderViewController) {
-   //     self.addReminderViewController = [[AddReminderViewController alloc] initWithNibName:@"AddReminderViewController" bundle:nil];
-   // }
-   // self.selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-   // self.addReminderViewController.detailItem = self.selectedObject;
-   // self.addReminderViewController.delegateReminder = self;
-   // [self.navigationController pushViewController:self.addReminderViewController animated:YES];
+   if (!self.messagesStudentsViewController)
+   {
+        self.messagesStudentsViewController = [[MessagesStudentsViewController alloc] initWithNibName:@"MessagesStudentsViewController" bundle:nil];
+   }
+    self.messagesStudentsViewController.selectedCourse = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+   // NSLog([self.messagesStudentsViewController ] )
+    //.selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    // self.addReminderViewController.detailItem = self.selectedObject;
+   [self.navigationController pushViewController:self.messagesStudentsViewController animated:YES];
 }
 
 #pragma mark - Data Methods

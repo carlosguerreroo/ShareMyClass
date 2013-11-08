@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSMutableData* receivedData;
 @property (nonatomic, strong) NSArray* courses;
 @property (nonatomic, strong) NSArray* searchResults;
-@property (nonatomic) NSDictionary *selectedCourse;
+@property (nonatomic, strong) NSDictionary *selectedCourse;
 
 -(void)remainingCourses;
 -(void)joinToCourse;
