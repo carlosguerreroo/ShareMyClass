@@ -13,6 +13,8 @@
 @interface MessagesInterfaceViewController : UIViewController <UIBubbleTableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIView *textInputView;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIBubbleTableView *bubbleTable;
+- (IBAction)sendMessage:(id)sender;
 
 @end

@@ -32,6 +32,10 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"chalkboard"]];
+    
+    self.textInputView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"sendBar"]];
+
+    
     NSBubbleData *heyBubble = [NSBubbleData dataWithText:@"Hey, halloween is soon" date:[NSDate dateWithTimeIntervalSinceNow:-300] type:BubbleTypeSomeoneElse];
     heyBubble.avatar = [UIImage imageNamed:@"missingAvatar"];
     
@@ -98,6 +102,12 @@
         frame.size.height += kbSize.height;
         self.bubbleTable.frame = frame;
     }];
+}
+
+- (IBAction)sendMessage:(id)sender
+{
+    NSLog(@"Send");
+    [self.textField resignFirstResponder];
 }
 
 @end

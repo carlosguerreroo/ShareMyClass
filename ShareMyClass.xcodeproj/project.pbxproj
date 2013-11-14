@@ -35,6 +35,8 @@
 		FA4AE01A181F2D1E002F9D2A /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4AE019181F2D1E002F9D2A /* Reminder.m */; };
 		FA4F3D54182C56F400513843 /* MessagesStudentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4F3D52182C56F400513843 /* MessagesStudentsViewController.m */; };
 		FA4F3D55182C56F400513843 /* MessagesStudentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4F3D53182C56F400513843 /* MessagesStudentsViewController.xib */; };
+		FA6F00781834752100325D65 /* sendBar.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6F00771834752100325D65 /* sendBar.png */; };
+		FA6F007A18347AC800325D65 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6F007918347AC800325D65 /* navBar.png */; };
 		FA74F755181CA4D500DFC126 /* saveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74F754181CA4D500DFC126 /* saveButton.png */; };
 		FA74F759181CAA2000DFC126 /* textField.png in Resources */ = {isa = PBXBuildFile; fileRef = FA74F758181CAA2000DFC126 /* textField.png */; };
 		FA8399381827162500DDF1EE /* MessagesGroupsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8399361827162500DDF1EE /* MessagesGroupsViewController.m */; };
@@ -113,6 +115,8 @@
 		FA4F3D51182C56F400513843 /* MessagesStudentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesStudentsViewController.h; sourceTree = "<group>"; };
 		FA4F3D52182C56F400513843 /* MessagesStudentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesStudentsViewController.m; sourceTree = "<group>"; };
 		FA4F3D53182C56F400513843 /* MessagesStudentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesStudentsViewController.xib; sourceTree = "<group>"; };
+		FA6F00771834752100325D65 /* sendBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sendBar.png; sourceTree = "<group>"; };
+		FA6F007918347AC800325D65 /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
 		FA74F754181CA4D500DFC126 /* saveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saveButton.png; sourceTree = "<group>"; };
 		FA74F758181CAA2000DFC126 /* textField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textField.png; sourceTree = "<group>"; };
 		FA8399351827162500DDF1EE /* MessagesGroupsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesGroupsViewController.h; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				FA14085B181B517D00EFE6B9 /* message@2x.png */,
 				FA14085C181B517D00EFE6B9 /* message.png */,
 				FAFF75251819F5190045B3FE /* chalkboard.png */,
+				FA6F007918347AC800325D65 /* navBar.png */,
 				FA140862181B54BF00EFE6B9 /* course@2x.png */,
 				FA74F758181CAA2000DFC126 /* textField.png */,
 				FAFF75281819F7BA0045B3FE /* NavBar-Wood.png */,
@@ -197,6 +202,7 @@
 				FA41B841181C735A00D01E04 /* loginBackground.png */,
 				FA140865181B54E900EFE6B9 /* reminder.png */,
 				FA140866181B54E900EFE6B9 /* reminder@2x.png */,
+				FA6F00771834752100325D65 /* sendBar.png */,
 				FA140869181B55DD00EFE6B9 /* course.png */,
 				1BA563761814965500A62FF8 /* pizarron.jpg */,
 				FA14085F181B541A00EFE6B9 /* account@2x.png */,
@@ -394,6 +400,7 @@
 				FAEF0C8C1831FE980020FD3F /* bubbleMine@2x.png in Resources */,
 				FAD00F1E180399B2007996DC /* Default@2x.png in Resources */,
 				FA8399391827162500DDF1EE /* MessagesGroupsViewController.xib in Resources */,
+				FA6F00781834752100325D65 /* sendBar.png in Resources */,
 				FAFF75261819F5190045B3FE /* chalkboard.png in Resources */,
 				FAEF0C8E1831FE980020FD3F /* bubbleSomeone@2x.png in Resources */,
 				FAEF0C941831FE980020FD3F /* typingSomeone@2x.png in Resources */,
@@ -403,6 +410,7 @@
 				FAD00F26180399B3007996DC /* ViewController.xib in Resources */,
 				FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */,
 				FAEF0C921831FE980020FD3F /* typingMine@2x.png in Resources */,
+				FA6F007A18347AC800325D65 /* navBar.png in Resources */,
 				FA140868181B54E900EFE6B9 /* reminder@2x.png in Resources */,
 				1BA563771814965500A62FF8 /* pizarron.jpg in Resources */,
 				FAD898FF181B0C500058FEBB /* account.png in Resources */,
