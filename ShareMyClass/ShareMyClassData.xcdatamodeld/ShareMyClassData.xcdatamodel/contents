@@ -5,14 +5,25 @@
         <attribute name="courseName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="realCourseId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Message" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="from" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="messages" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Reminder" syncable="YES">
         <attribute name="check" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Student" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Reminder" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Courses" positionX="-99" positionY="263" width="128" height="88"/>
+        <element name="Courses" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Message" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Reminder" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Student" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

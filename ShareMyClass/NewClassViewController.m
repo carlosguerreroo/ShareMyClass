@@ -88,7 +88,6 @@
 
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    //NSLog(@"%@",connection.originalRequest.URL);
     NSString *body = [[[NSString alloc] initWithData: connection.originalRequest.HTTPBody
                                                          encoding:NSUTF8StringEncoding] substringToIndex:23];
    
@@ -98,7 +97,6 @@
         NSArray *jsonCourses = [NSJSONSerialization JSONObjectWithData:self.receivedData options:kNilOptions error:&error];
         self.courses = jsonCourses;
         [self.tableView reloadData];
-        //NSLog(@"%@",jsonCourses);
         self.receivedData = nil;
         
     }else{
@@ -109,7 +107,6 @@
             [self inserNewCourseWithCourseId:[NSNumber numberWithInteger:[[self.selectedCourse objectForKey:@"idCurso"] integerValue]]
                                 realCourseid:[self.selectedCourse objectForKey:@"idCursoReal"]
                                      andName:[self.selectedCourse objectForKey:@"nombreCurso"]];
-            NSLog(@"SEND");
         }
         
         self.receivedData = nil;

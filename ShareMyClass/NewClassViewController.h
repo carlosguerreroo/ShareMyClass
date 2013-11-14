@@ -12,6 +12,7 @@
 @class AddNewClassViewController;
 
 @interface NewClassViewController : UIViewController  <NSFetchedResultsControllerDelegate>
+
 @property (strong, nonatomic) AddNewClassViewController *addNewClassViewController;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
