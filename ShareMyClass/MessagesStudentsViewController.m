@@ -7,6 +7,7 @@
 //
 
 #import "MessagesStudentsViewController.h"
+#import "HelperMethods.h"
 
 @interface MessagesStudentsViewController ()
 
@@ -32,7 +33,22 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSLog(@"sdf%@",[self.selectedCourse valueForKey:@"courseId"]);
+
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+
+    NSString *filePath = [[HelperMethods alloc] dataFilePath];
+    NSString *studentId;
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
+    {
+        NSDictionary *dataDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
+        studentId = [[NSString alloc]initWithString:[dataDictionary objectForKey:@"id"]];
+        [self getStudentsFromCourse:[self.selectedCourse valueForKey:@"courseId"] andStudentId:studentId];
+        
+    }
 
 }
 
@@ -64,7 +80,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
+
+    cell.textLabel.text = [[self.students objectAtIndex:[indexPath row]] objectForKey:@"nombre"];
     
     return cell;
 }
@@ -108,7 +125,7 @@
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
@@ -116,15 +133,14 @@
 {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    MessagesInterfaceViewController *messagesInterfaceViewController = [[MessagesInterfaceViewController alloc] initWithNibName:@"MessagesInterfaceViewController" bundle:nil];
 
     // Pass the selected object to the new view controller.
     
     // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    [self.navigationController pushViewController:messagesInterfaceViewController animated:YES];
 }
  
- */
 
 #pragma mark NSURLConnection
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse * )response
@@ -157,13 +173,29 @@
     NSError *error = [[NSError alloc] init];  //creamos un parametro valor, donde nos servira mucho para
 
     NSArray *jsonCourses = [NSJSONSerialization JSONObjectWithData:self.receivedData options:kNilOptions error:&error];
+    
+    self.students = jsonCourses;
+    [self.tableView reloadData];
 
-    NSLog(@" recibo %@", jsonCourses);
+
+    NSLog(@" recibo %d", jsonCourses.count);
+    
+    if(![jsonCourses count])
+    {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                         message:@"Este grupo no contiene alumnos a quien enviarle mensajes"
+                                                        delegate:self
+                                               cancelButtonTitle:@"Ok"
+                                               otherButtonTitles:nil];
+        [alert show];
+    
+    }
+    
     
     self.receivedData = nil;
 }
 
--(void)getStudentsFromCourse:(NSString *)courseId
+-(void)getStudentsFromCourse:(NSString *)courseId andStudentId:(NSString*)studentId
 {
 
 
@@ -175,8 +207,8 @@
     [req setHTTPMethod:@"POST"];
     
     // TODO: aqui debo obtener la matricula de la persona que quiero consultar
-    NSString * paramDataString = [NSString stringWithFormat:@"cmd=joincourse&idCurso=%@", [self.selectedCourse valueForKey:@"courseId"]];
-    //NSLog(@" la llamada al web service %@ ", paramDataString);
+    NSString * paramDataString = [NSString stringWithFormat:@"cmd=getstudentsfromcourse&idCurso=%@&idAlumno=%@",courseId,studentId];
+    NSLog(@" la llamada al web service %@ ", paramDataString);
     
     NSData * paramData = [paramDataString dataUsingEncoding:NSUTF8StringEncoding];
     [req setHTTPBody:paramData];
@@ -197,6 +229,15 @@
     
 }
 
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        NSLog(@"Back");
+      [self.navigationController popViewControllerAnimated:YES];
+       
+    }
+}
 
 
 @end
