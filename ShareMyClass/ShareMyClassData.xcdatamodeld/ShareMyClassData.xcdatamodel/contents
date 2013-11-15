@@ -8,7 +8,8 @@
     <entity name="Message" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="from" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="messages" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="to" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Reminder" syncable="YES">
         <attribute name="check" optional="YES" attributeType="Boolean" syncable="YES"/>

@@ -15,9 +15,6 @@
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSManagedObject *selectedObject;
-
 @property (strong, nonatomic)MessagesStudentsViewController *messagesStudentsViewController;
-
-
 
 @end

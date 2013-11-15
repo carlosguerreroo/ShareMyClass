@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FacebookSDK/FacebookSDK.h>
+
 #define userDataPlist @"user.plist"
 
 @interface HelperMethods : NSObject
 -(NSString *)dataFilePath;
-
 -(NSString *)FilePath;
-
+-(NSString *)userId;
+-(UIImage *)profilePicture;
 @end

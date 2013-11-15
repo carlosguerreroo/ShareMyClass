@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MessagesInterfaceViewController.h"
-
+#import "AppDelegate.h"
 @interface MessagesStudentsViewController : UITableViewController
 
 @property (nonatomic, strong) NSDictionary *selectedCourse;

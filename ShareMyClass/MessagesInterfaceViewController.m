@@ -34,21 +34,21 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"chalkboard"]];
     
     self.textInputView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"sendBar"]];
+    
+    bubbleData = [[NSMutableArray alloc]init];
 
-    
-    NSBubbleData *heyBubble = [NSBubbleData dataWithText:@"Hey, halloween is soon" date:[NSDate dateWithTimeIntervalSinceNow:-300] type:BubbleTypeSomeoneElse];
-    heyBubble.avatar = [UIImage imageNamed:@"missingAvatar"];
-    
-    NSBubbleData *photoBubble = [NSBubbleData dataWithImage:[UIImage imageNamed:@"missingAvatar"] date:[NSDate dateWithTimeIntervalSinceNow:-290] type:BubbleTypeSomeoneElse];
-    photoBubble.avatar = [UIImage imageNamed:@"missingAvatar"];
-    
-    NSBubbleData *replyBubble = [NSBubbleData dataWithText:@"Wow.. Really cool picture out there. iPhone 5 has really nice camera, yeah?" date:[NSDate dateWithTimeIntervalSinceNow:-5] type:BubbleTypeMine];
-    replyBubble.avatar = nil;
-    
-    bubbleData = [[NSMutableArray alloc] initWithObjects:heyBubble, photoBubble, replyBubble, nil];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+
+
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.title = [NSString stringWithFormat:@"@%@:",[self.student objectForKey:@"nombre"]];
+    [self getMessages];
+    [self loadMessageTable];
+
 
 }
 
@@ -110,4 +110,62 @@
     [self.textField resignFirstResponder];
 }
 
+-(void)getMessages
+{
+    //Pido los mensajes
+    
+    
+    
+    //recorro los mensajes
+    
+    
+    
+    //reload table
+    
+}
+
+-(void)loadMessageTable
+{
+    NSLog(@"Estudiante con id %@, nombre %@, apellido %@",[self.student objectForKey:@"idAlumno"],[self.student objectForKey:@"nombre"],[self.student objectForKey:@"apellidos"]);
+    
+   // NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Message" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"date" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                             @"(from = %@ and to = %@) OR (from = %@ and to = %@ )",[[HelperMethods alloc] userId],[self.student objectForKey:@"idAlumno"],[self.student objectForKey:@"idAlumno"],[[HelperMethods alloc] userId]];
+    [request setPredicate:predicate];
+    
+    
+    NSError *error;
+    NSArray *array = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if (array == nil)
+    {
+        //Handle the error
+        NSLog(@"Error");
+    }else{
+        
+        bubbleData = [[NSMutableArray alloc]init];
+        for(NSManagedObject* object in array){
+            
+            NSLog(@"%@",[object valueForKey:@"from"]);
+            NSBubbleData *heyBubble = [NSBubbleData dataWithText:[object valueForKey:@"message"] date:[object valueForKey:@"date"]  type:([[object valueForKey:@"from"] isEqualToString:[[HelperMethods alloc] userId]])?BubbleTypeMine:BubbleTypeSomeoneElse];
+            heyBubble.avatar = ([[object valueForKey:@"from"] isEqualToString:[[HelperMethods alloc] userId]])?[[HelperMethods alloc]profilePicture]:nil;
+           
+
+            [bubbleData addObject:heyBubble];
+        }
+        self.bubbleTable.showAvatars = YES;
+
+        [self.bubbleTable reloadData];
+    }
+
+}
 @end

@@ -94,4 +94,83 @@
 
 }
 
+//==============DEBUG AREA===============
+
+- (IBAction)insert:(id)sender
+{
+ 
+    [self inserNewMessageWithFrom:@"601213713" To:@"691021250" Date:[NSDate date] andMessage:@"Hola"];
+    [self inserNewMessageWithFrom:@"601213713" To:@"691021250" Date:[NSDate date] andMessage:@"Hola"];
+    [self inserNewMessageWithFrom:@"691021250" To:@"601213713" Date:[NSDate date] andMessage:@"Hola"];
+    [self inserNewMessageWithFrom:@"601213713" To:@"691021250" Date:[NSDate date] andMessage:@"Hola"];
+    [self inserNewMessageWithFrom:@"601213713" To:@"691021250" Date:[NSDate date] andMessage:@"Hola"];
+    [self inserNewMessageWithFrom:@"601213713" To:@"691021250" Date:[NSDate date] andMessage:@"Hola"];
+    [self inserNewMessageWithFrom:@"771276037" To:@"601213713" Date:[NSDate date] andMessage:@"Hola"];
+
+    
+    
+}
+
+- (IBAction)select:(id)sender
+{
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Message" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    // Set example predicate and sort orderings...
+    //NSNumber *minimumSalary = ...;
+    //NSPredicate *predicate = [NSPredicate predicateWithFormat:
+    //                          @"(lastName LIKE[c] 'Worsley') AND (salary > %@)", minimumSalary];
+   // [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"date" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    
+   // NSPredicate *predicate = [NSPredicate predicateWithFormat:
+    //                          @"(from = 691021250) OR (to = 691021250 )"];
+    ///[request setPredicate:predicate];
+    
+    
+    NSError *error;
+    NSArray *array = [moc executeFetchRequest:request error:&error];
+    if (array == nil)
+    {
+        // Deal with error...
+    }
+    
+    //[[array objectAtIndex:0] valueForKey@"message"]
+    
+    for(NSManagedObject* object in array){
+    
+        NSLog(@"%@",[object valueForKey:@"from"]);
+        
+    }
+    //NSLog(@"%@",array);
+    
+}
+
+-(void)inserNewMessageWithFrom:(NSString*)from To:(NSString*)to Date:(NSDate*)date andMessage:(NSString*)message
+{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *courseObject = [NSEntityDescription
+                                     insertNewObjectForEntityForName:@"Message"
+                                     inManagedObjectContext:context];
+    
+    [courseObject setValue: from  forKey:@"from"];
+    [courseObject setValue: to forKey:@"to"];
+    [courseObject setValue: message forKey:@"message"];
+    [courseObject setValue: date forKey:@"date"];
+    
+    NSError *error;
+    if (![context save:&error])
+    {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+}
+
 @end

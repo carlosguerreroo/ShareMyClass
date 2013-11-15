@@ -135,12 +135,17 @@
 {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    MessagesInterfaceViewController *messagesInterfaceViewController = [[MessagesInterfaceViewController alloc] initWithNibName:@"MessagesInterfaceViewController" bundle:nil];
-
+    if(!self.messageInterfaceViewController)
+    {
+       self.messageInterfaceViewController = [[MessagesInterfaceViewController alloc] initWithNibName:@"MessagesInterfaceViewController" bundle:nil];
+    }
     // Pass the selected object to the new view controller.
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.messageInterfaceViewController.managedObjectContext = appDelegate.managedObjectContext;
+    self.messageInterfaceViewController.student = [self.students objectAtIndex:[indexPath row]];
     
     // Push the view controller.
-    [self.navigationController pushViewController:messagesInterfaceViewController animated:YES];
+    [self.navigationController pushViewController:self.messageInterfaceViewController animated:YES];
 }
  
 
