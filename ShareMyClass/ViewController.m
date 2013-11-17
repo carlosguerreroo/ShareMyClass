@@ -62,8 +62,10 @@
 			if(!self.MessagesViewController)
 			{
 				self.MessagesViewController = [[MessagesViewController alloc] initWithNibName:@"MessagesViewController" bundle:nil];
-			}
-            
+                AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                self.MessagesViewController.managedObjectContext = appDelegate.managedObjectContext;
+
+            }
             [self.navigationController pushViewController:self.MessagesViewController animated:YES];
             break;
 			

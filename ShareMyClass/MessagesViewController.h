@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "MessagesGroupsViewController.h"
+
 @class MessagesGroupsViewController;
 
 @interface MessagesViewController : UITableViewController
@@ -15,4 +17,6 @@
 @property (strong, nonatomic) MessagesGroupsViewController *messagesGroupsViewController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSMutableArray *students;
+@property (strong, nonatomic) MessagesInterfaceViewController *messageInterfaceViewController;
+
 @end

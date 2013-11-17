@@ -27,10 +27,12 @@
 
 - (void)viewDidLoad
 {
+    self.students = [[NSMutableArray alloc]init];
     [super viewDidLoad];
 	self.title = @"Mensajes";
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action: @selector(viewGroups)]];
-    
+    [self searchStudents];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,6 +75,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+
     return [self.students count];
 }
 
@@ -87,8 +90,61 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    //[self configureCell:cell atIndexPath:indexPath];
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
+- (void)searchStudents
+{
 
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"Student" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSError *error;
+    NSArray *array = [moc executeFetchRequest:request error:&error];
+    if (array == nil)
+    {
+        //Error
+    }else{
+        if(!array.count)
+        {
+            
+            
+        }else{
+            
+            for(NSManagedObject* object in array){
+                
+                [self.students addObject:object];
+            }
+            
+            [self.tableView reloadData];
+        }
+    }
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    NSManagedObject *object = [self.students objectAtIndex:[indexPath row]];
+    cell.textLabel.text = [[object valueForKey:@"name"] description];
+    cell.detailTextLabel.text = [[object valueForKey:@"lastname"] description];
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(!self.messageInterfaceViewController)
+    {
+        self.messageInterfaceViewController = [[MessagesInterfaceViewController alloc] initWithNibName:@"MessagesInterfaceViewController" bundle:nil];
+    }
+    // Pass the selected object to the new view controller.
+    self.messageInterfaceViewController.managedObjectContext = self.managedObjectContext;
+    NSManagedObject *object = [self.students objectAtIndex:[indexPath row]];
+    NSDictionary *student = [[NSDictionary alloc] initWithObjects: [[NSArray alloc] initWithObjects:[object valueForKey:@"id"],[object valueForKey:@"lastname"],[object valueForKey:@"name"], nil] forKeys:    [[NSArray alloc] initWithObjects:@"idAlumno",@"nombre",@"apellidos", nil]
+];
+    
+   
+    self.messageInterfaceViewController.student = student;
+    
+    // Push the view controller.
+    [self.navigationController pushViewController:self.messageInterfaceViewController animated:YES];
+}
 @end
