@@ -18,5 +18,6 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSMutableArray *students;
 @property (strong, nonatomic) MessagesInterfaceViewController *messageInterfaceViewController;
+@property (nonatomic, strong) NSMutableData* receivedData;
 
 @end
