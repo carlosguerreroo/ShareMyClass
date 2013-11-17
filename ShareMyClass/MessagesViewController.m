@@ -32,6 +32,14 @@
 	self.title = @"Mensajes";
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action: @selector(viewGroups)]];
     [self searchStudents];
+    
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Jala para refrescar"];
+    [refresh addTarget:self
+            action:@selector(refreshView:)
+            forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refresh;
+    refresh.tintColor = [UIColor brownColor];
 
 }
 
@@ -146,5 +154,17 @@
     
     // Push the view controller.
     [self.navigationController pushViewController:self.messageInterfaceViewController animated:YES];
+}
+
+-(void)refreshView:(UIRefreshControl *)refresh {
+    
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Obteniendo nuevos mensajes..."];
+ 
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM d, h:mm a"];
+    NSString *lastUpdated = [NSString stringWithFormat:@"Ultima actualización %@",
+    [formatter stringFromDate:[NSDate date]]];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated];
+    [refresh endRefreshing];
 }
 @end
