@@ -115,7 +115,7 @@
 {
     NSManagedObjectContext *moc = [self managedObjectContext];
     NSEntityDescription *entityDescription = [NSEntityDescription
-                                              entityForName:@"Message" inManagedObjectContext:moc];
+                                              entityForName:@"Student" inManagedObjectContext:moc];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     
@@ -125,9 +125,9 @@
     //                          @"(lastName LIKE[c] 'Worsley') AND (salary > %@)", minimumSalary];
    // [request setPredicate:predicate];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
-                                        initWithKey:@"date" ascending:YES];
-    [request setSortDescriptors:@[sortDescriptor]];
+   // NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+   //                                     initWithKey:@"date" ascending:YES];
+   // [request setSortDescriptors:@[sortDescriptor]];
     
     
    // NSPredicate *predicate = [NSPredicate predicateWithFormat:
@@ -146,7 +146,7 @@
     
     for(NSManagedObject* object in array){
     
-        NSLog(@"%@",[object valueForKey:@"from"]);
+        NSLog(@"%@",[object valueForKey:@"id"]);
         
     }
     //NSLog(@"%@",array);

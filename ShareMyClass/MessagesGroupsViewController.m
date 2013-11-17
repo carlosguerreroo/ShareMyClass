@@ -213,6 +213,9 @@
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[object valueForKey:@"courseName"] description];
     cell.detailTextLabel.text = [[object valueForKey:@"realCourseId"] description];
+    //cell.selectionStyle = UITableViewCellSelectionStyleGray;
+    //cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    //cell.selected = TRUE;
     
 
 }

@@ -10,11 +10,9 @@
 #import <CoreData/CoreData.h>
 @class MessagesGroupsViewController;
 
-@interface MessagesViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface MessagesViewController : UITableViewController
 
 @property (strong, nonatomic) MessagesGroupsViewController *messagesGroupsViewController;
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) NSManagedObject *selectedObject;
-
+@property (strong, nonatomic) NSMutableArray *students;
 @end

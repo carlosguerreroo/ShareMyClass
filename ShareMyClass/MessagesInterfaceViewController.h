@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIBubbleTableView *bubbleTable;
 @property (strong, nonatomic) NSDictionary *student;
+@property (strong, nonatomic) NSMutableData *receivedData;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 - (IBAction)sendMessage:(id)sender;
 
