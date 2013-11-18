@@ -339,6 +339,7 @@
     [newManagedObject setValue: name forKey:@"courseName"];
     NSLog(@"%@%@%@",courseId, realCourseId,name);
     
+    
     // Save the context.
     NSError *error = nil;
     if (![context save:&error]) {
