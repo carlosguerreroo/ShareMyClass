@@ -32,6 +32,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.mainViewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    self.mainViewController.managedObjectContext = [self managedObjectContext];
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.mainViewController];
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
@@ -333,10 +334,39 @@
 	NSString *infoRecibidaString = [[NSString alloc] initWithData: self.receivedData
                                                          encoding:NSUTF8StringEncoding];
     
-    NSLog(@" recibo %@", infoRecibidaString);
+    NSError *error = [[NSError alloc] init];  //creamos un parametro valor, donde nos servira mucho para
+    NSArray *jsonCourses = [NSJSONSerialization JSONObjectWithData:self.receivedData options:kNilOptions error:&error];
+    
+    for(NSDictionary *course in jsonCourses)
+    {
+      
+        
+        NSLog(@"%@ %@ %@",[course objectForKey:@"idCurso"],[course objectForKey:@"idCursoReal"],[course objectForKey:@"nombreCurso"]);
+        [self inserNewCourseWithCourseId: [NSNumber numberWithInteger: [[course objectForKey:@"idCurso"] integerValue]] realCourseid:[course objectForKey:@"idCursoReal"] andName:[course objectForKey:@"nombreCurso"]];
+    }
     
     infoRecibidaString = nil;
     self.receivedData = nil;
 }
+
+-(void)inserNewCourseWithCourseId:(NSNumber*)courseId realCourseid:(NSString*) realCourseId andName:(NSString*)name
+{
+   
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *courseObject = [NSEntityDescription
+                                        insertNewObjectForEntityForName:@"Courses"
+                                        inManagedObjectContext:context];
+        
+    [courseObject setValue: courseId  forKey:@"courseId"];
+    [courseObject setValue: realCourseId forKey:@"realCourseId"];
+    [courseObject setValue: name forKey:@"courseName"];
+    
+    NSError *error;
+    if (![context save:&error])
+    {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+}
+
 
 @end

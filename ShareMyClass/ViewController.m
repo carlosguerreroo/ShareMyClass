@@ -19,7 +19,7 @@
     [super viewDidLoad];
 	
 	
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar-Wood"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBar"] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.tintColor = [UIColor brownColor];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"chalkboard"]];
 
@@ -62,8 +62,10 @@
 			if(!self.MessagesViewController)
 			{
 				self.MessagesViewController = [[MessagesViewController alloc] initWithNibName:@"MessagesViewController" bundle:nil];
-			}
-            
+                AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                self.MessagesViewController.managedObjectContext = appDelegate.managedObjectContext;
+
+            }
             [self.navigationController pushViewController:self.MessagesViewController animated:YES];
             break;
 			

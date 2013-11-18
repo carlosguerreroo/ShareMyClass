@@ -20,6 +20,6 @@
 @property (strong, nonatomic) MessagesViewController *MessagesViewController;
 @property (strong, nonatomic) RemindersViewController *RemindersViewController;
 @property (strong, nonatomic) MyAccountViewController *MyAccountViewController;
-
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end
