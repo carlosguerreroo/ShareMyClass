@@ -13,13 +13,14 @@
 #import "MyAccountViewController.h"
 #import "AppDelegate.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 //Views
 @property (strong, nonatomic) NewClassViewController *NewClassViewController;
 @property (strong, nonatomic) MessagesViewController *MessagesViewController;
 @property (strong, nonatomic) RemindersViewController *RemindersViewController;
 @property (strong, nonatomic) MyAccountViewController *MyAccountViewController;
-
+@property(nonatomic, strong) IBOutlet UICollectionView *collectionView;
+@property (strong,nonatomic) NSMutableArray *courses;
 
 @end
