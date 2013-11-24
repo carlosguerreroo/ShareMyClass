@@ -85,8 +85,8 @@
     }
     else
     {
-       /* NSData *imageData = UIImagePNGRepresentation(self.showImageOutlet.image);
-        NSString *urlString = [NSString stringWithFormat:@"%@test.php", delegate.dataBean.hosterURL];
+        NSData *imageData = UIImagePNGRepresentation(self.showImageOutlet.image);
+        NSString *urlString = @"test.php";
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
         [request setURL:[NSURL URLWithString:urlString]];
@@ -107,7 +107,7 @@
         NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
         
-        NSLog([NSString stringWithFormat:@"Image Return String: %@", returnString]);*/
+        NSLog([NSString stringWithFormat:@"Image Return String: %@", returnString]);
     }
 }
 
