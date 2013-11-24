@@ -110,6 +110,8 @@
     [request setEntity:entityDescription];
     NSError *error;
     NSArray *array = [moc executeFetchRequest:request error:&error];
+    self.students = Nil;
+    self.students = [[NSMutableArray alloc]init];
     if (array == nil)
     {
         //Error
@@ -200,11 +202,11 @@
     
     for(NSDictionary* object in [jsonCourses objectForKey:@"students"])
     {
-        NSLog(@"%@",[object objectForKey:@"nombre"]);
-        if([self checkUser:[object valueForKey:@"idAlmno"]]){
+        if([self checkUser:[object objectForKey:@"idAlumno"]]){
             
             
         }else{
+            NSLog(@"%@",[object objectForKey:@"idAlumno"]);
             [self inserNewStudentWithName:[object objectForKey:@"nombre"] lastName:[object objectForKey:@"apellidos"] andId: [[NSNumber alloc] initWithInt:[[object objectForKey:@"idAlumno"] intValue]]];
         }
 
@@ -214,7 +216,14 @@
     
     for(NSDictionary* object in [jsonCourses objectForKey:@"messages"])
     {
-        [self inserNewMessageWithFrom:[object objectForKey:@"idAlumno"] To:[object objectForKey:@"idAlumnoPara"] Date:[object objectForKey:@"fechaMensaje"] andMessage:[object objectForKey:@"mensaje"]];
+        
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        [df setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSDate *myDate = [df dateFromString: [NSString stringWithFormat:@"%@",[object objectForKey:@"fechaMensaje"]]];
+        [self inserNewMessageWithFrom:[object objectForKey:@"idAlumno"] To:[object objectForKey:@"idAlumnoPara"] Date:[NSDate date] andMessage:[object objectForKey:@"mensaje"]];
+        NSLog(@"1%@",[object objectForKey:@"fechaMensaje"]);
+        NSLog(@"2%@",myDate);
+
         
     }
     [self searchStudents];
@@ -231,8 +240,8 @@
 
     [req setHTTPMethod:@"POST"];
     // TODO: aqui debo obtener la matricula de la persona que quiero consultar
-    //[[HelperMethods alloc] userId]
-    NSString * paramDataString = [NSString stringWithFormat:@"cmd=getnewmessages&idAlumno=%@",@"691021250" ];
+    
+    NSString * paramDataString = [NSString stringWithFormat:@"cmd=getnewmessages&idAlumno=%@",[[HelperMethods alloc] userId] ];
     //NSLog(@" la llamada al web service %@ ", paramDataString);
     
     NSData * paramData = [paramDataString dataUsingEncoding:NSUTF8StringEncoding];
@@ -301,7 +310,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:
                               @"(id = %@)",[NSNumber numberWithInteger: [userid intValue]]];
     [request setPredicate:predicate];
-    NSLog(@"%@",[NSNumber numberWithInteger: [userid intValue]]);
+    NSLog(@" User id %@",userid);
     NSError *error;
     NSArray *array = [moc executeFetchRequest:request error:&error];
     if (array == nil)
