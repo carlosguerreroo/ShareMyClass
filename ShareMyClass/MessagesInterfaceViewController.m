@@ -46,7 +46,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     self.title = [NSString stringWithFormat:@"@%@:",[self.student objectForKey:@"nombre"]];
-    [self getMessages];
+    //[self getMessages];
     [self loadMessageTable];
 
 
@@ -137,19 +137,6 @@
     [self.textField resignFirstResponder];
 }
 
--(void)getMessages
-{
-    //Pido los mensajes
-    
-    
-    
-    //recorro los mensajes
-    
-    
-    
-    //reload table
-    
-}
 
 -(void)loadMessageTable
 {
