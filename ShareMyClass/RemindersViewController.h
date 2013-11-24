@@ -20,4 +20,5 @@
 
 - (void)insertNewObjectWithTitle:(NSString *)title withMessage:(NSString *)message withDate:(NSDate*)date andCheck:(BOOL)check;
 - (void)editObjectWithTitle:(NSString *)title withMessage:(NSString *)message withDate:(NSDate*)date andCheck:(BOOL)check;
+- (void)removeView;
 @end

@@ -20,6 +20,14 @@
 		8F55A26B1826FE9D0062871F /* AddNewClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F55A2691826FE9D0062871F /* AddNewClassViewController.xib */; };
 		8F55A26E182712B70062871F /* HelperMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F55A26D182712B70062871F /* HelperMethods.m */; };
 		8F95F78C1831ED8700F34BAE /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F95F78B1831ED8700F34BAE /* folder.png */; };
+		8FE5A6161841FDA6004DF092 /* FilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE5A6141841FDA5004DF092 /* FilesViewController.m */; };
+		8FE5A6171841FDA6004DF092 /* FilesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE5A6151841FDA6004DF092 /* FilesViewController.xib */; };
+		8FE5A61B184200A2004DF092 /* NewFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE5A619184200A2004DF092 /* NewFileViewController.m */; };
+		8FE5A61C184200A2004DF092 /* NewFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE5A61A184200A2004DF092 /* NewFileViewController.xib */; };
+		8FE5A620184200C5004DF092 /* QuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE5A61E184200C5004DF092 /* QuestionsViewController.m */; };
+		8FE5A621184200C5004DF092 /* QuestionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE5A61F184200C5004DF092 /* QuestionsViewController.xib */; };
+		8FE5A6251842701B004DF092 /* ViewFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE5A6231842701B004DF092 /* ViewFileViewController.m */; };
+		8FE5A6261842701B004DF092 /* ViewFileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FE5A6241842701B004DF092 /* ViewFileViewController.xib */; };
 		FA14085D181B517D00EFE6B9 /* message@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA14085B181B517D00EFE6B9 /* message@2x.png */; };
 		FA14085E181B517D00EFE6B9 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = FA14085C181B517D00EFE6B9 /* message.png */; };
 		FA140860181B541A00EFE6B9 /* account@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA14085F181B541A00EFE6B9 /* account@2x.png */; };
@@ -98,6 +106,18 @@
 		8F55A26C182712B70062871F /* HelperMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelperMethods.h; sourceTree = "<group>"; };
 		8F55A26D182712B70062871F /* HelperMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelperMethods.m; sourceTree = "<group>"; };
 		8F95F78B1831ED8700F34BAE /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
+		8FE5A6131841FDA5004DF092 /* FilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesViewController.h; sourceTree = "<group>"; };
+		8FE5A6141841FDA5004DF092 /* FilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesViewController.m; sourceTree = "<group>"; };
+		8FE5A6151841FDA6004DF092 /* FilesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilesViewController.xib; sourceTree = "<group>"; };
+		8FE5A618184200A2004DF092 /* NewFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFileViewController.h; sourceTree = "<group>"; };
+		8FE5A619184200A2004DF092 /* NewFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFileViewController.m; sourceTree = "<group>"; };
+		8FE5A61A184200A2004DF092 /* NewFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewFileViewController.xib; sourceTree = "<group>"; };
+		8FE5A61D184200C5004DF092 /* QuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsViewController.h; sourceTree = "<group>"; };
+		8FE5A61E184200C5004DF092 /* QuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsViewController.m; sourceTree = "<group>"; };
+		8FE5A61F184200C5004DF092 /* QuestionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionsViewController.xib; sourceTree = "<group>"; };
+		8FE5A6221842701B004DF092 /* ViewFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFileViewController.h; sourceTree = "<group>"; };
+		8FE5A6231842701B004DF092 /* ViewFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFileViewController.m; sourceTree = "<group>"; };
+		8FE5A6241842701B004DF092 /* ViewFileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewFileViewController.xib; sourceTree = "<group>"; };
 		FA14085B181B517D00EFE6B9 /* message@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message@2x.png"; sourceTree = "<group>"; };
 		FA14085C181B517D00EFE6B9 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
 		FA14085F181B541A00EFE6B9 /* account@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "account@2x.png"; sourceTree = "<group>"; };
@@ -290,6 +310,18 @@
 				FAEF0C6A1831F6670020FD3F /* MessagesInterfaceViewController.h */,
 				FAEF0C6B1831F6670020FD3F /* MessagesInterfaceViewController.m */,
 				FAEF0C6C1831F6670020FD3F /* MessagesInterfaceViewController.xib */,
+				8FE5A6131841FDA5004DF092 /* FilesViewController.h */,
+				8FE5A6141841FDA5004DF092 /* FilesViewController.m */,
+				8FE5A6151841FDA6004DF092 /* FilesViewController.xib */,
+				8FE5A618184200A2004DF092 /* NewFileViewController.h */,
+				8FE5A619184200A2004DF092 /* NewFileViewController.m */,
+				8FE5A61A184200A2004DF092 /* NewFileViewController.xib */,
+				8FE5A61D184200C5004DF092 /* QuestionsViewController.h */,
+				8FE5A61E184200C5004DF092 /* QuestionsViewController.m */,
+				8FE5A61F184200C5004DF092 /* QuestionsViewController.xib */,
+				8FE5A6221842701B004DF092 /* ViewFileViewController.h */,
+				8FE5A6231842701B004DF092 /* ViewFileViewController.m */,
+				8FE5A6241842701B004DF092 /* ViewFileViewController.xib */,
 			);
 			path = ShareMyClass;
 			sourceTree = "<group>";
@@ -400,6 +432,7 @@
 				FAEF0C8F1831FE980020FD3F /* missingAvatar.png in Resources */,
 				FAD00F14180399B2007996DC /* InfoPlist.strings in Resources */,
 				FAD00F1C180399B2007996DC /* Default.png in Resources */,
+				8FE5A6261842701B004DF092 /* ViewFileViewController.xib in Resources */,
 				FAEF0C8C1831FE980020FD3F /* bubbleMine@2x.png in Resources */,
 				FAD00F1E180399B2007996DC /* Default@2x.png in Resources */,
 				FA8399391827162500DDF1EE /* MessagesGroupsViewController.xib in Resources */,
@@ -407,8 +440,11 @@
 				FAFF75261819F5190045B3FE /* chalkboard.png in Resources */,
 				FAEF0C8E1831FE980020FD3F /* bubbleSomeone@2x.png in Resources */,
 				FAEF0C941831FE980020FD3F /* typingSomeone@2x.png in Resources */,
+				8FE5A621184200C5004DF092 /* QuestionsViewController.xib in Resources */,
 				FAD00F20180399B2007996DC /* Default-568h@2x.png in Resources */,
 				8F95F78C1831ED8700F34BAE /* folder.png in Resources */,
+				8FE5A6171841FDA6004DF092 /* FilesViewController.xib in Resources */,
+				8FE5A61C184200A2004DF092 /* NewFileViewController.xib in Resources */,
 				FA41B843181C735A00D01E04 /* loginBackground.png in Resources */,
 				FA74F759181CAA2000DFC126 /* textField.png in Resources */,
 				FAD00F26180399B3007996DC /* ViewController.xib in Resources */,
@@ -450,20 +486,24 @@
 			files = (
 				FA8399381827162500DDF1EE /* MessagesGroupsViewController.m in Sources */,
 				FA4AE01A181F2D1E002F9D2A /* Reminder.m in Sources */,
+				8FE5A6161841FDA6004DF092 /* FilesViewController.m in Sources */,
 				FA380128181C7F6800EBC2A6 /* AddReminderViewController.m in Sources */,
 				FAD00F16180399B2007996DC /* main.m in Sources */,
 				8F55A26E182712B70062871F /* HelperMethods.m in Sources */,
+				8FE5A620184200C5004DF092 /* QuestionsViewController.m in Sources */,
 				FAD00F1A180399B2007996DC /* AppDelegate.m in Sources */,
 				FAEF0C7D1831FE850020FD3F /* UIBubbleTableView.m in Sources */,
 				FAEF0C7F1831FE850020FD3F /* UIBubbleTypingTableViewCell.m in Sources */,
 				FAEF0C7C1831FE850020FD3F /* UIBubbleHeaderTableViewCell.m in Sources */,
 				FAD00F23180399B3007996DC /* ViewController.m in Sources */,
 				FA4F3D54182C56F400513843 /* MessagesStudentsViewController.m in Sources */,
+				8FE5A61B184200A2004DF092 /* NewFileViewController.m in Sources */,
 				FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */,
 				1BA5638D18149C3300A62FF8 /* MessagesViewController.m in Sources */,
 				FA41B839181C64E300D01E04 /* ShareMyClassData.xcdatamodeld in Sources */,
 				1BA5639218149C5800A62FF8 /* RemindersViewController.m in Sources */,
 				FAEF0C6D1831F6670020FD3F /* MessagesInterfaceViewController.m in Sources */,
+				8FE5A6251842701B004DF092 /* ViewFileViewController.m in Sources */,
 				FAEF0C7E1831FE850020FD3F /* UIBubbleTableViewCell.m in Sources */,
 				1BA5639718149C7600A62FF8 /* MyAccountViewController.m in Sources */,
 				8F55A26A1826FE9D0062871F /* AddNewClassViewController.m in Sources */,

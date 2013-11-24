@@ -245,5 +245,11 @@
     cell.detailTextLabel.text = [[object valueForKey:@"message"] description];
 }
 
+-(void)removeView{
+	
+	[self.navigationController popViewControllerAnimated:YES]; //modal se quita con dismiss
+	//Como en este lo estamos agregando a la pila del navigation controller se usa el pop
+}
+
 
 @end

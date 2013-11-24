@@ -40,7 +40,7 @@
         // Yes, so just open the session (this won't display any UX).
         [self openSession];
     } else {
-        // No, display the login page.
+        // No, display the login page. 
         [self showLoginView];
     }
     return YES;
@@ -115,12 +115,12 @@
 {
     switch (state) {
         case FBSessionStateOpen: {
+            
+            
             UIViewController *topViewController = [self.navController topViewController];
-
 			if ([[topViewController presentedViewController] isKindOfClass:[loginViewController class]]) {
                 //[topViewController dismissModalViewControllerAnimated:YES];
                 //[presentViewController:topViewController animated:NO completion:nil];
-                [topViewController dismissViewControllerAnimated:NO completion:Nil];
                 
                 [FBRequestConnection
                  startWithGraphPath:@"me?fields=id,first_name,last_name"
@@ -131,6 +131,8 @@
                      {
                          [self registerUser:result];
                          [self writeUserData:result];
+                         [topViewController dismissViewControllerAnimated:NO completion:Nil];
+                         
                      }
                  }];
             
@@ -247,7 +249,7 @@
 }
 
 
--(void)registerUser:(id)userData
+-(BOOL)registerUser:(id)userData
 {
     
     // Do any additional setup after loading the view, typically from a nib.
@@ -271,6 +273,7 @@
     if (registerConnection)
     {
         self.receivedData = [[NSMutableData alloc] init];
+        return true;
     }
     else
     {
@@ -285,13 +288,14 @@
 
 }
 
--(void)writeUserData:(id)userData
+-(BOOL)writeUserData:(id)userData
 {
     NSDictionary *userDataDictionary = [[NSDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects: [userData objectForKey:@"id"],[userData objectForKey:@"first_name"],[userData objectForKey:@"last_name"], nil] forKeys:[[NSArray alloc] initWithObjects: @"id", @"first_name", @"last_name", nil]];
     
     NSLog(@"%@",userDataDictionary);
     
     [userDataDictionary writeToFile:[self dataFilePath] atomically:YES];
+    return true;
     
 }
 

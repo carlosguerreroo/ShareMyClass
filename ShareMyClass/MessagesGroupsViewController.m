@@ -23,7 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        self.title = @"Seleccion el curso";
+        self.title = @"Selecciona el curso";
         
     }
     return self;
@@ -83,7 +83,7 @@
 
 -(void)getCourses:(NSString *)userId
 {
-    
+    NSLog(@"Entre al get");
     //URL a usar para mandar los parametros
     NSURL *url = [NSURL URLWithString:@"http://192.241.224.160/ShareMyClass/ShareMyClassApi/api.php?"];
     
@@ -225,10 +225,12 @@
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
+    NSLog(@"1");
+
+    
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
-    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Courses" inManagedObjectContext:self.managedObjectContext];
@@ -262,12 +264,15 @@
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
+    NSLog(@"2");
+
     [self.tableView beginUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
+    NSLog(@"3");
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
@@ -283,6 +288,7 @@
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
+    NSLog(@"4");
     UITableView *tableView = self.tableView;
     
     switch(type) {
@@ -306,7 +312,7 @@
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
+{   NSLog(@"5");
     [self.tableView endUpdates];
 }
 

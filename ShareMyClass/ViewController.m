@@ -13,7 +13,6 @@
 @end
 
 @implementation ViewController
-
 - (void)viewDidLoad
 {
     [self.collectionView setDataSource:self];
@@ -28,10 +27,20 @@
     self.navigationController.navigationBar.tintColor = [UIColor brownColor];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"chalkboard"]];
     
-   // UIImage *p1 = [UIImage imageNamed:@"folder.png"];
-   // UIImageView *vista1 = [[UIImage alloc] initWithImage: p1];
-    // add to array
+    self.folderImage = [UIImage imageNamed:@"folder.png"];
+
 }
+
+
+-(void)viewDidAppear:(BOOL)animated
+{
+     NSLog(@"Appear View");
+    [NSFetchedResultsController deleteCacheWithName:@"Master"];
+    self.fetchedResultsController = nil;
+    [self.collectionView reloadData];
+    
+}
+
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -103,33 +112,87 @@
 }
 
 
+
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 6;
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    return [sectionInfo numberOfObjects];
 }
 
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     UICollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
-    /*
-     
-    UIImageView *vista = [self.datos objectAtIndex: [indexPath row]];
-     
-     
-    [cell.contentView addSubview:vista];
-    */
-    cell.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"folder.png"]];
+
+   
+    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    UIImageView *folder =[[UIImageView alloc] initWithImage:self.folderImage];
+    for (UIView *view in cell.contentView.subviews) //Revisaar
+        [view removeFromSuperview];
+    
+    UILabel  *courseName = [[UILabel alloc] initWithFrame:CGRectMake(-20, 80, 130, 20)];
+    courseName.text = [[object valueForKey:@"courseName"] description];
+    [courseName setBackgroundColor:[[UIColor clearColor] colorWithAlphaComponent:0.0]];
+    [courseName setTextColor:[UIColor whiteColor]];
+    courseName.font=[courseName.font fontWithSize:13];
+    courseName.textAlignment = NSTextAlignmentCenter;
+    [folder insertSubview:courseName atIndex:0];
+    [cell.contentView insertSubview:folder atIndex:0];
     
     return cell;
 }
 
 
-/*- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+-	(void)	collectionView:(UICollectionView	*)collectionView
+didSelectItemAtIndexPath:(NSIndexPath	*)indexPath
 {
-    return CGSizeMake(130, 136);
-}*/
+    if (!self.FilesViewController) {
+        self.FilesViewController = [[FilesViewController alloc] initWithNibName:@"FilesViewController" bundle:nil];
+    }
+    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    self.selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    //self.FilesViewController.courseId =@"jejejej";
+
+    self.FilesViewController.courseId = [[object valueForKey:@"realCourseId"] description];
+    self.FilesViewController.delegateFiles = self;
+    [self.navigationController pushViewController:self.FilesViewController animated:YES];
+
+
+}
+
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Courses" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setFetchBatchSize:20];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"courseId" ascending:NO];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    aFetchedResultsController.delegate = self;
+    self.fetchedResultsController = aFetchedResultsController;
+    
+	NSError *error = nil;
+	if (![self.fetchedResultsController performFetch:&error]) {
+
+	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	    abort();
+	}
+    
+    return _fetchedResultsController;
+}
+
 
 
 @end

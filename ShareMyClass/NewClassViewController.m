@@ -90,9 +90,10 @@
 {
     NSString *body = [[[NSString alloc] initWithData: connection.originalRequest.HTTPBody
                                                          encoding:NSUTF8StringEncoding] substringToIndex:23];
-   
+
     if([body isEqualToString:@"cmd=getremainingcourses"])
     {
+
         NSError *error = [[NSError alloc] init];  //creamos un parametro valor, donde nos servira mucho para
         NSArray *jsonCourses = [NSJSONSerialization JSONObjectWithData:self.receivedData options:kNilOptions error:&error];
         self.courses = jsonCourses;
@@ -100,7 +101,7 @@
         self.receivedData = nil;
         
     }else{
-        
+
         if([[[NSString alloc ]initWithData: self.receivedData encoding:NSUTF8StringEncoding] isEqualToString:@"YES"])
         {
             [self.navigationController popToRootViewControllerAnimated:YES];
@@ -295,6 +296,8 @@
         return _fetchedResultsController;
     }
     
+
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Courses" inManagedObjectContext:self.managedObjectContext];
@@ -327,6 +330,7 @@
 }
 
 -(void)inserNewCourseWithCourseId:(NSNumber*)courseId realCourseid:(NSString*) realCourseId andName:(NSString*)name{
+
     
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
@@ -337,7 +341,7 @@
     [newManagedObject setValue: courseId  forKey:@"courseId"];
     [newManagedObject setValue: realCourseId forKey:@"realCourseId"];
     [newManagedObject setValue: name forKey:@"courseName"];
-    NSLog(@"%@%@%@",courseId, realCourseId,name);
+    NSLog(@"X:%@%@%@",courseId, realCourseId,name);
     
     
     // Save the context.

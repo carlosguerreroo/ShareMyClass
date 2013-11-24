@@ -92,6 +92,9 @@
         [self scheduleNotificationWithTitle:self.titleTextField.text withMessage:self.messageTextField.text andDate:self.datePicker.date];
         [self.delegateReminder insertNewObjectWithTitle:self.titleTextField.text withMessage:self.messageTextField.text withDate:self.datePicker.date andCheck:NO];
     }
+    
+    [self.delegateReminder removeView];
+
 }
 
 
