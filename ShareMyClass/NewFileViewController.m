@@ -86,7 +86,7 @@
     else
     {
         NSData *imageData = UIImagePNGRepresentation(self.showImageOutlet.image);
-        NSString *urlString = @"test.php";
+        NSString *urlString = @"http://localhost/share/upload.php";
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
         [request setURL:[NSURL URLWithString:urlString]];
