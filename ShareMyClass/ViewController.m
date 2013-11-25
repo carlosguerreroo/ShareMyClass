@@ -32,9 +32,8 @@
 }
 
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
-     NSLog(@"Appear View");
     [NSFetchedResultsController deleteCacheWithName:@"Master"];
     self.fetchedResultsController = nil;
     [self.collectionView reloadData];
@@ -155,7 +154,7 @@ didSelectItemAtIndexPath:(NSIndexPath	*)indexPath
     self.selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     //self.FilesViewController.courseId =@"jejejej";
 
-    self.FilesViewController.courseId = [[object valueForKey:@"realCourseId"] description];
+    self.FilesViewController.courseId = [[object valueForKey:@"courseId"] description].intValue;
     self.FilesViewController.delegateFiles = self;
     [self.navigationController pushViewController:self.FilesViewController animated:YES];
 

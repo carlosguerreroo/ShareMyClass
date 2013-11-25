@@ -40,7 +40,7 @@
 
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
     [self getFiles];
 
@@ -61,6 +61,7 @@
     }
     
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.NewFileViewController.courseId = self.courseId;
     self.NewFileViewController.managedObjectContext = appDelegate.managedObjectContext;
     [self.navigationController pushViewController:self.NewFileViewController animated:YES];
     
@@ -114,9 +115,10 @@
     
     [req setHTTPMethod:@"POST"];
     
-    NSString *course = [[NSString alloc]initWithString:self.courseId];
+    //NSString *course = [[NSString alloc]initWithString:self.courseId];
+  //  NSInteger *course = self.courseId;
     
-    NSString *paramDataString = [NSString stringWithFormat:@"cmd=getfiles&idCurso=%@", course];
+    NSString *paramDataString = [NSString stringWithFormat:@"cmd=getfiles&idCurso=%d", self.courseId];
     
     NSData * paramData = [paramDataString dataUsingEncoding:NSUTF8StringEncoding];
     [req setHTTPBody:paramData];
@@ -225,12 +227,23 @@
         self.ViewFileViewController = [[ViewFileViewController alloc] initWithNibName:@"ViewFileViewController" bundle:nil];
     }
     
-	
-    self.ViewFileViewController.imageName = @"nombre";
+    NSInteger row = [indexPath row];
+    NSDictionary *file = [self.files objectAtIndex:row];
+    
+    self.ViewFileViewController.date = [file objectForKey:@"fechaArchivo"];
+    self.ViewFileViewController.url = [file objectForKey:@"nombreArchivo"];
+    self.ViewFileViewController.name = [file objectForKey:@"tituloArchivo"];
+    self.ViewFileViewController.description = [file objectForKey:@"descripcionArchivo"];
+
 
     [self.navigationController pushViewController:self.ViewFileViewController animated:YES];
 }
- 
+
+-(void)removeView{
+	
+	[self.navigationController popViewControllerAnimated:YES]; //modal se quita con dismiss
+	//Como en este lo estamos agregando a la pila del navigation controller se usa el pop
+}
 
 
 @end

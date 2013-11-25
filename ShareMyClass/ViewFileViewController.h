@@ -11,6 +11,12 @@
 @interface ViewFileViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionOutlet;
-@property (weak, nonatomic) IBOutlet UILabel *nameOutlet;
-@property NSString *imageName;
+@property (weak, nonatomic) IBOutlet UILabel *titleOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *dateOutlet;
+@property NSString *url;
+@property NSString *name;
+@property NSString *date;
+@property NSString *description;
+- (IBAction)download:(id)sender;
+
 @end

@@ -40,6 +40,7 @@
     // Do any additional setup after loading the view from its nib.
 	self.title = @"Nueva clase";
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action: @selector(newClass)]];
+    
     [self remainingCourses];
  
 }

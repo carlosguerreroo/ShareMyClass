@@ -7,6 +7,7 @@
 //
 
 #import "MyAccountViewController.h"
+#import "AppDelegate.h"
 #define userDataPlist @"user.plist"
 
 @interface MyAccountViewController ()
@@ -118,5 +119,22 @@
     return [documentsDirectory stringByAppendingPathComponent:userDataPlist];
     
 }
+
+- (IBAction)myCourses:(id)sender {
+    if(!self.CoursesViewController)
+    {
+        self.CoursesViewController = [[CoursesViewController alloc] initWithNibName:@"CoursesViewController" bundle:nil];
+        
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        self.CoursesViewController.managedObjectContext = appDelegate.managedObjectContext;
+        
+    }
+    
+    [self.navigationController pushViewController:self.CoursesViewController animated:YES];
+   
+    
+}
+
+
 
 @end

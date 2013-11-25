@@ -12,8 +12,21 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @property (weak, nonatomic) IBOutlet UIImageView *showImageOutlet;
+@property (weak, nonatomic) IBOutlet UITextField *titleOutlet;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionOutlet;
+@property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (retain, nonatomic) UITextField *activeField;
+
+- (void)registerForKeyboardNotifications;
+@property int courseId;
+
+
 - (IBAction)chooseImage:(id)sender;
 - (IBAction)takePhoto:(id)sender;
 - (IBAction)uploadPhoto:(id)sender;
+
+- (IBAction)dismiss:(id)sender;
+
 
 @end

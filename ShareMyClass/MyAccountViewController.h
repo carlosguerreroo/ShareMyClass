@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "CoursesViewController.h"
 
 @interface MyAccountViewController : UIViewController
+
+@property (strong, nonatomic) CoursesViewController *CoursesViewController;
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UILabel *firstName;
 @property (weak, nonatomic) IBOutlet UILabel *lastName;
+- (IBAction)myCourses:(id)sender;
 
 @end
