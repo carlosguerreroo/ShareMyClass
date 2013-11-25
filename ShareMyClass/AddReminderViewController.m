@@ -70,6 +70,7 @@
         self.messageTextField.text = object.message;
         self.datePicker.date = object.date;
         self.editing = YES;
+        self.keyDate = object.date;
     }
     else
     {
@@ -86,6 +87,27 @@
     {
         //To-Do //Create editNotification
         [self.delegateReminder editObjectWithTitle:self.titleTextField.text withMessage:self.messageTextField.text withDate:self.datePicker.date andCheck:NO];
+        
+        NSArray* localNotifications = [[UIApplication sharedApplication]
+                                       scheduledLocalNotifications];
+        for (UILocalNotification *notification in localNotifications)
+        {
+            //NSString* notificationID =
+            NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+            [timeFormatter setDateFormat:@"MM-dd-yyyy HH:mm:ss"];
+            [timeFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+            
+            NSString *newTime = [timeFormatter stringFromDate:self.keyDate ];
+            NSString *keytime = [notification.userInfo objectForKey:@"IDkey"];
+            if([newTime isEqualToString:keytime])
+            {
+                notification.fireDate = self.datePicker.date;
+                [[UIApplication sharedApplication]scheduleLocalNotification:notification ];
+                NSLog(@"newtime : %@, %@",newTime,keytime);
+
+            }
+
+        }
     }
     else
     {
@@ -107,10 +129,14 @@
     //NSDictionary *infoDict = [NSDictionary dictionaryWithObject:item.eventName forKey:ToDoItemKey];
     //localNotif.userInfo = infoDict;
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeInterval:10 sinceDate:date];
+    localNotification.fireDate = date;
+    //[NSDate dateWithTimeInterval:10 sinceDate:date];
     localNotification.alertBody = message;
     //NSLog(@"%@",message);
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    NSLog(@"sas%@",localNotification.fireDate);
+    NSDictionary *infoDict=[NSDictionary dictionaryWithObject:localNotification.fireDate forKey:@"IDkey"];
+    localNotification.userInfo = infoDict;
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 

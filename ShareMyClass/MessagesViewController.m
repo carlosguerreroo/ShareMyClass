@@ -24,10 +24,10 @@
     return self;
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
+-(void)viewWillAppear:(BOOL)animated{
 
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
+    [self getMessages];
 
 }
 

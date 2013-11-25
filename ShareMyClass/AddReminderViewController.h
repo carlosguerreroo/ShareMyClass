@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *messageTextField;
+@property (strong, nonatomic) NSDate *keyDate;
 - (IBAction)saveReminder:(id)sender;
 
 @end
