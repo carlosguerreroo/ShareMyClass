@@ -158,7 +158,7 @@ didSelectItemAtIndexPath:(NSIndexPath	*)indexPath
     self.FilesViewController.courseId = [[object valueForKey:@"realCourseId"] description];
     self.FilesViewController.delegateFiles = self;
     [self.navigationController pushViewController:self.FilesViewController animated:YES];
-
+    
 
 }
 

@@ -249,7 +249,7 @@
 }
 
 
--(BOOL)registerUser:(id)userData
+-(void)registerUser:(id)userData
 {
     
     // Do any additional setup after loading the view, typically from a nib.
@@ -273,7 +273,6 @@
     if (registerConnection)
     {
         self.receivedData = [[NSMutableData alloc] init];
-        return true;
     }
     else
     {
@@ -348,7 +347,11 @@
         NSLog(@"%@ %@ %@",[course objectForKey:@"idCurso"],[course objectForKey:@"idCursoReal"],[course objectForKey:@"nombreCurso"]);
         [self inserNewCourseWithCourseId: [NSNumber numberWithInteger: [[course objectForKey:@"idCurso"] integerValue]] realCourseid:[course objectForKey:@"idCursoReal"] andName:[course objectForKey:@"nombreCurso"]];
     }
-    
+    [NSFetchedResultsController deleteCacheWithName:@"Master"];
+    self.mainViewController.fetchedResultsController = nil;
+
+    [self.mainViewController.collectionView reloadData];
+
     infoRecibidaString = nil;
     self.receivedData = nil;
 }
