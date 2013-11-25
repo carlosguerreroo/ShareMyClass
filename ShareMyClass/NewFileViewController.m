@@ -35,6 +35,14 @@
     [self registerForKeyboardNotifications];
 
 }
+- (void)viewWillDisappear:(BOOL)animated
+{
+    self.showImageOutlet.image = nil;
+    self.titleOutlet.text = @"";
+    self.descriptionOutlet.text = @"";
+
+}
+
 
 - (void)didReceiveMemoryWarning
 {
