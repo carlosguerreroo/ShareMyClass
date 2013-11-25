@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NewFileViewController *NewFileViewController;
 @property (strong, nonatomic) QuestionsViewController *QuestionsViewController;
 @property (strong, nonatomic) ViewFileViewController *ViewFileViewController;
+@property (strong, nonatomic) UITabBar* tabBarView;
 
 -(void)removeView;
 @property int courseId;

@@ -9,7 +9,7 @@
 #import "FilesViewController.h"
 #import "AppDelegate.h"
 #import "HelperMethods.h"
-
+#import "QuestionsViewController.h"
 
 @interface FilesViewController ()
 @property (nonatomic, strong) NSMutableData* receivedData;
@@ -25,7 +25,10 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
+    if (self)
+    {
+        
+
     }
 
     return self;
@@ -37,7 +40,13 @@
     self.title = @"Archivos";
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action: @selector(newFile)]];
     //[self getFiles];
+    //[self.navigationController.view r]
+}
 
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [self.tabBarView removeFromSuperview];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -46,6 +55,15 @@
 
     [self.tableView reloadData];
     
+    self.tabBarView = [[UITabBar alloc] initWithFrame:CGRectMake(0, 430, 320, 50)];
+    self.tabBarView.delegate = self;
+    NSArray* tabbarItems = [[NSArray alloc] initWithObjects:[[UITabBarItem alloc] initWithTitle:@"Archivos" image:nil tag:1],[[UITabBarItem alloc] initWithTitle:@"Preguntas" image:nil tag:2], nil];
+    [[self.tabBarController.tabBar.items objectAtIndex:1]  setTag:2];
+    
+    self.tabBarView.items = tabbarItems;
+    [self.tabBarView setSelectedItem:[tabbarItems objectAtIndex:0]];
+    [self.navigationController.view addSubview:self.tabBarView];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -243,5 +261,21 @@
 	//Como en este lo estamos agregando a la pila del navigation controller se usa el pop
 }
 
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    switch (item.tag)
+    {
+        case 2:
+            self.QuestionsViewController = [[QuestionsViewController alloc] initWithNibName:@"QuestionsViewController" bundle:nil];
+            [self.navigationController pushViewController:self.QuestionsViewController animated:YES];
+            break;
+            
+        default:
+            break;
+    }
+    
+  
+}
 
 @end
