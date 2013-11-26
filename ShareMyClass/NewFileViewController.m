@@ -27,6 +27,8 @@
     return self;
 }
 
+/* Método que se invoca cuando se carga la vista */
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,7 +37,10 @@
     [self registerForKeyboardNotifications];
 
 }
-- (void)viewWillDisappear:(BOOL)animated
+
+
+
+- (void)viewDidDisappear:(BOOL)animated
 {
     self.showImageOutlet.image = nil;
     self.titleOutlet.text = @"";
@@ -153,7 +158,11 @@
         NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
         NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
         
-        NSLog(@"Image Return String: %@", returnString);
+        if(returnString.intValue){
+            self.showImageOutlet.image = nil;
+            self.titleOutlet.text = @"";
+            self.descriptionOutlet.text = @"";
+        }
         
         [self.navigationController popViewControllerAnimated:TRUE];
         
@@ -226,9 +235,19 @@ didFinishPickingMediaWithInfo:	(NSDictionary	*)	info
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
-{
+{   
     activeField = nil;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
 
 @end

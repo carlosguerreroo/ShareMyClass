@@ -92,6 +92,8 @@
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
         
+        [self removeCourse:indexPath];
+
         NSError *error = nil;
         if (![context save:&error]) {
 
@@ -134,9 +136,9 @@
             break;
             
         case NSFetchedResultsChangeDelete:
-            [self removeCourse:indexPath];
             
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+
 
             break;
             

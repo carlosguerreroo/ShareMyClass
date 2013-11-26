@@ -26,7 +26,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
 
-    //[self.tableView reloadData];
     [self getMessages];
 
 }
@@ -52,7 +51,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -65,8 +63,7 @@
         AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
         self.messagesGroupsViewController.managedObjectContext = appDelegate.managedObjectContext;
     }
-    //self.addReminderViewController.detailItem = nil;
-    //self.addReminderViewController.delegateReminder = self;
+
     
     [self.navigationController pushViewController:self.messagesGroupsViewController animated:YES];
 }

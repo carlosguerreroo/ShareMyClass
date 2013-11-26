@@ -13,6 +13,9 @@
 @end
 
 @implementation ViewController
+
+/* Método que se invoca cuando se carga la vista */
+
 - (void)viewDidLoad
 {
     [self.collectionView setDataSource:self];
