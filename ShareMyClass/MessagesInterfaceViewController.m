@@ -40,8 +40,18 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
 
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action: @selector(refresh)]];
+}
+
+
+-(void)refresh
+{
+    [self loadMessageTable];
+    [self.bubbleTable reloadData];
+    NSLog(@"sas");
 
 }
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
