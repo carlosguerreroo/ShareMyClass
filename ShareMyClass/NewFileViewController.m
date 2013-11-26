@@ -22,7 +22,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+
     }
     return self;
 }
@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"chalkboard"]];
-    self.title = @"Subir archivo";// Do any additional setup after loading the view from its nib.
+    self.title = @"Subir archivo";
     [self registerForKeyboardNotifications];
 
 }
@@ -47,7 +47,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)chooseImage:(id)sender
@@ -68,6 +67,7 @@
     }
 }
 
+
 - (IBAction)takePhoto:(id)sender
 {
     if	([UIImagePickerController	isSourceTypeAvailable:
@@ -75,7 +75,7 @@
     {
         
         UIImagePickerController	*picker	=[[UIImagePickerController alloc]init];
-     //   picker.delegate	=	self;
+        picker.delegate	=	self;
         picker.sourceType	= UIImagePickerControllerSourceTypeCamera;
         [self	presentViewController:picker	animated:YES	completion:
          NULL];
@@ -103,10 +103,23 @@
         
         NSString *filePath = [[HelperMethods alloc] dataFilePath];
         NSString *studentId;
-        NSString *title = [[NSString alloc]initWithString:self.titleOutlet.text];
-        NSString *description = [[NSString alloc]initWithString:self.descriptionOutlet.text];
         
-
+        CFStringRef title = CFURLCreateStringByAddingPercentEscapes(
+                                                                   kCFAllocatorDefault,
+                                                                   (CFStringRef)[[NSString alloc]initWithString:self.titleOutlet.text],
+                                                                   NULL,
+                                                                   (CFStringRef)@"@",
+                                                                   kCFStringEncodingUTF8
+                                                                   );
+        
+        CFStringRef description = CFURLCreateStringByAddingPercentEscapes(
+                                                                   kCFAllocatorDefault,
+                                                                   (CFStringRef)[[NSString alloc]initWithString:self.descriptionOutlet.text],
+                                                                   NULL,
+                                                                   (CFStringRef)@"@",
+                                                                   kCFStringEncodingUTF8
+                                                                   );
+        
         if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
         {
             NSDictionary *dataDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
@@ -142,8 +155,8 @@
         
         NSLog(@"Image Return String: %@", returnString);
         
-       // [self.delegateFileView removeView];
-
+        [self.navigationController popViewControllerAnimated:TRUE];
+        
     }
 }
 
@@ -191,8 +204,6 @@ didFinishPickingMediaWithInfo:	(NSDictionary	*)	info
     scrollView.contentInset = contentInsets;
     scrollView.scrollIndicatorInsets = contentInsets;
     
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    // Your application might not need or want this behavior.
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbSize.height;
     if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
