@@ -74,7 +74,7 @@
     if(!profilePicture)
     {
         [FBRequestConnection
-         startWithGraphPath:@"me?fields=picture.height(250)"
+         startWithGraphPath:@"me?fields=picture.height(500)"
          completionHandler:^(FBRequestConnection *connection,
                              id result,
                              NSError *error) {
