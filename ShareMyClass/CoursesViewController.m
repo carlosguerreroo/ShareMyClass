@@ -94,8 +94,7 @@
         
         NSError *error = nil;
         if (![context save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
@@ -135,8 +134,9 @@
             break;
             
         case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [self removeCourse:indexPath];
+            
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
             break;
             
@@ -172,7 +172,6 @@
     
     
     NSString * paramDataString = [NSString stringWithFormat:@"cmd=removecourse&idAlumno=%@&courseId=%d", studentId,courseId];
-    //NSLog(@" la llamada al web service %@ ", paramDataString);
     
     NSData * paramData = [paramDataString dataUsingEncoding:NSUTF8StringEncoding];
     [req setHTTPBody:paramData];
@@ -181,8 +180,8 @@
     
     if (theConnection)
     {
-        //self.receivedData = [[NSMutableData alloc] init];
-        NSLog(@"hola");
+        self.receivedData = [[NSMutableData alloc] init];
+  
     }else {
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                          message:@"No se pudo enlazar con el servicio web!"
@@ -191,8 +190,18 @@
                                                otherButtonTitles:nil];
         [alert show];
     }
-
+   
     
+}
+
+- (void) connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSString *response = [[NSString alloc] initWithData: self.receivedData
+                                               encoding:NSUTF8StringEncoding];
+    NSLog(@"DATO: %@",response);
+    
+    response = nil;
+    self.receivedData = nil;
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
@@ -203,27 +212,10 @@
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // The table view should not be re-orderable.
     return NO;
 }
 
-/*
-#pragma mark - Table view delegate
 
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-}
- 
- */
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
