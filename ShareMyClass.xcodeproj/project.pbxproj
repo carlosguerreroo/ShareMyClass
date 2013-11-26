@@ -55,6 +55,10 @@
 		FA8399391827162500DDF1EE /* MessagesGroupsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA8399371827162500DDF1EE /* MessagesGroupsViewController.xib */; };
 		FAB364E11804410300AF7FE7 /* loginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB364DF1804410300AF7FE7 /* loginViewController.m */; };
 		FAB364E21804410300AF7FE7 /* loginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB364E01804410300AF7FE7 /* loginViewController.xib */; };
+		FABD80BC184417DE0002D84F /* AddQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABD80BA184417DE0002D84F /* AddQuestionViewController.xib */; };
+		FABD80BE184420360002D84F /* AddQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FABD80BD184420360002D84F /* AddQuestionViewController.m */; };
+		FABD80C2184433430002D84F /* DisplayAnswersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FABD80C0184433430002D84F /* DisplayAnswersViewController.m */; };
+		FABD80C3184433430002D84F /* DisplayAnswersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABD80C1184433430002D84F /* DisplayAnswersViewController.xib */; };
 		FAD00F0A180399B2007996DC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD00F09180399B2007996DC /* UIKit.framework */; };
 		FAD00F0C180399B2007996DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD00F0B180399B2007996DC /* Foundation.framework */; };
 		FAD00F0E180399B2007996DC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD00F0D180399B2007996DC /* CoreGraphics.framework */; };
@@ -154,6 +158,12 @@
 		FAB364DE1804410300AF7FE7 /* loginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginViewController.h; sourceTree = "<group>"; };
 		FAB364DF1804410300AF7FE7 /* loginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginViewController.m; sourceTree = "<group>"; };
 		FAB364E01804410300AF7FE7 /* loginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginViewController.xib; sourceTree = "<group>"; };
+		FABD80B8184417DE0002D84F /* AddQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddQuestionViewController.h; sourceTree = "<group>"; };
+		FABD80BA184417DE0002D84F /* AddQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddQuestionViewController.xib; sourceTree = "<group>"; };
+		FABD80BD184420360002D84F /* AddQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddQuestionViewController.m; sourceTree = "<group>"; };
+		FABD80BF184433430002D84F /* DisplayAnswersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayAnswersViewController.h; sourceTree = "<group>"; };
+		FABD80C0184433430002D84F /* DisplayAnswersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayAnswersViewController.m; sourceTree = "<group>"; };
+		FABD80C1184433430002D84F /* DisplayAnswersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisplayAnswersViewController.xib; sourceTree = "<group>"; };
 		FAD00F06180399B2007996DC /* ShareMyClass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareMyClass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD00F09180399B2007996DC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FAD00F0B180399B2007996DC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -309,6 +319,7 @@
 				8F55A2691826FE9D0062871F /* AddNewClassViewController.xib */,
 				8F55A26C182712B70062871F /* HelperMethods.h */,
 				8F55A26D182712B70062871F /* HelperMethods.m */,
+				FABD80BD184420360002D84F /* AddQuestionViewController.m */,
 				FA8399351827162500DDF1EE /* MessagesGroupsViewController.h */,
 				FA8399361827162500DDF1EE /* MessagesGroupsViewController.m */,
 				FA8399371827162500DDF1EE /* MessagesGroupsViewController.xib */,
@@ -333,6 +344,11 @@
 				8F31043C184390E60038191E /* CoursesViewController.h */,
 				8F31043D184390E60038191E /* CoursesViewController.m */,
 				8F31043E184390E60038191E /* CoursesViewController.xib */,
+				FABD80B8184417DE0002D84F /* AddQuestionViewController.h */,
+				FABD80BA184417DE0002D84F /* AddQuestionViewController.xib */,
+				FABD80BF184433430002D84F /* DisplayAnswersViewController.h */,
+				FABD80C0184433430002D84F /* DisplayAnswersViewController.m */,
+				FABD80C1184433430002D84F /* DisplayAnswersViewController.xib */,
 			);
 			path = ShareMyClass;
 			sourceTree = "<group>";
@@ -473,7 +489,9 @@
 				FA140860181B541A00EFE6B9 /* account@2x.png in Resources */,
 				FA140867181B54E900EFE6B9 /* reminder.png in Resources */,
 				1BA5639818149C7600A62FF8 /* MyAccountViewController.xib in Resources */,
+				FABD80C3184433430002D84F /* DisplayAnswersViewController.xib in Resources */,
 				FA140864181B54BF00EFE6B9 /* course@2x.png in Resources */,
+				FABD80BC184417DE0002D84F /* AddQuestionViewController.xib in Resources */,
 				FAEF0C8B1831FE980020FD3F /* bubbleMine.png in Resources */,
 				FA14086A181B55DD00EFE6B9 /* course.png in Resources */,
 				FAEF0C8D1831FE980020FD3F /* bubbleSomeone.png in Resources */,
@@ -506,6 +524,7 @@
 				8F55A26E182712B70062871F /* HelperMethods.m in Sources */,
 				8FE5A620184200C5004DF092 /* QuestionsViewController.m in Sources */,
 				FAD00F1A180399B2007996DC /* AppDelegate.m in Sources */,
+				FABD80C2184433430002D84F /* DisplayAnswersViewController.m in Sources */,
 				FAEF0C7D1831FE850020FD3F /* UIBubbleTableView.m in Sources */,
 				FAEF0C7F1831FE850020FD3F /* UIBubbleTypingTableViewCell.m in Sources */,
 				FAEF0C7C1831FE850020FD3F /* UIBubbleHeaderTableViewCell.m in Sources */,
@@ -518,6 +537,7 @@
 				1BA5639218149C5800A62FF8 /* RemindersViewController.m in Sources */,
 				FAEF0C6D1831F6670020FD3F /* MessagesInterfaceViewController.m in Sources */,
 				8FE5A6251842701B004DF092 /* ViewFileViewController.m in Sources */,
+				FABD80BE184420360002D84F /* AddQuestionViewController.m in Sources */,
 				FAEF0C7E1831FE850020FD3F /* UIBubbleTableViewCell.m in Sources */,
 				1BA5639718149C7600A62FF8 /* MyAccountViewController.m in Sources */,
 				8F55A26A1826FE9D0062871F /* AddNewClassViewController.m in Sources */,

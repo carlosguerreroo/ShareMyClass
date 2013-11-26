@@ -267,7 +267,12 @@
     switch (item.tag)
     {
         case 2:
-            self.QuestionsViewController = [[QuestionsViewController alloc] initWithNibName:@"QuestionsViewController" bundle:nil];
+            
+            if(!self.QuestionsViewController){
+                self.QuestionsViewController = [[QuestionsViewController alloc] initWithNibName:@"QuestionsViewController" bundle:nil];
+            }
+            
+            self.QuestionsViewController.courseId = [NSString stringWithFormat:@"%d",self.courseId];
             [self.navigationController pushViewController:self.QuestionsViewController animated:YES];
             break;
             
