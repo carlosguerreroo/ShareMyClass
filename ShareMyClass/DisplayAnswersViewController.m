@@ -27,9 +27,23 @@
 {
     [super viewDidLoad];
     self.answers = [[NSArray alloc]init];
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action: @selector(answeQuestion)]];
 
 }
 
+-(void)answeQuestion
+{
+    
+    if(!self.replyQuestionViewController)
+    {
+        self.replyQuestionViewController  = [[ReplyQuestionViewController alloc] initWithNibName:@"ReplyQuestionViewController" bundle:nil];
+        
+    }
+    self.replyQuestionViewController.idReply = self.questionId;
+    [self.navigationController pushViewController:self.replyQuestionViewController animated:YES];
+
+
+}
 -(void)viewWillAppear:(BOOL)animated
 {
     [self getQuestion:self.questionId];
@@ -169,8 +183,8 @@
     
     if(![jsonCourses count])
     {
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                         message:@"No hay preguntas, puedes contestar con el boton de +"
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Alerta"
+                                                         message:@"No hay respuestas, puedes responder con el boton de +"
                                                         delegate:self
                                                cancelButtonTitle:@"Ok"
                                                otherButtonTitles:nil];
@@ -205,7 +219,7 @@
     {
         self.receivedData = [[NSMutableData alloc] init];
     }else {
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error"
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Alerta"
                                                          message:@"No se pudo enlazar con el servicio web!"
                                                         delegate:nil
                                                cancelButtonTitle:@"Ok"

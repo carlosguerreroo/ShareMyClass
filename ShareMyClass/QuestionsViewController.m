@@ -171,7 +171,7 @@
     {
         self.receivedData = [[NSMutableData alloc] init];
     }else {
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error"
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Alerta"
                                                          message:@"No se pudo enlazar con el servicio web!"
                                                         delegate:nil
                                                cancelButtonTitle:@"Ok"

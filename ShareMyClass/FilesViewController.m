@@ -57,7 +57,7 @@
     
     self.tabBarView = [[UITabBar alloc] initWithFrame:CGRectMake(0, 430, 320, 50)];
     self.tabBarView.delegate = self;
-    NSArray* tabbarItems = [[NSArray alloc] initWithObjects:[[UITabBarItem alloc] initWithTitle:@"Archivos" image:nil tag:1],[[UITabBarItem alloc] initWithTitle:@"Preguntas" image:nil tag:2], nil];
+    NSArray* tabbarItems = [[NSArray alloc] initWithObjects:[[UITabBarItem alloc] initWithTitle:@"Archivos" image:[UIImage imageNamed:@"drawer"] tag:1],[[UITabBarItem alloc] initWithTitle:@"Preguntas" image:[UIImage imageNamed:@"question"] tag:2], nil];
     [[self.tabBarController.tabBar.items objectAtIndex:1]  setTag:2];
     
     self.tabBarView.items = tabbarItems;

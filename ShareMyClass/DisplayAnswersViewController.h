@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ReplyQuestionViewController.h"
 @interface DisplayAnswersViewController : UITableViewController
 
 @property(nonatomic, strong)NSString *questionId;
 @property(strong, nonatomic)NSMutableData *receivedData;
 @property(strong,nonatomic)NSArray *answers;
+@property(strong, nonatomic)ReplyQuestionViewController *replyQuestionViewController;
 @end
