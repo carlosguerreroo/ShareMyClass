@@ -39,19 +39,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+/*
+ Nombre: closekeyboard
+ Uso: Escoder el teclado al usuario
+ */
 - (IBAction)closekeyboard:(id)sender
 {
     [self.question resignFirstResponder];
     [self.titleQuestion resignFirstResponder];
 }
 
+/*
+ Nombre: sendquestion
+ Uso: Envia la pregunta al servidor cuando el usuario presiona el boton de enviar
+ */
 - (IBAction)sendquestion:(id)sender
 {
     
-    NSLog(@"question %@ title %@ couseid  %@ studenid %@",self.titleQuestion.text,self.question.text, self.courseId,[[HelperMethods alloc] userId]);
-    
     [self sendQuestionWithTitle:self.titleQuestion.text Question:self.question.text StudentId:[[HelperMethods alloc] userId] andCourseId:self.courseId];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark NSURLConnection
@@ -83,19 +89,21 @@
 
     self.receivedData = nil;
 }
+/*
+ Nombre: sendQuestionWithTitle:(NSString *)title Question:(NSString*)question StudentId:(NSString*)studentId andCourseId:(NSString*)
+ Uso: registra la pregunta en el servidor
+ */
 
 -(void)sendQuestionWithTitle:(NSString *)title Question:(NSString*)question StudentId:(NSString*)studentId andCourseId:(NSString*)courseId
 {
     
     
-    //NSLog(@"joinToCourse");
     NSURL *url = [[NSURL alloc] initWithString: @"http://192.241.224.160/ShareMyClass/ShareMyClassApi/api.php?"];
     NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
     
     
     [req setHTTPMethod:@"POST"];
     
-    // TODO: aqui debo obtener la matricula de la persona que quiero consultar
     NSString * paramDataString = [NSString stringWithFormat:@"cmd=sendquestion&curso=%@&idAlumno=%@&title=%@&question=%@",courseId,studentId,title,question];
     
     NSData * paramData = [paramDataString dataUsingEncoding:NSUTF8StringEncoding];

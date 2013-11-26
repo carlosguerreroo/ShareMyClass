@@ -151,6 +151,11 @@
             break;
     }
 }
+
+/*
+ Nombre: removeCourse
+ Uso: Remueve los cursos que seleccionaste
+ */
 -(void)removeCourse:(NSIndexPath *)indexPath
 {
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];

@@ -46,7 +46,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/*
+ Nombre: download
+ Uso: Descarga los archivos del servidor
+ */
 - (IBAction)download:(id)sender {
      NSString *ImageURL = [NSString stringWithFormat:@"http://192.241.224.160/ShareMyClass/ShareMyClassApi/uploads/%@",self.url];
 	UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ImageURL]]];
@@ -58,6 +61,10 @@
 
 }
 
+/*
+ Nombre: image
+ Uso: Verifica que no exist ningun error
+ */
 -(void)image:(UIImage *)image
 finishedSavingWithError:(NSError *)error
  contextInfo:(void *)contextInfo

@@ -53,7 +53,10 @@
 {
     [super didReceiveMemoryWarning];
 }
-
+/*
+ Nombre: chooseImage
+ Uso: Elige la imagen deseada
+ */
 - (IBAction)chooseImage:(id)sender
 {
     if	([UIImagePickerController	isSourceTypeAvailable:

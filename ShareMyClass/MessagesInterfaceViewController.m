@@ -43,7 +43,10 @@
 
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action: @selector(refresh)]];
 }
-
+/*
+ Nombre: refresh
+ Uso: refresca los mensajes recibidos
+ */
 
 -(void)refresh
 {
@@ -77,7 +80,10 @@
 {
     return [bubbleData objectAtIndex:row];
 }
-
+/*
+ Nombre: keyboardWasShown
+ Uso: Mueve la barra de enviar conforme si esta o no esta el teclado
+ */
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
     NSDictionary* info = [aNotification userInfo];
@@ -95,6 +101,10 @@
     }];
 }
 
+/*
+ Nombre: keyboardWillBeHidden
+ Uso: Mueve la barra de enviar conforme si esta o no esta el teclado
+ */
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
     NSDictionary* info = [aNotification userInfo];
@@ -111,7 +121,10 @@
         self.bubbleTable.frame = frame;
     }];
 }
-
+/*
+ Nombre: sendMessage
+ Uso: Envia un mensaje al servidor
+ */
 - (IBAction)sendMessage:(id)sender
 {
     if(self.textField.text != nil)
@@ -145,7 +158,10 @@
     [self.textField resignFirstResponder];
 }
 
-
+/*
+ Nombre: loadMessageTable
+ Uso: carga los mensajes
+ */
 -(void)loadMessageTable
 {
     NSLog(@"Estudiante con id %@, nombre %@, apellido %@",[self.student objectForKey:@"idAlumno"],[self.student objectForKey:@"nombre"],[self.student objectForKey:@"apellidos"]);
@@ -191,7 +207,10 @@
 
 }
 
-
+/*
+ Nombre: sendBodyMessage
+ Uso: Construye el cuerpo del mensaje a enviar
+ */
 -(void)sendBodyMessage:(NSDictionary*)message
 {
     
@@ -253,26 +272,19 @@
 {
     
     NSString *recieved =  [[NSString alloc ]initWithData: self.receivedData encoding:NSUTF8StringEncoding];
-   // NSString *body = [[[NSString alloc] initWithData: connection.originalRequest.HTTPBody
-   //                                         encoding:NSUTF8StringEncoding] substringToIndex:23];
-    
     
     if(recieved)
     {
-    
-    
+        
     
     }
     
-    // NSError *error = [[NSError alloc] init];  //creamos un parametro valor, donde nos servira mucho para
-    // NSArray *jsonCourses = [NSJSONSerialization JSONObjectWithData:self.receivedData options:kNilOptions error:&error];
-       
     self.receivedData = nil;
-        
-    
-
 }
-
+/*
+ Nombre: inserNewMessageWithFrom
+ Uso: inserta el mensaje en la base de datos
+ */
 -(void)inserNewMessageWithFrom:(NSString*)from To:(NSString*)to Date:(NSDate*)date andMessage:(NSString*)message
 {
     
@@ -311,6 +323,10 @@
     }
 }
 
+/*
+ Nombre: checkUser
+ Uso: Checa si el usario ya existia en la base datos
+ */
 -(BOOL)checkUser
 {
     
@@ -337,7 +353,6 @@
 
             
         }else{
-        
         
             return YES;
 

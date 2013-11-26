@@ -11,7 +11,6 @@
 
 @interface MessagesGroupsViewController ()
 
-//@property (strong, nonatomic)
 
 @end
 
@@ -33,7 +32,6 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -42,49 +40,20 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    /*NSString *filePath = [self dataFilePath];
-    
-    if(self.managedObjectContext == nil)
-    {
-        NSLog(@"Es null");
-    }
-    
-    if([[NSFileManager defaultManager] fileExistsAtPath:filePath])
-    {
-        NSDictionary *dataDictionary = [[NSDictionary alloc] initWithContentsOfFile:filePath];
-        
-        [self getCourses:[dataDictionary objectForKey:@"id"]];
-        
-    }
-    
-    for(NSManagedObject *object in  [self.fetchedResultsController fetchedObjects])
-    {
-        
-        NSLog(@"%@",[[object valueForKey:@"courseId"] description]);
-        
-        
-    }*/
-
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
-
+/*
+Nombre: getCourses
+Uso: Obtiene los cursos
+*/
 -(void)getCourses:(NSString *)userId
 {
-    NSLog(@"Entre al get");
-    //URL a usar para mandar los parametros
     NSURL *url = [NSURL URLWithString:@"http://192.241.224.160/ShareMyClass/ShareMyClassApi/api.php?"];
     
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url
@@ -112,19 +81,12 @@
     
     
     NSArray *jsonCourses = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
-    //NSLog(@"Respueta: %@ %@ %@", [jsonCourses[0]  objectForKey:@"idCurso"], [jsonCourses[0]  objectForKey:@"idCursoReal"],[jsonCourses[0]  objectForKey:@"nombreCurso"]); //imprimimos lo obtenido
+
     
     for (NSDictionary *course in jsonCourses)
     {
     
-        //NSLog(@"%@",[course objectForKey:@"idCursoReal"]);
-        //[self inserNewCourseWithCourseId: [NSNumber numberWithInteger: [[course objectForKey:@"idCurso"] intValue]] realCourseid:[course objectForKey:@"idCursoReal"] andName:[course objectForKey:@"nombreCurso"]];
     }
-    // ;
-//[[object valueForKey:@"courseName"] description]
-    
-   
-
 }
 
 #pragma mark - Table view data source
@@ -191,9 +153,6 @@
         self.messagesStudentsViewController = [[MessagesStudentsViewController alloc] initWithNibName:@"MessagesStudentsViewController" bundle:nil];
    }
     self.messagesStudentsViewController.selectedCourse = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-   // NSLog([self.messagesStudentsViewController ] )
-    //.selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    // self.addReminderViewController.detailItem = self.selectedObject;
    [self.navigationController pushViewController:self.messagesStudentsViewController animated:YES];
 }
 
@@ -213,11 +172,6 @@
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[object valueForKey:@"courseName"] description];
     cell.detailTextLabel.text = [[object valueForKey:@"realCourseId"] description];
-    //cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    //cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-    //cell.selected = TRUE;
-    
-
 }
 
 
@@ -225,8 +179,6 @@
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
-    NSLog(@"1");
-
     
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
@@ -264,7 +216,7 @@
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
-    NSLog(@"2");
+    //NSLog(@"2");
 
     [self.tableView beginUpdates];
 }
@@ -272,7 +224,7 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
-    NSLog(@"3");
+    //NSLog(@"3");
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
@@ -288,7 +240,7 @@
        atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath
 {
-    NSLog(@"4");
+    //NSLog(@"4");
     UITableView *tableView = self.tableView;
     
     switch(type) {
@@ -312,7 +264,7 @@
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{   NSLog(@"5");
+{   //NSLog(@"5");
     [self.tableView endUpdates];
 }
 

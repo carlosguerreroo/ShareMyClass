@@ -185,7 +185,7 @@
     [self.tableView reloadData];
 
 
-    NSLog(@" recibo %d", jsonCourses.count);
+    //NSLog(@" recibo %d", jsonCourses.count);
     
     if(![jsonCourses count])
     {
@@ -201,19 +201,20 @@
     
     self.receivedData = nil;
 }
-
+/*
+ Nombre: getStudentsFromCourse
+ Uso: Se obtiene a los estudiantes de un curso excluyendo al usuario
+ */
 -(void)getStudentsFromCourse:(NSString *)courseId andStudentId:(NSString*)studentId
 {
 
 
-    //NSLog(@"joinToCourse");
     NSURL *url = [[NSURL alloc] initWithString: @"http://192.241.224.160/ShareMyClass/ShareMyClassApi/api.php?"];
     NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
     
     
     [req setHTTPMethod:@"POST"];
     
-    // TODO: aqui debo obtener la matricula de la persona que quiero consultar
     NSString * paramDataString = [NSString stringWithFormat:@"cmd=getstudentsfromcourse&idCurso=%@&idAlumno=%@",courseId,studentId];
     NSLog(@" la llamada al web service %@ ", paramDataString);
     
@@ -236,11 +237,15 @@
     
 }
 
+/*
+ Nombre: alertView
+ Uso: Si no hay ningun estudiante se regresa al usuario a una pantalla anterior
+ */
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 0)
     {
-        NSLog(@"Back");
+        //NSLog(@"Back");
       [self.navigationController popViewControllerAnimated:YES];
        
     }

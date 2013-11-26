@@ -120,7 +120,10 @@
 }
 
 
-
+/*
+ Nombre: getFiles
+ Uso: Obtiene los archivos
+ */
 
 -(void)getFiles
 {
@@ -224,6 +227,10 @@
 	//Como en este lo estamos agregando a la pila del navigation controller se usa el pop
 }
 
+/*
+ Nombre: tabBar
+ Uso: Verifica que boton se selecciono y carga esa vista
+ */
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {

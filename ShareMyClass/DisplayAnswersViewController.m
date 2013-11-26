@@ -30,7 +30,10 @@
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action: @selector(answeQuestion)]];
 
 }
-
+/*
+ Nombre: answeQuestion
+ Uso: carga la vista para contestar alguna pregunta
+ */
 -(void)answeQuestion
 {
     
@@ -193,8 +196,12 @@
     }
     
     
-    self.receivedData = nil;}
-
+    self.receivedData = nil;
+}
+/*
+ Nombre: getQuestion
+ Uso: Obtiene as preguntas
+ */
 -(void)getQuestion:(NSString*)answerId
 {
     

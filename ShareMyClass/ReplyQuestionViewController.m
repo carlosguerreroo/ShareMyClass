@@ -72,14 +72,19 @@
     [alert show];
 }
 
+/*
+ Nombre: connectionDidFinishLoading
+ Uso: reinicia la variable received data
+ */
 - (void) connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    
-    //NSString *infoRecibidaString = [[NSString alloc] initWithData: self.receivedData
-    //                                                     encoding:NSUTF8StringEncoding];
-    
+
     self.receivedData = nil;}
 
+/*
+ Nombre: replyAnswerWithIdReply
+ Uso: Contesta a alguna de las preguntas
+ */
 -(void)replyAnswerWithIdReply:(NSString*)idReply andResponse:(NSString*)response
 {
     

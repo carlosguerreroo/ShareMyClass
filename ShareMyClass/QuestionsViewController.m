@@ -71,7 +71,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    //NSLog(@"%@",);
     cell.textLabel.text = [[self.questions objectAtIndex:[indexPath row]] objectForKey:@"tituloPregunta"];
     cell.detailTextLabel.text= [[self.questions objectAtIndex:[indexPath row]] objectForKey:@"tituloPregunta"];
 
@@ -83,11 +82,7 @@
         if(!self.addQuestionViewController)
         {
             self.addQuestionViewController = [[AddQuestionViewController alloc] initWithNibName:@"AddQuestionViewController" bundle:nil];
-            //AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-            //self.addQuestionViewController.managedObjectContext = appDelegate.managedObjectContext;
         }
-        //self.addReminderViewController.detailItem = nil;
-        //self.addReminderViewController.delegateReminder = self;
     self.addQuestionViewController.courseId = self.courseId;
         [self.navigationController pushViewController:self.addQuestionViewController animated:YES];
 
@@ -245,7 +240,7 @@
        // Pass the selected object to the new view controller.
     self.displayAnswersViewController.questionId = [[self.questions objectAtIndex:[indexPath row]] objectForKey:@"idPregunta"];
     self.displayAnswersViewController.title =[[self.questions objectAtIndex:[indexPath row]] objectForKey:@"tituloPregunta"];
-    NSLog(@"%@",[[self.questions objectAtIndex:[indexPath row]] objectForKey:@"tituloPregunta"]);
+    //NSLog(@"%@",[[self.questions objectAtIndex:[indexPath row]] objectForKey:@"tituloPregunta"]);
     // Push the view controller.
     [self.navigationController pushViewController:self.displayAnswersViewController animated:YES];
 }
