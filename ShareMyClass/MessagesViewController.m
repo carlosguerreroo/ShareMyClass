@@ -30,6 +30,11 @@
 
 }
 
+/*
+ Nombre: viewDidLoad
+ Uso: Método que se llama cuando se carga la vista
+ */
+
 - (void)viewDidLoad
 {
     self.students = [[NSMutableArray alloc]init];
