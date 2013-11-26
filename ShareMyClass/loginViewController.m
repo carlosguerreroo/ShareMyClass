@@ -26,8 +26,10 @@
     return self;
 }
 
-/* Método que se invoca cuando se carga la vista */
-
+/*
+ Nombre: viewDidLoad
+ Uso: Método que se llama cuando se carga la vista
+ */
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,7 +40,10 @@
 {
     [super didReceiveMemoryWarning];
 }
-
+/*
+ Nombre: performLogin
+ Uso: Método para iniciar el inicio de sesión
+ */
 - (IBAction)performLogin:(id)sender
 {
 
@@ -49,6 +54,10 @@
 
 }
 
+/*
+ Nombre: loginFailed
+ Uso: Método por si fallo el inicio de sesión
+ */
 - (void)loginFailed
 {
     // User switched back to the app without authorizing. Stay here, but

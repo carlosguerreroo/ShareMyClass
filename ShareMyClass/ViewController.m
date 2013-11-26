@@ -14,8 +14,10 @@
 
 @implementation ViewController
 
-/* Método que se invoca cuando se carga la vista */
-
+/*
+ Nombre: viewDidLoad
+ Uso: Método que se llama cuando se carga la vista
+ */
 - (void)viewDidLoad
 {
     [self.collectionView setDataSource:self];
@@ -34,6 +36,10 @@
 
 }
 
+/*
+ Nombre: viewWillAppear
+ Uso: Método que se ejecuta antes de que aparezca la vista
+ */
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -60,7 +66,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/*
+ Nombre: didSelectItem
+ Uso: Método para el momento de seleccionar una opcion del menu principal
+ */
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
     switch (item.tag) {
@@ -113,7 +122,10 @@
 
 }
 
-
+/*
+ Nombre: collectionView numberOfItemsInSection
+ Uso: Método que agrega cada collection cell
+ */
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -122,6 +134,10 @@
     return [sectionInfo numberOfObjects];
 }
 
+/*
+ Nombre:  collectionView cellForItemAtIndexPath
+ Uso: Método que agrega cada collection cell
+ */
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -146,6 +162,10 @@
     return cell;
 }
 
+/*
+ Nombre: collectionView didSelectItemAtIndexPath
+ Uso: Método que se ejecuta al seleccionar un collection cell
+ */
 
 -	(void)	collectionView:(UICollectionView	*)collectionView
 didSelectItemAtIndexPath:(NSIndexPath	*)indexPath
@@ -155,7 +175,6 @@ didSelectItemAtIndexPath:(NSIndexPath	*)indexPath
     }
     NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
     self.selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    //self.FilesViewController.courseId =@"jejejej";
 
     self.FilesViewController.courseId = [[object valueForKey:@"courseId"] description].intValue;
     self.FilesViewController.delegateFiles = self;
@@ -164,6 +183,10 @@ didSelectItemAtIndexPath:(NSIndexPath	*)indexPath
 
 }
 
+/*
+ Nombre: loginFailed
+ Uso: Método que carga los métodos de la entidad
+ */
 
 - (NSFetchedResultsController *)fetchedResultsController
 {

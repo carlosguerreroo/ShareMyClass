@@ -24,6 +24,11 @@
     return self;
 }
 
+/*
+ Nombre: viewDidLoad
+ Uso: Método que se llama cuando se carga la vista
+ */
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,7 +43,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+/*
+ Nombre: addReminder
+ Uso: Método para agregar un recordatorio
+ */
 -(void)addReminder
 {    
     if(!self.addReminderViewController){
@@ -52,6 +60,10 @@
     
 }
 
+/*
+ Nombre: insertNewObjectWithTitle
+ Uso: Método para agregar un objeto a la entidad
+ */
 - (void)insertNewObjectWithTitle:(NSString *)title withMessage:(NSString *)message withDate:(NSDate*)date andCheck:(BOOL)check
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
@@ -75,6 +87,11 @@
         abort();
     }
 }
+
+/*
+ Nombre: editObjectWithTitle
+ Uso: Método para poner información en el objeto del reminder
+ */
 
 - (void)editObjectWithTitle:(NSString *)title withMessage:(NSString *)message withDate:(NSDate*)date andCheck:(BOOL)check
 {
