@@ -19,5 +19,6 @@
 @property (strong, nonatomic) NSMutableArray *students;
 @property (strong, nonatomic) MessagesInterfaceViewController *messageInterfaceViewController;
 @property (nonatomic, strong) NSMutableData* receivedData;
+-(void)getMessages;
 
 @end

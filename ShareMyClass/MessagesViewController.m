@@ -144,6 +144,7 @@
     {
         self.messageInterfaceViewController = [[MessagesInterfaceViewController alloc] initWithNibName:@"MessagesInterfaceViewController" bundle:nil];
     }
+    self.messageInterfaceViewController.messagesViewController = self;
     // Pass the selected object to the new view controller.
     self.messageInterfaceViewController.managedObjectContext = self.managedObjectContext;
     NSManagedObject *object = [self.students objectAtIndex:[indexPath row]];

@@ -11,6 +11,8 @@
 #import <CoreData/CoreData.h>
 #import "HelperMethods.h"
 
+@class MessagesViewController;
+
 @interface MessagesInterfaceViewController : UIViewController <UIBubbleTableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIView *textInputView;
@@ -19,6 +21,7 @@
 @property (strong, nonatomic) NSDictionary *student;
 @property (strong, nonatomic) NSMutableData *receivedData;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic)MessagesViewController *messagesViewController;
 - (IBAction)sendMessage:(id)sender;
 
 @end

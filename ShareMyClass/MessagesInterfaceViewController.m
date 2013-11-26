@@ -10,6 +10,7 @@
 #import "UIBubbleTableView.h"
 #import "UIBubbleTableViewDataSource.h"
 #import "NSBubbleData.h"
+#import "MessagesViewController.h"
 
 @interface MessagesInterfaceViewController ()
 {
@@ -46,10 +47,8 @@
 
 -(void)refresh
 {
+    [self.messagesViewController  getMessages];
     [self loadMessageTable];
-    [self.bubbleTable reloadData];
-    NSLog(@"sas");
-
 }
 
 
@@ -58,7 +57,6 @@
     self.title = [NSString stringWithFormat:@"@%@:",[self.student objectForKey:@"nombre"]];
     //[self getMessages];
     [self loadMessageTable];
-
 
 }
 
